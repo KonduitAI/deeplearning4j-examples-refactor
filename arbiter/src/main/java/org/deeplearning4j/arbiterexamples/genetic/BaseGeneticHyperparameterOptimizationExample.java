@@ -14,7 +14,7 @@
  * SPDX-License-Identifier: Apache-2.0
  ******************************************************************************/
 
-package org.deeplearning4j.examples.arbiter.genetic;
+package org.deeplearning4j.arbiterexamples.genetic;
 
 import org.deeplearning4j.arbiter.ComputationGraphSpace;
 import org.deeplearning4j.arbiter.optimize.api.OptimizationResult;

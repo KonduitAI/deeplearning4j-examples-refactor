@@ -1,0 +1,1 @@
+- [ ] Why is there an NPE with UI in the basic example?

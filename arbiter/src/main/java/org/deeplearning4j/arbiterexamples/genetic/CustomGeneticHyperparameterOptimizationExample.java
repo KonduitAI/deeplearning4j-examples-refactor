@@ -14,7 +14,7 @@
  * SPDX-License-Identifier: Apache-2.0
  ******************************************************************************/
 
-package org.deeplearning4j.examples.arbiter.genetic;
+package org.deeplearning4j.arbiterexamples.genetic;
 
 import org.apache.commons.math3.random.JDKRandomGenerator;
 import org.apache.commons.math3.random.RandomGenerator;
@@ -32,7 +32,8 @@ import org.deeplearning4j.arbiter.optimize.generator.genetic.selection.Selection
 import org.deeplearning4j.arbiter.scoring.impl.EvaluationScoreFunction;
 import org.nd4j.evaluation.classification.Evaluation.Metric;
 
-import static org.deeplearning4j.examples.arbiter.genetic.BaseGeneticHyperparameterOptimizationExample.run;
+import static org.deeplearning4j.arbiterexamples.genetic.BaseGeneticHyperparameterOptimizationExample.run;
+
 
 /**
  * In this hyperparameter optimization example, we change the default behavior of the genetic candidate generator.

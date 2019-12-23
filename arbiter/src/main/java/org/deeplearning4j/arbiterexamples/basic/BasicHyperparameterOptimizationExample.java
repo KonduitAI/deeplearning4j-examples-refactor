@@ -14,7 +14,7 @@
  * SPDX-License-Identifier: Apache-2.0
  ******************************************************************************/
 
-package org.deeplearning4j.examples.arbiter;
+package org.deeplearning4j.arbiterexamples.basic;
 
 import org.deeplearning4j.api.storage.StatsStorage;
 import org.deeplearning4j.arbiter.MultiLayerSpace;
@@ -173,7 +173,6 @@ public class BasicHyperparameterOptimizationExample {
 
         System.out.println("\n\nConfiguration of best model:\n");
         System.out.println(bestModel.getLayerWiseConfigurations().toJson());
-
 
         //Wait a while before exiting
         Thread.sleep(60000);
