@@ -14,7 +14,7 @@
  * SPDX-License-Identifier: Apache-2.0
  ******************************************************************************/
 
-package org.deeplearning4j.examples.dataexamples;
+package org.deeplearning4j.dataexamples;
 
 import org.datavec.api.records.converter.RecordReaderConverter;
 import org.datavec.api.records.reader.RecordReader;
@@ -22,7 +22,7 @@ import org.datavec.api.records.reader.impl.csv.CSVRecordReader;
 import org.datavec.api.split.FileSplit;
 import org.datavec.hadoop.records.reader.mapfile.MapFileRecordReader;
 import org.datavec.hadoop.records.writer.mapfile.MapFileRecordWriter;
-import org.deeplearning4j.examples.download.DownloaderUtility;
+import org.deeplearning4j.dataexamples.utils.DownloaderUtility;
 
 import java.io.File;
 import java.util.Random;

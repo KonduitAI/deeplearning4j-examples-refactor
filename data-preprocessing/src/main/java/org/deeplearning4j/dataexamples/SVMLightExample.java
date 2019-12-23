@@ -14,13 +14,13 @@
  * SPDX-License-Identifier: Apache-2.0
  ******************************************************************************/
 
-package org.deeplearning4j.examples.dataexamples;
+package org.deeplearning4j.dataexamples;
 
 import org.datavec.api.conf.Configuration;
 import org.datavec.api.records.reader.impl.misc.SVMLightRecordReader;
 import org.datavec.api.split.FileSplit;
+import org.deeplearning4j.dataexamples.utils.DownloaderUtility;
 import org.deeplearning4j.datasets.datavec.RecordReaderDataSetIterator;
-import org.deeplearning4j.examples.download.DownloaderUtility;
 import org.deeplearning4j.nn.conf.MultiLayerConfiguration;
 import org.deeplearning4j.nn.conf.NeuralNetConfiguration;
 import org.deeplearning4j.nn.conf.WorkspaceMode;

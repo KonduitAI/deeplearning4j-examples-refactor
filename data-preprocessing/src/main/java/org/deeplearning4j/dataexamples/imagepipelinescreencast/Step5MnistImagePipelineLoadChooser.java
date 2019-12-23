@@ -14,7 +14,7 @@
  * SPDX-License-Identifier: Apache-2.0
  ******************************************************************************/
 
-package org.deeplearning4j.examples.dataexamples;
+package org.deeplearning4j.dataexamples.imagepipelinescreencast;
 
 import org.apache.commons.io.FilenameUtils;
 import org.datavec.image.loader.NativeImageLoader;
@@ -51,8 +51,8 @@ import java.util.Objects;
  * on handwritten images 0-9 white digit, black background, so it will work
  * better with stuff closer to what it was designed for
  */
-public class MnistImagePipelineLoadChooser {
-  private static Logger log = LoggerFactory.getLogger(MnistImagePipelineLoadChooser.class);
+public class Step5MnistImagePipelineLoadChooser {
+  private static Logger log = LoggerFactory.getLogger(org.deeplearning4j.dataexamples.imagepipelinescreencast.Step5MnistImagePipelineLoadChooser.class);
 
   /** Location to save and extract the training/testing data */
   private static final String DATA_PATH = FilenameUtils.concat(System.getProperty("java.io.tmpdir"), "dl4j_Mnist/");

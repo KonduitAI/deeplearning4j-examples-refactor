@@ -14,7 +14,7 @@
  * SPDX-License-Identifier: Apache-2.0
  ******************************************************************************/
 
-package org.deeplearning4j.examples.dataexamples;
+package org.deeplearning4j.dataexamples.imagepipelinescreencast;
 
 import org.apache.commons.io.FilenameUtils;
 import org.datavec.api.io.labels.ParentPathLabelGenerator;
@@ -22,8 +22,8 @@ import org.datavec.api.records.listener.impl.LogRecordListener;
 import org.datavec.api.split.FileSplit;
 import org.datavec.image.loader.NativeImageLoader;
 import org.datavec.image.recordreader.ImageRecordReader;
+import org.deeplearning4j.dataexamples.utils.DataUtilities;
 import org.deeplearning4j.datasets.datavec.RecordReaderDataSetIterator;
-import org.deeplearning4j.examples.utilities.DataUtilities;
 import org.nd4j.linalg.dataset.DataSet;
 import org.nd4j.linalg.dataset.api.iterator.DataSetIterator;
 import org.nd4j.linalg.dataset.api.preprocessor.DataNormalization;
@@ -63,8 +63,8 @@ import java.util.Random;
  * has a label value corresponding to 3
  */
 @SuppressWarnings("ResultOfMethodCallIgnored")
-public class MnistImagePipelineExample {
-  private static Logger log = LoggerFactory.getLogger(MnistImagePipelineExample.class);
+public class Step1MnistImagePipelineExample {
+  private static Logger log = LoggerFactory.getLogger(org.deeplearning4j.dataexamples.imagepipelinescreencast.Step1MnistImagePipelineExample.class);
 
   /** Data URL for downloading */
   private static final String DATA_URL = "http://github.com/myleott/mnist_png/raw/master/mnist_png.tar.gz";

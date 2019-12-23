@@ -14,7 +14,7 @@
  * SPDX-License-Identifier: Apache-2.0
  ******************************************************************************/
 
-package org.deeplearning4j.examples.dataexamples;
+package org.deeplearning4j.dataexamples.imagepipelinescreencast;
 
 import org.apache.commons.io.FilenameUtils;
 import org.datavec.api.io.labels.ParentPathLabelGenerator;
@@ -31,10 +31,7 @@ import org.deeplearning4j.nn.conf.layers.OutputLayer;
 import org.deeplearning4j.nn.multilayer.MultiLayerNetwork;
 import org.deeplearning4j.nn.weights.WeightInit;
 import org.deeplearning4j.optimize.listeners.ScoreIterationListener;
-import org.nd4j.evaluation.classification.Evaluation;
 import org.nd4j.linalg.activations.Activation;
-import org.nd4j.linalg.api.ndarray.INDArray;
-import org.nd4j.linalg.dataset.DataSet;
 import org.nd4j.linalg.dataset.api.iterator.DataSetIterator;
 import org.nd4j.linalg.dataset.api.preprocessor.DataNormalization;
 import org.nd4j.linalg.dataset.api.preprocessor.ImagePreProcessingScaler;
@@ -48,7 +45,7 @@ import java.util.Random;
 
 /**
  * This code example is featured in this youtube video
- * https://www.youtube.com/watch?v=ECA6y6ahH5E
+ * https://www.youtube.com/watch?v=zrTSs715Ylo
  *
  * This differs slightly from the Video Example,
  * The Video example had the data already downloaded
@@ -59,10 +56,10 @@ import java.util.Random;
  * followed by tar xzvf mnist_png.tar.gz
  *
  * This examples builds on the MnistImagePipelineExample
- * by adding a Neural Net
+ * by Saving the Trained Network
  */
-public class MnistImagePipelineExampleAddNeuralNet {
-  private static Logger log = LoggerFactory.getLogger(MnistImagePipelineExampleAddNeuralNet.class);
+public class Step3MnistImagePipelineExampleSave {
+  private static Logger log = LoggerFactory.getLogger(org.deeplearning4j.dataexamples.imagepipelinescreencast.Step3MnistImagePipelineExampleSave.class);
 
   /** Location to save and extract the training/testing data */
   private static final String DATA_PATH = FilenameUtils.concat(System.getProperty("java.io.tmpdir"), "dl4j_Mnist/");
@@ -79,7 +76,7 @@ public class MnistImagePipelineExampleAddNeuralNet {
     Random randNumGen = new Random(rngseed);
     int batchSize = 128;
     int outputNum = 10;
-    int numEpochs = 1;
+    int numEpochs = 15;
 
     /*
     This class downloadData() downloads the data
@@ -88,15 +85,13 @@ public class MnistImagePipelineExampleAddNeuralNet {
     The data can be downloaded manually here
     http://github.com/myleott/mnist_png/raw/master/mnist_png.tar.gz
     */
-    MnistImagePipelineExample.downloadData();
+    Step1MnistImagePipelineExample.downloadData();
 
     // Define the File Paths
     File trainData = new File(DATA_PATH + "/mnist_png/training");
-    File testData = new File(DATA_PATH + "/mnist_png/testing");
 
     // Define the FileSplit(PATH, ALLOWED FORMATS,random)
     FileSplit train = new FileSplit(trainData, NativeImageLoader.ALLOWED_FORMATS, randNumGen);
-    FileSplit test = new FileSplit(testData, NativeImageLoader.ALLOWED_FORMATS, randNumGen);
 
     // Extract the parent path as the image label
     ParentPathLabelGenerator labelMaker = new ParentPathLabelGenerator();
@@ -140,9 +135,8 @@ public class MnistImagePipelineExampleAddNeuralNet {
         .build();
 
     MultiLayerNetwork model = new MultiLayerNetwork(conf);
+    model.init();
 
-    // The Score iteration Listener will log
-    // output to show how well the network is training
     model.setListeners(new ScoreIterationListener(10));
 
     log.info("TRAIN MODEL");
@@ -150,41 +144,16 @@ public class MnistImagePipelineExampleAddNeuralNet {
       model.fit(dataIter);
     }
 
-    log.info("EVALUATE MODEL");
-    recordReader.reset();
+    log.info("SAVE TRAINED MODEL");
+    // Where to save model
+    File locationToSave = new File(DATA_PATH + "trained_mnist_model.zip");
 
-    // The model trained on the training dataset split
-    // now that it has trained we evaluate against the
-    // test data of images the network has not seen
+    // boolean save Updater
+    boolean saveUpdater = false;
 
-    recordReader.initialize(test);
-    DataSetIterator testIter = new RecordReaderDataSetIterator(recordReader, batchSize, 1, outputNum);
-    scaler.fit(testIter);
-    testIter.setPreProcessor(scaler);
-
-    /*
-    log the order of the labels for later use
-    In previous versions the label order was consistent, but random
-    In current verions label order is lexicographic
-    preserving the RecordReader Labels order is no
-    longer needed left in for demonstration
-    purposes
-    */
-    log.info(recordReader.getLabels().toString());
-
-    // Create Eval object with 10 possible classes
-    Evaluation eval = new Evaluation(outputNum);
-
-    // Evaluate the network
-    while (testIter.hasNext()) {
-      DataSet next = testIter.next();
-      INDArray output = model.output(next.getFeatures());
-      // Compare the Feature Matrix from the model
-      // with the labels from the RecordReader
-      eval.eval(next.getLabels(), output);
-    }
-
-    log.info(eval.stats());
+    // ModelSerializer needs modelname, saveUpdater, Location
+      //noinspection ConstantConditions
+      model.save(locationToSave, saveUpdater);
   }
 
 }

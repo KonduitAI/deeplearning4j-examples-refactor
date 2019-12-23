@@ -14,7 +14,7 @@
  * SPDX-License-Identifier: Apache-2.0
  ******************************************************************************/
 
-package org.deeplearning4j.examples.dataexamples;
+package org.deeplearning4j.dataexamples.imagepipelinescreencast;
 
 import org.apache.commons.io.FilenameUtils;
 import org.datavec.api.io.labels.ParentPathLabelGenerator;
@@ -61,8 +61,8 @@ import java.util.Random;
  * This examples builds on the MnistImagePipelineExample
  * by adding a Neural Net
  */
-public class MnistImagePipelineExampleAddNeuralNet {
-  private static Logger log = LoggerFactory.getLogger(MnistImagePipelineExampleAddNeuralNet.class);
+public class Step2MnistImagePipelineExampleAddNeuralNet {
+  private static Logger log = LoggerFactory.getLogger(org.deeplearning4j.dataexamples.imagepipelinescreencast.Step2MnistImagePipelineExampleAddNeuralNet.class);
 
   /** Location to save and extract the training/testing data */
   private static final String DATA_PATH = FilenameUtils.concat(System.getProperty("java.io.tmpdir"), "dl4j_Mnist/");
@@ -88,7 +88,7 @@ public class MnistImagePipelineExampleAddNeuralNet {
     The data can be downloaded manually here
     http://github.com/myleott/mnist_png/raw/master/mnist_png.tar.gz
     */
-    MnistImagePipelineExample.downloadData();
+    Step1MnistImagePipelineExample.downloadData();
 
     // Define the File Paths
     File trainData = new File(DATA_PATH + "/mnist_png/training");
