@@ -14,7 +14,7 @@
  * SPDX-License-Identifier: Apache-2.0
  ******************************************************************************/
 
-package org.deeplearning4j.examples.modelimport.keras;
+package org.deeplearning4j.modelimportexamples.keras.deepmoji;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;

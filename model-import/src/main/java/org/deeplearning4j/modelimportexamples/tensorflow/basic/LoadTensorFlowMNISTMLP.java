@@ -14,9 +14,9 @@
  * SPDX-License-Identifier: Apache-2.0
  ******************************************************************************/
 
-package org.deeplearning4j.examples.modelimport.tensorflow;
+package org.deeplearning4j.modelimportexamples.tensorflow.basic;
 
-import org.deeplearning4j.examples.download.DownloaderUtility;
+import org.deeplearning4j.modelimportexamples.utilities.DownloaderUtility;
 import org.nd4j.autodiff.execution.NativeGraphExecutioner;
 import org.nd4j.autodiff.samediff.SDVariable;
 import org.nd4j.autodiff.samediff.SameDiff;

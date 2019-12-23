@@ -1,4 +1,4 @@
-package org.deeplearning4j.examples.modelimport.tensorflow;
+package org.deeplearning4j.modelimportexamples.tensorflow.mobilenet;
 
 import org.apache.commons.io.FilenameUtils;
 import org.datavec.image.loader.ImageLoader;

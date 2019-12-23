@@ -14,11 +14,11 @@
  * SPDX-License-Identifier: Apache-2.0
  ******************************************************************************/
 
-package org.deeplearning4j.examples.modelimport.tensorflow;
+package org.deeplearning4j.modelimportexamples.tfgraphrunnerinjava;
 
 import org.apache.commons.io.IOUtils;
 import org.deeplearning4j.datasets.iterator.impl.MnistDataSetIterator;
-import org.deeplearning4j.examples.download.DownloaderUtility;
+import org.deeplearning4j.modelimportexamples.utilities.DownloaderUtility;
 import org.nd4j.linalg.api.ndarray.INDArray;
 import org.nd4j.linalg.dataset.api.iterator.DataSetIterator;
 import org.nd4j.tensorflow.conversion.graphrunner.GraphRunner;

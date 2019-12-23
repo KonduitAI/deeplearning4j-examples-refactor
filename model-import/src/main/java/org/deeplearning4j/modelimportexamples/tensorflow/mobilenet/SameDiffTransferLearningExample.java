@@ -1,9 +1,8 @@
-package org.deeplearning4j.examples.modelimport.tensorflow;
+package org.deeplearning4j.modelimportexamples.tensorflow.mobilenet;
 
 import org.deeplearning4j.datasets.fetchers.DataSetType;
 import org.deeplearning4j.datasets.iterator.impl.Cifar10DataSetIterator;
-import org.deeplearning4j.examples.samediff.training.SameDiffCustomListenerExample;
-import org.deeplearning4j.examples.samediff.training.SameDiffMNISTTrainingExample;
+import org.deeplearning4j.modelimportexamples.tensorflow.mobilenet.SameDiffTFImportMobileNetExample;
 import org.nd4j.autodiff.listeners.At;
 import org.nd4j.autodiff.listeners.BaseListener;
 import org.nd4j.autodiff.listeners.Operation;
@@ -41,8 +40,8 @@ import java.util.List;
  * It turns the original ImageNet model into a model for CIFAR 10.
  *
  * See {@link SameDiffTFImportMobileNetExample} for the model import example.
- * See {@link SameDiffMNISTTrainingExample} for the SameDiff training example.
- * See {@link SameDiffCustomListenerExample} for an example of how to use custom listeners (we use one here to find the shapes of an activation).
+ * FIXME: See { SameDiffMNISTTrainingExample} for the SameDiff training example.
+ * FIXME: See { SameDiffCustomListenerExample} for an example of how to use custom listeners (we use one here to find the shapes of an activation).
  *
  */
 @SuppressWarnings("unused") //

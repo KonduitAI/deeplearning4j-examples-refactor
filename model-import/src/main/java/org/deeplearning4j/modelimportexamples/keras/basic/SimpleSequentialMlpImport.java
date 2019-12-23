@@ -14,9 +14,9 @@
  * SPDX-License-Identifier: Apache-2.0
  ******************************************************************************/
 
-package org.deeplearning4j.examples.modelimport.keras.basic;
+package org.deeplearning4j.modelimportexamples.keras.basic;
 
-import org.deeplearning4j.examples.download.DownloaderUtility;
+import org.deeplearning4j.modelimportexamples.utilities.DownloaderUtility;
 import org.deeplearning4j.nn.api.Layer;
 import org.deeplearning4j.nn.api.OptimizationAlgorithm;
 import org.deeplearning4j.nn.conf.layers.DenseLayer;
