@@ -40,7 +40,6 @@ import static org.nd4j.linalg.ops.transforms.Transforms.abs;
 import static org.nd4j.linalg.ops.transforms.Transforms.exp;
 
 /**
- * TODO: ERRORS OUT
  * Multiclass logistic regression.
  * To successfully apply this algorithm the classes must be linearly separable.
  * Unlike Naive Bayes it doesn't assume strong independence on features.
@@ -112,8 +111,8 @@ public class MultiClassLogit {
         }).toArray();
     int columns = parsedRows.length;
     return new DataSet(
-        Nd4j.create(Arrays.copyOfRange(parsedRows, 0, columns - 1)),
-        Nd4j.create(Arrays.copyOfRange(parsedRows, columns - 1, columns)));
+        Nd4j.create(Arrays.copyOfRange(parsedRows, 0, columns - 1)).reshape(1,columns-1),
+        Nd4j.create(Arrays.copyOfRange(parsedRows, columns - 1, columns)).reshape(1,1));
   };
 
   private static INDArray trainModel(DataSet trainDataSet, long maxIterations, double learningRate,
@@ -162,7 +161,7 @@ public class MultiClassLogit {
    */
   private static INDArray prependConstant(DataSet dataset) {
       return Nd4j.hstack(
-          Nd4j.ones(dataset.getFeatures().size(0), 1),
+          Nd4j.ones(dataset.getFeatures().dataType(), dataset.getFeatures().size(0), 1),
           dataset.getFeatures());
   }
 
@@ -237,7 +236,7 @@ public class MultiClassLogit {
   private static INDArray training(INDArray x, INDArray y, long maxIterations, double learningRate,
       double minLearningRate) {
     Nd4j.getRandom().setSeed(1234);
-    INDArray params = Nd4j.rand((int)x.size(1), 1); //random guess
+    INDArray params = Nd4j.rand(x.dataType(),(int)x.size(1), 1); //random guess
 
     INDArray newParams = params.dup();
     INDArray optimalParams;
