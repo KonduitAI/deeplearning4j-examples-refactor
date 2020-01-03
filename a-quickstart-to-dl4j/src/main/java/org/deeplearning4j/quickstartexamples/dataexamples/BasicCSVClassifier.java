@@ -52,6 +52,7 @@ import java.util.Map;
 
 
 /**
+ * FIXME: Wrong labels in test dataset
  * This example is intended to be a simple CSV classifier that separates the training data
  * from the test data for the classification of animals. It would be suitable as a beginner's
  * example because not only does it load CSV data into the network, it also shows how to extract the
