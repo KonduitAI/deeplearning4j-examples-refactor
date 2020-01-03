@@ -38,11 +38,10 @@ import org.nd4j.linalg.indexing.NDArrayIndex;
 import org.nd4j.linalg.io.ClassPathResource;
 import org.nd4j.linalg.learning.config.Adam;
 import org.nd4j.linalg.lossfunctions.LossFunctions;
+import org.nd4j.resources.Downloader;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.Scanner;
@@ -55,19 +54,14 @@ import java.util.Scanner;
  * This data set contains 25,000 training reviews + 25,000 testing reviews
  * <p>
  * Process:
+ * 0. If path to the wordvectors is not set and a download not found previously in the default location you will be prompted if you want to download it.
  * 1. Automatic on first run of example: Download data (movie reviews) + extract
- * 2. Load existing Word2Vec model (for example: Google News word vectors. You will have to download this MANUALLY)
+ * 2. Load existing Word2Vec model (for example: Google News word vectors.)
  * 3. Load each each review. Convert words to vectors + reviews to sequences of vectors
  * 4. Train network
  * <p>
  * With the current configuration, gives approx. 83% accuracy after 1 epoch. Better performance may be possible with
  * additional tuning.
- * <p>
- * NOTE / INSTRUCTIONS:
- * You will have to download the Google News word vector model manually. ~1.5GB
- * The Google News vector model available here: https://code.google.com/p/word2vec/
- * Download the GoogleNews-vectors-negative300.bin.gz file
- * Then: set the wordVectorsPath field to point to this location.
  *
  * @author Alex Black
  */
@@ -85,18 +79,11 @@ public class Word2VecSentimentRNN {
      * Location (local file system) for the Google News vectors. Set this manually.
      */
     public static String wordVectorsPath = "/PATH/TO/YOUR/VECTORS/GoogleNews-vectors-negative300.bin.gz";
-    public static final String defaultwordVectorsPath = FilenameUtils.concat(System.getProperty("user.home"), "dl4j-examples-data/w2vec300");
-
 
     public static void main(String[] args) throws Exception {
         if (wordVectorsPath.startsWith("/PATH/TO/YOUR/VECTORS/")) {
-            System.out.println("wordVectorsPath has not been set. Checking dl4j-examples-data in home directory for download...");
-            wordVectorsPath = new File(defaultwordVectorsPath, "GoogleNews-vectors-negative300.bin.gz").getAbsolutePath();
-            if (new File(wordVectorsPath).exists()) {
-                System.out.println("GoogleNews-vectors-negative300.bin.gz downloaded previously. Found file at path: " + defaultwordVectorsPath);
-            } else {
-                downloadW2VECModel();
-            }
+            System.out.println("wordVectorsPath has not been set. Checking default location in ~/dl4j-examples-data for download...");
+            checkDownloadW2VECModel();
         }
         //Download and extract data
         downloadData();
@@ -182,42 +169,44 @@ public class Word2VecSentimentRNN {
         }
     }
 
-    public static void downloadW2VECModel() throws IOException {
-        System.out.println("\n\tNo previous download of GoogleNews-vectors-negative300.bin.gz found at path: " + defaultwordVectorsPath);
+    public static void checkDownloadW2VECModel() throws IOException {
+        String defaultwordVectorsPath = FilenameUtils.concat(System.getProperty("user.home"), "dl4j-examples-data/w2vec300");
+        wordVectorsPath = new File(defaultwordVectorsPath, "GoogleNews-vectors-negative300.bin.gz").getAbsolutePath();
+        if (new File(wordVectorsPath).exists()) {
+            System.out.println("GoogleNews-vectors-negative300.bin.gz file found at path: " + defaultwordVectorsPath);
+            System.out.println("Checking md5 of existing file..");
+            if (Downloader.checkMD5OfFile("1c892c4707a8a1a508b01a01735c0339", new File(wordVectorsPath))) {
+                System.out.println("Existing file hash matches.");
+                return;
+            } else {
+                System.out.println("Existing file hash doesn't match. Retrying download...");
+            }
+        } else {
+            System.out.println("\n\tNo previous download of GoogleNews-vectors-negative300.bin.gz found at path: " + defaultwordVectorsPath);
+        }
         System.out.println("\tWARNING: GoogleNews-vectors-negative300.bin.gz is a 1.5GB file.");
         System.out.println("\tPress \"ENTER\" to start a download of GoogleNews-vectors-negative300.bin.gz to " + defaultwordVectorsPath);
         Scanner scanner = new Scanner(System.in);
         scanner.nextLine();
         System.out.println("Starting model download (1.5GB!)...");
         String downloadScript = new ClassPathResource("w2vecdownload/word2vec-download300model.sh").getFile().getAbsolutePath();
-        ProcessBuilder processBuilder = new ProcessBuilder(downloadScript,defaultwordVectorsPath);
+        ProcessBuilder processBuilder = new ProcessBuilder(downloadScript, defaultwordVectorsPath);
         try {
+            processBuilder.inheritIO();
             Process process = processBuilder.start();
-            BufferedReader reader = new BufferedReader(
-                    new InputStreamReader(process.getInputStream()));
-            StringBuilder builder = new StringBuilder();
-            String line;
-            while ((line = reader.readLine()) != null) {
-                builder.append(line);
-                builder.append(System.getProperty("line.separator"));
-            }
             int exitVal = process.waitFor();
             if (exitVal == 0) {
-                System.out.println(builder.toString());
                 System.out.println("Successfully downloaded word2vec model!");
             } else {
-                System.out.println(builder.toString());
-                System.out.println("Download script failed. Please download model manually and edit the code with the path to it.");
+                System.out.println("Download failed. Please download model manually and set the \"wordVectorsPath\" in the code with the path to it.");
                 System.exit(0);
             }
-
         } catch (IOException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
-
 }
 
 
