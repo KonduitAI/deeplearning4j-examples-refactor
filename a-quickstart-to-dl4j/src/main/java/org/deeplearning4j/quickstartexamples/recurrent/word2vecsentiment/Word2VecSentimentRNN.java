@@ -173,13 +173,13 @@ public class Word2VecSentimentRNN {
         String defaultwordVectorsPath = FilenameUtils.concat(System.getProperty("user.home"), "dl4j-examples-data/w2vec300");
         wordVectorsPath = new File(defaultwordVectorsPath, "GoogleNews-vectors-negative300.bin.gz").getAbsolutePath();
         if (new File(wordVectorsPath).exists()) {
-            System.out.println("GoogleNews-vectors-negative300.bin.gz file found at path: " + defaultwordVectorsPath);
-            System.out.println("Checking md5 of existing file..");
+            System.out.println("\n\tGoogleNews-vectors-negative300.bin.gz file found at path: " + defaultwordVectorsPath);
+            System.out.println("\tChecking md5 of existing file..");
             if (Downloader.checkMD5OfFile("1c892c4707a8a1a508b01a01735c0339", new File(wordVectorsPath))) {
-                System.out.println("Existing file hash matches.");
+                System.out.println("\tExisting file hash matches.");
                 return;
             } else {
-                System.out.println("Existing file hash doesn't match. Retrying download...");
+                System.out.println("\tExisting file hash doesn't match. Retrying download...");
             }
         } else {
             System.out.println("\n\tNo previous download of GoogleNews-vectors-negative300.bin.gz found at path: " + defaultwordVectorsPath);
