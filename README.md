@@ -18,6 +18,7 @@ run
 - [ ] RL4J
 
 Outstanding decisions to be made on:
+- [ ] Maybe the utilities should go into the main repo? Esp. word2vec download to avoid code duplication across projects
 - [ ] Have a "introduction to .." with all the introductory examples
 - [ ] Should UI examples be a separate dir?
 - [ ] lstm/hdfs examples??
