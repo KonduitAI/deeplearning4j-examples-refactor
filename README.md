@@ -3,11 +3,11 @@
 Separate repos for:
 If checked all examples have been migrated to and they have been verified to 
 run
-- [ ] Quick start to DL4J
-- [ ] Quick start to samediff
+- [X] Quick start to DL4J
+- [X] Quick start to samediff
 - [X] ND4J array manipulation examples
 - [X] Data preprocessing/Datavec examples
-- [ ] End to end examples in DL4J and samediff
+- [X] End to end examples in DL4J and samediff
 - [X] Model import
 - [ ] jumpy
 - [ ] pydatavec
