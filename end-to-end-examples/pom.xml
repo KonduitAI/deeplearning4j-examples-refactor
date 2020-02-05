@@ -58,16 +58,11 @@
             <artifactId>datavec-data-image</artifactId>
             <version>${dl4j-master.version}</version>
         </dependency>
-        <dependency>
-            <groupId>org.datavec</groupId>
-            <artifactId>datavec-local</artifactId>
-            <version>${dl4j-master.version}</version>
-        </dependency>
-        <dependency>
+        <!--<dependency>
             <groupId>org.deeplearning4j</groupId>
             <artifactId>deeplearning4j-datasets</artifactId>
             <version>${dl4j-master.version}</version>
-        </dependency>
+        </dependency>-->
         <dependency>
             <groupId>org.deeplearning4j</groupId>
             <artifactId>deeplearning4j-core</artifactId>
@@ -82,17 +77,6 @@
             <groupId>org.deeplearning4j</groupId>
             <artifactId>deeplearning4j-zoo</artifactId>
             <version>${dl4j-master.version}</version>
-        </dependency>
-        <!-- Used in the feedforward/classification/MLP* and feedforward/regression/RegressionMathFunctions example -->
-        <dependency>
-            <groupId>jfree</groupId>
-            <artifactId>jfreechart</artifactId>
-            <version>${jfreechart.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.jfree</groupId>
-            <artifactId>jcommon</artifactId>
-            <version>${jcommon.version}</version>
         </dependency>
         <!-- Used for downloading data in some of the examples -->
         <dependency>
