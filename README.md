@@ -29,17 +29,18 @@ Outstanding decisions to be made on:
 - [ ] attempt auto formatting??
 
 To dos: 
+- [ ] Tune poorly tuned examples
 - [ ] Add readme to each project with ??
 - [ ] Clean up printing with unnecessary json etc
 - [ ] Clean up comments
 - [ ] Add code to download w2vec model if it's not already present
+- [ ] Check all poms for unnecessary version properties etc
+- [ ] Fix logging levels (missing xml in some projects)
 
 With a GPU/a real dev box run and verify long running examples which are:
 - [ ] cuda specific project, all
 - [ ] spark examples, all
 - [ ] rl4j examples, all
-- [ ] Fix logging levels (missing xml in some projects)
-- [ ] Check all poms for unnecessary version properties etc
 - [ ] Android examples??
 
 Notes to not forget:
