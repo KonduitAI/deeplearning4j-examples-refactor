@@ -37,6 +37,7 @@ To dos:
 - [ ] Add code to download w2vec model if it's not already present
 - [ ] Check all poms for unnecessary version properties etc
 - [ ] Fix logging levels (missing xml in some projects)
+- [ ] What's with the vulnerability warning on github?
 
 With a GPU/a real dev box run and verify long running examples which are:
 - [ ] cuda specific project, all
