@@ -7,8 +7,7 @@ run
 - [X] Quick start to samediff
 - [X] ND4J array manipulation examples
 - [X] Data preprocessing/Datavec examples
-- [X] End to end examples in DL4J 
-		?? and samediff
+- [X] End to end examples in DL4J (and samediff??)
 - [X] Model import
 - [?] jumpy {errors now - checking with Fariz}
 - [?] pydatavec {errors now}
