@@ -9,8 +9,8 @@ run
 - [X] Data preprocessing/Datavec examples
 - [X] End to end examples in DL4J (and samediff??)
 - [X] Model import
-- [?] jumpy {errors now - checking with Fariz}
-- [?] pydatavec {errors now}
+- [ ] jumpy {errors now - checking with Fariz}
+- [ ] pydatavec {errors now}
 - [ ] Cuda specific examples
 - [ ] Distributed training
 - [ ] Android examples
