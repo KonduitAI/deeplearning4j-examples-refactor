@@ -5,7 +5,7 @@ If checked all examples have been migrated
 - [X] Introduction to DL4J
 - [X] Introduction to samediff
 - [X] ND4J array manipulation examples
-- [ ] Data preprocessing/Datavec examples {migrated everything but hdfs ex}
+- [X] Data preprocessing/Datavec examples {migrated everything but hdfs ex}
 - [X] Model import
 - [ ] jumpy {errors now - checking with Fariz}
 - [ ] pydatavec {errors now}
@@ -25,7 +25,7 @@ Outstanding decisions to be made on:
 - [ ] RL4J examples to a separate repo?
 	{Rob is working on this}
 - [X] legacy spark examples??
-	{keep and mark as outdated}
+	{remove}
 - [ ] attempt auto formatting??
 
 To dos: 

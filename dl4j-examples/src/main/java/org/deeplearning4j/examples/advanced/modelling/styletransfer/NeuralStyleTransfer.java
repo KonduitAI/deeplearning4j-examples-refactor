@@ -401,7 +401,6 @@ public class NeuralStyleTransfer {
         IMAGE_PRE_PROCESSOR.revertFeatures(combination);
 
         BufferedImage output = imageFromINDArray(combination);
-        //URL resource = getClass().getResource(OUTPUT_PATH);
         File outputDir = new File(System.getProperty("user.home") + "/" + OUTPUT_PATH + "/iteration");
         if (! outputDir.exists()) outputDir.mkdirs();
         File file = new File(outputDir, iteration + ".jpg");
