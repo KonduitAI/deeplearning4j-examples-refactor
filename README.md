@@ -5,16 +5,14 @@ If checked all examples have been migrated
 - [X] Introduction to DL4J
 - [X] Introduction to samediff
 - [X] ND4J array manipulation examples
-- [?] Data preprocessing/Datavec examples
+- [ ] Data preprocessing/Datavec examples {migrated everything but hdfs ex}
 - [X] Model import
 - [ ] jumpy {errors now - checking with Fariz}
 - [ ] pydatavec {errors now}
-- [ ] Cuda specific examples
+- [ ] Cuda specific examples {everything migrated}
 - [X] Distributed training
 - [X] Arbiter examples
 - [ ] java fx examples??
-- [ ] lstm/hdfs examples??
-- [ ] spark-cluster hdfs example
 
 Outstanding decisions to be made on:
 - [X] Review and polish structure of the repo, i.e how to break up the examples
@@ -23,7 +21,7 @@ Outstanding decisions to be made on:
 - [X] Have a "introduction to .." with all the introductory examples
 - [X] Should UI examples be a separate dir?
 	{yes, in quickstart under dl4j-examples}
-- [ ] lstm/hdfs examples??
+- [X] lstm/hdfs examples??
 - [ ] RL4J examples to a separate repo?
 	{Rob is working on this}
 - [X] legacy spark examples??
