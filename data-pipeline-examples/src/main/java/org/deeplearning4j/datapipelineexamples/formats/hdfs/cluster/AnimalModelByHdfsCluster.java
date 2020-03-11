@@ -14,11 +14,11 @@
  * SPDX-License-Identifier: Apache-2.0
  ******************************************************************************/
 
-package org.deeplearning4j.datapipelineexamples.byformat.hdfs.cluster;
+package org.deeplearning4j.datapipelineexamples.formats.hdfs.cluster;
 
 
 import org.deeplearning4j.api.storage.StatsStorage;
-import org.deeplearning4j.datapipelineexamples.byformat.hdfs.cluster.datasets.DatasetIteratorFromHdfs;
+import org.deeplearning4j.datapipelineexamples.formats.hdfs.cluster.datasets.DatasetIteratorFromHdfs;
 import org.deeplearning4j.eval.Evaluation;
 import org.deeplearning4j.nn.api.OptimizationAlgorithm;
 import org.deeplearning4j.nn.conf.MultiLayerConfiguration;

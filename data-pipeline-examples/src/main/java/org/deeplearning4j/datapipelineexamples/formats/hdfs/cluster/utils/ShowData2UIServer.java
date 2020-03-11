@@ -14,7 +14,7 @@
  * SPDX-License-Identifier: Apache-2.0
  ******************************************************************************/
 
-package org.deeplearning4j.datapipelineexamples.byformat.hdfs.cluster.utils;
+package org.deeplearning4j.datapipelineexamples.formats.hdfs.cluster.utils;
 
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;

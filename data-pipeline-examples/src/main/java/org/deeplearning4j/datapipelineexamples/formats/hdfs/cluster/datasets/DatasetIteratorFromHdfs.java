@@ -14,7 +14,7 @@
  * SPDX-License-Identifier: Apache-2.0
  ******************************************************************************/
 
-package org.deeplearning4j.datapipelineexamples.byformat.hdfs.cluster.datasets;
+package org.deeplearning4j.datapipelineexamples.formats.hdfs.cluster.datasets;
 
 import org.nd4j.linalg.dataset.DataSet;
 import org.nd4j.linalg.dataset.api.DataSetPreProcessor;

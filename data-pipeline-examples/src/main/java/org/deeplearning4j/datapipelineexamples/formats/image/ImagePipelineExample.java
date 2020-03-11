@@ -14,7 +14,7 @@
  * SPDX-License-Identifier: Apache-2.0
  ******************************************************************************/
 
-package org.deeplearning4j.datapipelineexamples.byformat.image;
+package org.deeplearning4j.datapipelineexamples.formats.image;
 
 import org.deeplearning4j.datapipelineexamples.utils.DownloaderUtility;
 import org.datavec.api.io.filters.BalancedPathFilter;

@@ -14,7 +14,7 @@
  * SPDX-License-Identifier: Apache-2.0
  ******************************************************************************/
 
-package org.deeplearning4j.datapipelineexamples.byformat.hdfs.conversion;
+package org.deeplearning4j.datapipelineexamples.formats.hdfs.conversion;
 
 import org.datavec.api.records.converter.RecordReaderConverter;
 import org.datavec.api.records.reader.RecordReader;

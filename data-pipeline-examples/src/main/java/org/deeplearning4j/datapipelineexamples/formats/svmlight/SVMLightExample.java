@@ -14,7 +14,7 @@
  * SPDX-License-Identifier: Apache-2.0
  ******************************************************************************/
 
-package org.deeplearning4j.datapipelineexamples.byformat.svmlight;
+package org.deeplearning4j.datapipelineexamples.formats.svmlight;
 
 import org.datavec.api.conf.Configuration;
 import org.datavec.api.records.reader.impl.misc.SVMLightRecordReader;

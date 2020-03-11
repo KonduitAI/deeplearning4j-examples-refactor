@@ -14,7 +14,7 @@
  * SPDX-License-Identifier: Apache-2.0
  ******************************************************************************/
 
-package org.deeplearning4j.datapipelineexamples.byformat.hdfs.cluster.datasets;
+package org.deeplearning4j.datapipelineexamples.formats.hdfs.cluster.datasets;
 
 import org.apache.commons.io.FilenameUtils;
 import org.apache.hadoop.fs.FileSystem;
@@ -25,7 +25,7 @@ import org.datavec.api.writable.Text;
 import org.datavec.api.writable.Writable;
 import org.datavec.image.loader.NativeImageLoader;
 import org.datavec.image.transform.ImageTransform;
-import org.deeplearning4j.datapipelineexamples.byformat.hdfs.cluster.utils.CommonUtils;
+import org.deeplearning4j.datapipelineexamples.formats.hdfs.cluster.utils.CommonUtils;
 import org.nd4j.linalg.api.concurrency.AffinityManager;
 import org.nd4j.linalg.api.ndarray.INDArray;
 import org.nd4j.linalg.dataset.DataSet;
