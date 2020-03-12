@@ -1,33 +1,21 @@
 # < WIP > deeplearning4j-examples-refactor
 
-Separate repos for:
 If checked all examples have been migrated
 - [X] Introduction to DL4J
 - [X] Introduction to samediff
 - [X] ND4J array manipulation examples
-- [X] Data preprocessing/Datavec examples {migrated everything but hdfs ex}
+- [X] Data preprocessing/Datavec examples 
 - [X] Model import
-- [ ] jumpy {errors now - checking with Fariz}
-- [ ] pydatavec {errors now}
 - [X] Cuda specific examples {everything migrated}
 - [X] Distributed training
 - [X] Arbiter examples
+- [ ] lstm-hdfs examples??
+- [ ] jumpy {errors now, python 3 support}
+- [ ] pydatavec {errors now, python 3 support?}
 - [ ] java fx examples??
 - [ ] Android
-
-Outstanding decisions to be made on:
-- [X] Review and polish structure of the repo, i.e how to break up the examples
-	{not sure about dl4j-spark-cluster,lsm/hdfs examples}
-- [X] Maybe the utilities should go into the main repo? Esp. word2vec download to avoid code duplication across projects
-- [X] Have a "introduction to .." with all the introductory examples
-- [X] Should UI examples be a separate dir?
-	{yes, in quickstart under dl4j-examples}
-- [X] lstm/hdfs examples??
-- [ ] RL4J examples to a separate repo?
-	{Rob is working on this}
-- [X] legacy spark examples??
-	{remove}
-- [ ] attempt auto formatting??
+- [ ] RL4J
+- [ ] legacy spark examples - remove?
 
 To dos: 
 - [ ] Everything runs or issues filed
@@ -49,3 +37,4 @@ Notes to not forget:
 - Quick start examples should include running the UI
 - Quick start examples should be ordered
 - Add follow to an example like after CSVExample run CSVExampleEvaluationMetaData
+- Attempt auto formatting??
