@@ -9,10 +9,11 @@ If checked all examples have been migrated
 - [X] Model import
 - [ ] jumpy {errors now - checking with Fariz}
 - [ ] pydatavec {errors now}
-- [ ] Cuda specific examples {everything migrated}
+- [X] Cuda specific examples {everything migrated}
 - [X] Distributed training
 - [X] Arbiter examples
 - [ ] java fx examples??
+- [ ] Android
 
 Outstanding decisions to be made on:
 - [X] Review and polish structure of the repo, i.e how to break up the examples
