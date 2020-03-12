@@ -14,8 +14,9 @@
  * SPDX-License-Identifier: Apache-2.0
  ******************************************************************************/
 
-package org.deeplearning4j.examples.multigpu.vgg16.dataHelpers;
+package org.deeplearning4j.examples.multigpu.advanced.transferlearning.vgg16;
 
+import org.deeplearning4j.examples.multigpu.advanced.transferlearning.vgg16.dataHelpers.FlowerDataSetIterator;
 import org.deeplearning4j.nn.graph.ComputationGraph;
 import org.deeplearning4j.nn.modelimport.keras.exceptions.InvalidKerasConfigurationException;
 import org.deeplearning4j.nn.modelimport.keras.exceptions.UnsupportedKerasConfigurationException;

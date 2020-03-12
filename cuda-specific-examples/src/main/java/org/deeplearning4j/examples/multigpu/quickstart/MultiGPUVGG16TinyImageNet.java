@@ -14,7 +14,7 @@
  * SPDX-License-Identifier: Apache-2.0
  ******************************************************************************/
 
-package org.deeplearning4j.examples.multigpu.vgg16;
+package org.deeplearning4j.examples.multigpu.quickstart;
 
 import org.deeplearning4j.datasets.fetchers.DataSetType;
 import org.deeplearning4j.datasets.fetchers.TinyImageNetFetcher;
@@ -40,8 +40,8 @@ import org.slf4j.Logger;
  *
  * @author Justin Long (crockpotveggies)
  */
-public class MultiGpuVGG16TinyImageNetExample {
-    private static final Logger log = org.slf4j.LoggerFactory.getLogger(MultiGpuVGG16TinyImageNetExample.class);
+public class MultiGPUVGG16TinyImageNet {
+    private static final Logger log = org.slf4j.LoggerFactory.getLogger(MultiGPUVGG16TinyImageNet.class);
 
     // for GPU you usually want to have higher batchSize
     public static int batchSize = 16;

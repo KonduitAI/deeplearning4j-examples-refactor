@@ -14,7 +14,7 @@
  * SPDX-License-Identifier: Apache-2.0
  ******************************************************************************/
 
-package org.deeplearning4j.examples.multigpu.w2vsentiment;
+package org.deeplearning4j.examples.multigpu.advanced.w2vsentiment;
 
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;

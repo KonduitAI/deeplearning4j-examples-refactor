@@ -14,7 +14,7 @@
  * SPDX-License-Identifier: Apache-2.0
  ******************************************************************************/
 
-package org.deeplearning4j.examples.multigpu;
+package org.deeplearning4j.examples.multigpu.quickstart;
 
 import org.deeplearning4j.datasets.iterator.impl.MnistDataSetIterator;
 import org.deeplearning4j.eval.Evaluation;
@@ -45,8 +45,8 @@ import org.slf4j.LoggerFactory;
  * @author  @agibsonccc
  * @author raver119@gmail.com
  */
-public class GradientsSharingLenetMnistExample {
-    private static final Logger log = LoggerFactory.getLogger(GradientsSharingLenetMnistExample.class);
+public class GradientsSharingLeNetMNIST {
+    private static final Logger log = LoggerFactory.getLogger(GradientsSharingLeNetMNIST.class);
 
     public static int nChannels = 1;
     public static int outputNum = 10;

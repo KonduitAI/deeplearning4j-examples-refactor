@@ -14,7 +14,7 @@
  * SPDX-License-Identifier: Apache-2.0
  ******************************************************************************/
 
-package org.deeplearning4j.examples.multigpu.video;
+package org.deeplearning4j.examples.multigpu.advanced.videoframeclassification;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;

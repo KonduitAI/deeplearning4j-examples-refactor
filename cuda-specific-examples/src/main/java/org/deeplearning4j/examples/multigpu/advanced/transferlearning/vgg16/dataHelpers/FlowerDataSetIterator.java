@@ -14,7 +14,7 @@
  * SPDX-License-Identifier: Apache-2.0
  ******************************************************************************/
 
-package org.deeplearning4j.examples.multigpu.vgg16.dataHelpers;
+package org.deeplearning4j.examples.multigpu.advanced.transferlearning.vgg16.dataHelpers;
 
 import org.apache.commons.io.FileUtils;
 import org.datavec.api.io.filters.BalancedPathFilter;

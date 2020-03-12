@@ -14,7 +14,7 @@
  * SPDX-License-Identifier: Apache-2.0
  ******************************************************************************/
 
-package org.deeplearning4j.examples.multigpu.rnn;
+package org.deeplearning4j.examples.multigpu.advanced.charmodelling;
 
 import org.apache.commons.io.FileUtils;
 import org.deeplearning4j.nn.api.Layer;
@@ -25,7 +25,6 @@ import org.deeplearning4j.nn.conf.NeuralNetConfiguration;
 import org.deeplearning4j.nn.conf.layers.LSTM;
 import org.deeplearning4j.nn.conf.layers.RnnOutputLayer;
 import org.deeplearning4j.nn.graph.ComputationGraph;
-import org.deeplearning4j.nn.multilayer.MultiLayerNetwork;
 import org.deeplearning4j.nn.weights.WeightInit;
 import org.deeplearning4j.optimize.api.IterationListener;
 import org.deeplearning4j.optimize.listeners.ScoreIterationListener;
@@ -37,7 +36,6 @@ import org.nd4j.linalg.indexing.BooleanIndexing;
 import org.nd4j.linalg.indexing.conditions.Conditions;
 import org.nd4j.linalg.learning.config.Adam;
 import org.nd4j.linalg.lossfunctions.LossFunctions;
-import org.nd4j.linalg.ops.transforms.Transforms;
 
 import java.io.File;
 import java.io.IOException;
@@ -63,7 +61,7 @@ import java.util.Random;
     http://deeplearning4j.org/lstm
     http://deeplearning4j.org/recurrentnetwork
  */
-public class LSTMCharModellingExample {
+public class GenerateTextModel {
 	public static void main( String[] args ) throws Exception {
 	    int seed =  12345;
 		int lstmLayerSize = 200;					//Number of units in each LSTM layer
