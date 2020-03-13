@@ -113,7 +113,7 @@
         <dependency>
             <artifactId>datavec-data-codec</artifactId>
             <groupId>org.datavec</groupId>
-            <version>${dl4j-master-version}</version>
+            <version>${dl4j-master.version}</version>
         </dependency>
 
         <dependency>
