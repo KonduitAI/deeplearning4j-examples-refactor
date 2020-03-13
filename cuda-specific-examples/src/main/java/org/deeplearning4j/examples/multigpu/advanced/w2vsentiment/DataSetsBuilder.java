@@ -27,11 +27,14 @@ import org.apache.commons.io.FilenameUtils;
 import org.deeplearning4j.models.embeddings.loader.WordVectorSerializer;
 import org.deeplearning4j.models.embeddings.wordvectors.WordVectors;
 import org.nd4j.linalg.dataset.api.iterator.DataSetIterator;
+import org.nd4j.resources.Downloader;
 import org.slf4j.Logger;
 
 import java.io.*;
 import java.net.URL;
+import java.util.Scanner;
 import java.util.concurrent.atomic.AtomicInteger;
+
 
 /**
  * This class generates binary datasets out of raw text for further use on gpu for faster tuning sessions.
@@ -47,8 +50,7 @@ public class DataSetsBuilder {
     /** Location to save and extract the training/testing data */
     public static final String DATA_PATH = FilenameUtils.concat(System.getProperty("java.io.tmpdir"), "dl4j_w2vSentiment/");
     /** Location (local file system) for the Google News vectors. Set this manually. */
-    //public static final String WORD_VECTORS_PATH = "/PATH/TO/YOUR/VECTORS/GoogleNews-vectors-negative300.bin.gz";
-    public static final String WORD_VECTORS_PATH = "/home/raver119/develop/GoogleNews-vectors-negative300.bin.gz";
+    public static String wordVectorsPath = "/PATH/TO/YOUR/VECTORS/GoogleNews-vectors-negative300.bin.gz";
 
     public static final String TRAIN_PATH = FilenameUtils.concat(System.getProperty("java.io.tmpdir"), "dl4j_w2vSentiment_train/");
     public static final String TEST_PATH = FilenameUtils.concat(System.getProperty("java.io.tmpdir"), "dl4j_w2vSentiment_test/");
@@ -73,15 +75,14 @@ public class DataSetsBuilder {
             System.exit(1);
         }
 
-
-
-        if(WORD_VECTORS_PATH.startsWith("/PATH/TO/YOUR/VECTORS/")){
-            throw new RuntimeException("Please set the WORD_VECTORS_PATH before running this example");
+        if (wordVectorsPath.startsWith("/PATH/TO/YOUR/VECTORS/")) {
+            System.out.println("wordVectorsPath has not been set. Checking default location in ~/dl4j-examples-data for download...");
+            checkDownloadW2VECModel();
         }
-
+        //Download and extract data
         downloadData();
 
-        WordVectors wordVectors = WordVectorSerializer.loadStaticModel(new File(WORD_VECTORS_PATH));
+        WordVectors wordVectors = WordVectorSerializer.loadStaticModel(new File(wordVectorsPath));
         SentimentExampleIterator train = new SentimentExampleIterator(DATA_PATH, wordVectors, batchSize, truncateReviewsToLength, true);
         SentimentExampleIterator test = new SentimentExampleIterator(DATA_PATH, wordVectors, batchSize, truncateReviewsToLength, false);
 
@@ -169,6 +170,31 @@ public class DataSetsBuilder {
         }
     }
 
+
+    public static void checkDownloadW2VECModel() throws IOException {
+        String defaultwordVectorsPath = FilenameUtils.concat(System.getProperty("user.home"), "dl4j-examples-data/w2vec300");
+        String md5w2vec = "1c892c4707a8a1a508b01a01735c0339";
+        wordVectorsPath = new File(defaultwordVectorsPath, "GoogleNews-vectors-negative300.bin.gz").getAbsolutePath();
+        if (new File(wordVectorsPath).exists()) {
+            System.out.println("\n\tGoogleNews-vectors-negative300.bin.gz file found at path: " + defaultwordVectorsPath);
+            System.out.println("\tChecking md5 of existing file..");
+            if (Downloader.checkMD5OfFile(md5w2vec, new File(wordVectorsPath))) {
+                System.out.println("\tExisting file hash matches.");
+                return;
+            } else {
+                System.out.println("\tExisting file hash doesn't match. Retrying download...");
+            }
+        } else {
+            System.out.println("\n\tNo previous download of GoogleNews-vectors-negative300.bin.gz found at path: " + defaultwordVectorsPath);
+        }
+        System.out.println("\tWARNING: GoogleNews-vectors-negative300.bin.gz is a 1.5GB file.");
+        System.out.println("\tPress \"ENTER\" to start a download of GoogleNews-vectors-negative300.bin.gz to " + defaultwordVectorsPath);
+        Scanner scanner = new Scanner(System.in);
+        scanner.nextLine();
+        System.out.println("Starting model download (1.5GB!)...");
+        Downloader.download("Word2Vec", new URL("https://dl4jdata.blob.core.windows.net/resources/wordvectors/GoogleNews-vectors-negative300.bin.gz"), new File(wordVectorsPath), md5w2vec, 5);
+        System.out.println("Successfully downloaded word2vec model to " + wordVectorsPath);
+    }
 
     public static void main(String[] args) throws Exception {
         new DataSetsBuilder().run(args);

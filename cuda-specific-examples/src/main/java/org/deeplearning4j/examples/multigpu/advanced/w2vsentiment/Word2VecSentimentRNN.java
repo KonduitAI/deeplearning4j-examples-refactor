@@ -57,7 +57,7 @@ import java.io.File;
  * You will have to download the Google News word vector model manually. ~1.5GB
  * The Google News vector model available here: https://code.google.com/p/word2vec/
  * Download the GoogleNews-vectors-negative300.bin.gz file
- * Then: set the WORD_VECTORS_PATH field to point to this location.
+ * Then: set the wordVectorsPath field to point to this location.
  *
  * @author Alex Black
  */
