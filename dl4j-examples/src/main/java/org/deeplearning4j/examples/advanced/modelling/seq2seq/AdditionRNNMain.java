@@ -103,7 +103,7 @@ public class AdditionRNNMain {
 
         ComputationGraphConfiguration configuration = new NeuralNetConfiguration.Builder()
                 .weightInit(WeightInit.XAVIER)
-                .updater(new Adam(0.25))
+                .updater(new Adam(0.001))
                 .seed(seed)
                 .graphBuilder()
                 //These are the two inputs to the computation graph
