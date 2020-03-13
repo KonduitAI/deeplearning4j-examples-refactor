@@ -15,3 +15,4 @@ for each example:
 - Is there any alternative to having to check plots manually? why not?
 - If for an example one class has to be run before the other this should be documented in the README and the run file
 - How to handle deprecated APIs? Script to check
+- Standardize notations for FIXME for next release?

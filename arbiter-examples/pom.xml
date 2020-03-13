@@ -23,8 +23,6 @@
     <groupId>org.deeplearning4j</groupId>                                       
     <artifactId>examples-arbiter</artifactId>                         
     <version>1.0.0-beta6</version>                                              
-    <packaging>pom</packaging>                                                  
-                                                                                
     <name>Arbiter Examples</name>                                     
     <description>Working with Arbiter</description>   
 

@@ -23,8 +23,6 @@
     <groupId>org.deeplearning4j</groupId>                                       
     <artifactId>ndarray-examples</artifactId>                         
     <version>1.0.0-beta6</version>                                              
-    <packaging>pom</packaging>                                                  
-                                                                                
     <name>Examples operating on ndarrays</name>                                     
     <description>Working with NDArrays</description>   
 

@@ -23,8 +23,6 @@
     <groupId>org.deeplearning4j</groupId>                                       
     <artifactId>dl4j-distributed-training-examples</artifactId>                                      
     <version>1.0.0-beta6</version>                                              
-    <packaging>pom</packaging>                                                  
-                                                                                
     <name>Introduction to Distributed Training with DL4J</name>                                           
     <description>A set of examples introducing distributed training with the DL4J framework</description> 
 
