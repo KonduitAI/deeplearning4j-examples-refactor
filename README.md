@@ -15,15 +15,15 @@ If checked all examples have been migrated
 - [ ] java fx examples??
 - [ ] Android
 - [ ] RL4J
-- [ ] legacy spark examples - remove?
+- [ ] legacy spark examples - removed
 
 To dos: 
+- [X] Add code to download w2vec model if it's not already present
 - [ ] Everything runs or issues filed
 - [ ] Tune poorly tuned examples
-- [ ] Add readme to each project with ??
+- [ ] Add readme to each project with (check TEMPLATE_PLAN doc)
 - [ ] Clean up printing with unnecessary json etc
 - [ ] Clean up comments
-- [X] Add code to download w2vec model if it's not already present
 - [ ] Check all poms for unnecessary version properties etc
 - [ ] Fix logging levels (missing xml in some projects)
 - [ ] What's with the vulnerability warning on github?
