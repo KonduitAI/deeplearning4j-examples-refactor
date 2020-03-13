@@ -20,15 +20,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <artifactId>dl4j-cuda-specific-examples</artifactId>
-
-    <parent>
-        <groupId>org.deeplearning4j</groupId>
-        <artifactId>deeplearning4j-examples-parent</artifactId>
-        <version>1.0.0-beta6</version>
-    </parent>
+    <version>1.0.0-beta6</version>
+    <packaging>pom</packaging>                                                  
 
     <name>DeepLearning4j CUDA special examples</name>
     <properties>
+      <dl4j-master.version>1.0.0-beta6</dl4j-master.version>                  
       <nd4j.backend>nd4j-cuda-10.2-platform</nd4j.backend>
     </properties>
 
@@ -64,22 +61,22 @@
             <dependency>
                 <groupId>org.nd4j</groupId>
                 <artifactId>nd4j-cuda-9.2-platform</artifactId>
-                <version>${nd4j.version}</version>
+                <version>${dl4j-master.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.nd4j</groupId>
                 <artifactId>nd4j-cuda-10.0-platform</artifactId>
-                <version>${nd4j.version}</version>
+                <version>${dl4j-master.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.nd4j</groupId>
                 <artifactId>nd4j-cuda-10.1-platform</artifactId>
-                <version>${nd4j.version}</version>
+                <version>${dl4j-master.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.nd4j</groupId>
                 <artifactId>nd4j-cuda-10.2-platform</artifactId>
-                <version>${nd4j.version}</version>
+                <version>${dl4j-master.version}</version>
             </dependency>
       </dependencies>
     </dependencyManagement>
@@ -89,24 +86,24 @@
         <dependency>
             <groupId>org.deeplearning4j</groupId>
             <artifactId>deeplearning4j-parallel-wrapper</artifactId>
-            <version>${dl4j.version}</version>
+            <version>${dl4j-master.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.deeplearning4j</groupId>
             <artifactId>deeplearning4j-core</artifactId>
-            <version>${dl4j.version}</version>
+            <version>${dl4j-master.version}</version>
         </dependency>
         <dependency>
             <groupId>org.deeplearning4j</groupId>
             <artifactId>deeplearning4j-ui</artifactId>
 
-            <version>${dl4j.version}</version>
+            <version>${dl4j-master.version}</version>
         </dependency>
         <dependency>
             <groupId>org.deeplearning4j</groupId>
             <artifactId>deeplearning4j-zoo</artifactId>
-            <version>${dl4j.version}</version>
+            <version>${dl4j-master.version}</version>
         </dependency>
         <dependency>
             <groupId>org.nd4j</groupId>
