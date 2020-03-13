@@ -28,6 +28,7 @@
     <properties>
       <dl4j-master.version>1.0.0-beta6</dl4j-master.version>                  
       <nd4j.backend>nd4j-cuda-10.2-platform</nd4j.backend>
+      <logback.version>1.1.7</logback.version>                                
     </properties>
 
     <repositories>
