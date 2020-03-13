@@ -1,3 +1,4 @@
+README template for each example
 Should be a table/json/md format?
 
 for each example:
@@ -16,3 +17,4 @@ for each example:
 - If for an example one class has to be run before the other this should be documented in the README and the run file
 - How to handle deprecated APIs? Script to check
 - Standardize notations for FIXME for next release?
+- Memory requirements for example and options to get it to run..
