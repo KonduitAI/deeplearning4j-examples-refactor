@@ -105,6 +105,7 @@ public class Ex1BasicSameDiffLayerExample {
         int layerSize = 5;
         int networkNumOutputs = 3;
         MultiLayerConfiguration conf = new NeuralNetConfiguration.Builder()
+            .dataType(DataType.DOUBLE) //Required for gradient checks
             .updater(new NoOp())    //Required for gradient checks
             .seed(12345)
             .list()

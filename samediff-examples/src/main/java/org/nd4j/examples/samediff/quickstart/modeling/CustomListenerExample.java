@@ -6,13 +6,11 @@ import org.nd4j.autodiff.listeners.records.History;
 import org.nd4j.autodiff.samediff.SameDiff;
 import org.nd4j.autodiff.samediff.TrainingConfig;
 import org.nd4j.autodiff.samediff.internal.SameDiffOp;
-import org.nd4j.evaluation.classification.Evaluation.Metric;
+import org.nd4j.evaluation.classification.Evaluation;
 import org.nd4j.linalg.api.ndarray.INDArray;
 import org.nd4j.linalg.dataset.api.MultiDataSet;
 import org.nd4j.linalg.dataset.api.iterator.DataSetIterator;
 import org.nd4j.linalg.learning.config.Adam;
-
-import java.util.List;
 
 import static org.nd4j.examples.samediff.quickstart.modeling.MNISTCNN.makeMNISTNet;
 
@@ -38,7 +36,8 @@ public class CustomListenerExample {
             .l2(1e-4)                               //L2 regularization
             .updater(new Adam(learningRate))        //Adam optimizer with specified learning rate
             .dataSetFeatureMapping("input")         //DataSet features array should be associated with variable "input"
-            .dataSetLabelMapping("label")           //DataSet label array should be associated with variable "label"
+            .dataSetLabelMapping("label")           //DataSet label array should be associated with variable "label
+            .addEvaluations(false,"out",0,new Evaluation())
             .build();
 
         sd.setTrainingConfig(config);
@@ -48,11 +47,11 @@ public class CustomListenerExample {
 
         //Perform training
         History hist = sd.fit()
-            .train(trainData, 4)
+            .train(trainData, 1)
             .exec();
-        List<Double> acc = hist.trainingEval(Metric.ACCURACY);
+        Evaluation e = hist.finalTrainingEvaluations().evaluation("out");
 
-        System.out.println("Accuracy: " + acc);
+        System.out.println("Accuracy: " + e.accuracy());
 
         CustomListener listener = new CustomListener();
 

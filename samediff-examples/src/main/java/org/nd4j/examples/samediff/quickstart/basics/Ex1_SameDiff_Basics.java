@@ -89,7 +89,7 @@ public class Ex1_SameDiff_Basics {
         sd.output(Collections.<String,INDArray>emptyMap(), "mulTen");
 
         INDArray variableArr = variable.getArr();               //We can get arrays directly from the variables
-        INDArray plusOneArr = plusOne.getArr();
+        INDArray plusOneArr = plusOne.eval(); //We can also get values with eval
         INDArray mulTenArr = sd.getArrForVarName("mulTen");     //Or also by name, from the Samediff instance
 
         System.out.println("===================================");

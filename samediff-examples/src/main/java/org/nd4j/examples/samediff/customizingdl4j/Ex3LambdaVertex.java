@@ -58,7 +58,7 @@ public class Ex3LambdaVertex {
         int networkNumOutputs = 10;         //For MNIST - 10 classes
 
         ComputationGraphConfiguration conf = new NeuralNetConfiguration.Builder()
-            .updater(new Adam(1e-1))
+            .updater(new Adam(1e-3))
             .seed(12345)
             .activation(Activation.TANH)
             .convolutionMode(ConvolutionMode.Same)
@@ -114,6 +114,7 @@ public class Ex3LambdaVertex {
         int networkNumOutputs = 3;
 
         ComputationGraphConfiguration conf = new NeuralNetConfiguration.Builder()
+            .dataType(DataType.DOUBLE) //Required for gradient checks
             .updater(new NoOp())    //Required for gradient checks
             .seed(12345)
             .activation(Activation.TANH)

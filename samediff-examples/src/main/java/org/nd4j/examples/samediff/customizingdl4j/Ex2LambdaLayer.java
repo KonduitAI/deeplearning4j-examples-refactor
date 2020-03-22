@@ -121,6 +121,7 @@ public class Ex2LambdaLayer {
         int[] inputShape = new int[]{3, 1, 5, 5};       //[minibatch, channels, height, width]
         int networkNOut = 3;
         MultiLayerConfiguration conf = new NeuralNetConfiguration.Builder()
+            .dataType(DataType.DOUBLE)
             .updater(new NoOp())
             .seed(12345)
             .activation(Activation.TANH)
