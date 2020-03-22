@@ -117,7 +117,7 @@ public class MixtureDensityNetwork {
 
             iter.reset();	//Reset iterator for another epoch
 
-            INDArray in = Nd4j.zeros(1);
+            INDArray in = Nd4j.zeros(1).reshape(1,1);
 
             // Output what the network
             // has learned.  Go from -5 to 5

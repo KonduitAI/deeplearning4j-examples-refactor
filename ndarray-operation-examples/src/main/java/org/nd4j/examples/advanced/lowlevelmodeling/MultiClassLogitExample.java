@@ -18,6 +18,7 @@ package org.nd4j.examples.advanced.lowlevelmodeling;
 
 import org.deeplearning4j.datasets.iterator.IteratorDataSetIterator;
 import org.nd4j.examples.utils.DownloaderUtility;
+import org.nd4j.linalg.api.buffer.DataType;
 import org.nd4j.linalg.api.ndarray.INDArray;
 import org.nd4j.linalg.dataset.DataSet;
 import org.nd4j.linalg.dataset.SplitTestAndTrain;
@@ -111,8 +112,8 @@ public class MultiClassLogitExample {
         }).toArray();
     int columns = parsedRows.length;
     return new DataSet(
-        Nd4j.create(Arrays.copyOfRange(parsedRows, 0, columns - 1)),
-        Nd4j.create(Arrays.copyOfRange(parsedRows, columns - 1, columns)));
+        Nd4j.create(Arrays.copyOfRange(parsedRows, 0, columns - 1)).reshape(1,-1),
+        Nd4j.create(Arrays.copyOfRange(parsedRows, columns - 1, columns)).reshape(1,-1));
   };
 
   private static INDArray trainModel(DataSet trainDataSet, long maxIterations, double learningRate,
@@ -161,7 +162,7 @@ public class MultiClassLogitExample {
    */
   private static INDArray prependConstant(DataSet dataset) {
       return Nd4j.hstack(
-          Nd4j.ones(dataset.getFeatures().size(0), 1),
+          Nd4j.ones(DataType.DOUBLE, dataset.getFeatures().size(0), 1),
           dataset.getFeatures());
   }
 
@@ -236,7 +237,7 @@ public class MultiClassLogitExample {
   private static INDArray training(INDArray x, INDArray y, long maxIterations, double learningRate,
       double minLearningRate) {
     Nd4j.getRandom().setSeed(1234);
-    INDArray params = Nd4j.rand((int)x.size(1), 1); //random guess
+    INDArray params = Nd4j.rand(DataType.DOUBLE, (int)x.size(1), 1); //random guess
 
     INDArray newParams = params.dup();
     INDArray optimalParams;
