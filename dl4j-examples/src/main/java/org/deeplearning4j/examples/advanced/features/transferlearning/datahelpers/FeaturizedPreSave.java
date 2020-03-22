@@ -37,7 +37,7 @@ public class FeaturizedPreSave {
     private static final Logger log = org.slf4j.LoggerFactory.getLogger(FeaturizedPreSave.class);
 
     private static final int trainPerc = 80;
-    protected static final int batchSize = 15;
+    protected static final int batchSize = 16;
     public static final String featurizeExtractionLayer = "fc2";
 
     public static void main(String [] args) throws IOException {

@@ -40,7 +40,7 @@ import java.io.IOException;
 public class FeaturizedPreSave {
     private static final Logger LOGGER = LoggerFactory.getLogger(FeaturizedPreSave.class);
     private static final int trainPerc = 80;
-    private static final int batchSize = 15;
+    private static final int batchSize = 16;
     public static final String featurizeExtractionLayer = "fc2";
 
     public static void main(String [] args) throws UnsupportedKerasConfigurationException, IOException, InvalidKerasConfigurationException {

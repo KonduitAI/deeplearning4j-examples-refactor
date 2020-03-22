@@ -50,7 +50,7 @@ public class FineTuneFromBlockFour {
 
     private static final String featureExtractionLayer = "block4_pool";
     private static final int trainPerc = 80;
-    private static final int batchSize = 15;
+    private static final int batchSize = 16;
 
     public static void main(String [] args) throws IOException {
 

@@ -58,7 +58,7 @@ public class EditAtBottleneckOthersFrozen {
 
     protected static final long seed = 12345;
     private static final int trainPerc = 80;
-    private static final int batchSize = 15;
+    private static final int batchSize = 16;
     private static final String featureExtractionLayer = "block5_pool";
 
     public static void main(String [] args) throws Exception {
