@@ -48,9 +48,9 @@ import java.util.List;
 
 
 /**
+ * @author wangfeng
  * @Description: Training Model based on distributed File system here's hdfs,the dataset is image
  * The hadoop clusters've two nodes, one is master node that its domain name is "cluster1" , the domain name of the slave node is "cluster2"
- * @author wangfeng
  */
 public class AnimalModelByHdfsCluster {
     private static final Logger log = LoggerFactory.getLogger(AnimalModelByHdfsCluster.class);
@@ -63,12 +63,12 @@ public class AnimalModelByHdfsCluster {
 
     private static String rootPath = System.getProperty("user.dir");
     private static String modelPath = "/home/out/AnimalModelByHdfsClusterModel.json";
-    ;
-    public static void main(String[] args) throws  Exception{
+
+    public static void main(String[] args) throws Exception {
 
         File modelFile = new File(modelPath);
-        boolean hasFile = modelFile.exists()?true:modelFile.createNewFile();
-        log.info( modelFile.getPath() );
+        boolean hasFile = modelFile.exists() ? true : modelFile.createNewFile();
+        log.info(modelFile.getPath());
 
 
         long startTime = System.currentTimeMillis();
@@ -80,21 +80,21 @@ public class AnimalModelByHdfsCluster {
         StatsStorage statsStorage = new FileStatsStorage(statsFile);
         network.setListeners(new StatsListener(statsStorage), new ScoreIterationListener(10));
 
-        DataSetIterator trainIterator = new DatasetIteratorFromHdfs(batchSize,true);
+        DataSetIterator trainIterator = new DatasetIteratorFromHdfs(batchSize, true);
 
-        DataNormalization scaler = new ImagePreProcessingScaler(0,1);
+        DataNormalization scaler = new ImagePreProcessingScaler(0, 1);
         trainIterator.setPreProcessor(scaler);
 
-        for ( int i = 0; i < epochs; i ++ ) {
+        for (int i = 0; i < epochs; i++) {
             System.out.println("Epoch=====================" + i);
             network.fit(trainIterator);
         }
-        ModelSerializer.writeModel(network, modelFile,true);
+        ModelSerializer.writeModel(network, modelFile, true);
         long endTime = System.currentTimeMillis();
         System.out.println("=============run time=====================" + (endTime - startTime));
 
         log.info("Evaluate model....");
-        DataSetIterator validateIterator = new DatasetIteratorFromHdfs(batchSize,false);
+        DataSetIterator validateIterator = new DatasetIteratorFromHdfs(batchSize, false);
         //scaler.fit(trainIterator);
         validateIterator.setPreProcessor(scaler);
         Evaluation eval = network.evaluate(validateIterator);
@@ -113,6 +113,7 @@ public class AnimalModelByHdfsCluster {
 
 
     }
+
     public static MultiLayerNetwork lenetModel() {
         /**
          * Revisde Lenet Model approach developed by ramgo2 achieves slightly above random
@@ -124,14 +125,14 @@ public class AnimalModelByHdfsCluster {
                 .activation(Activation.RELU)
                 .weightInit(WeightInit.XAVIER)
                 .optimizationAlgo(OptimizationAlgorithm.STOCHASTIC_GRADIENT_DESCENT)
-                .updater(new Nesterovs(0.0001,0.9))
+                .updater(new Nesterovs(0.0001, 0.9))
                 .list()
                 .layer(0, new ConvolutionLayer.Builder(new int[]{5, 5}, new int[]{1, 1}, new int[]{0, 0}).name("cnn1")
                         .nIn(channels).nOut(50).biasInit(0).build())
-                .layer(1, new SubsamplingLayer.Builder(new int[]{2,2}, new int[]{2,2}).name("maxpool1").build())
-                .layer(2, new ConvolutionLayer.Builder(new int[]{5,5}, new int[]{5, 5}, new int[]{1, 1}).name("cnn2")
+                .layer(1, new SubsamplingLayer.Builder(new int[]{2, 2}, new int[]{2, 2}).name("maxpool1").build())
+                .layer(2, new ConvolutionLayer.Builder(new int[]{5, 5}, new int[]{5, 5}, new int[]{1, 1}).name("cnn2")
                         .nOut(100).biasInit(0).build())
-                .layer(3, new SubsamplingLayer.Builder(new int[]{2,2}, new int[]{2,2}).name("maxpool2").build())
+                .layer(3, new SubsamplingLayer.Builder(new int[]{2, 2}, new int[]{2, 2}).name("maxpool2").build())
                 .layer(4, new DenseLayer.Builder().nOut(500).build())
                 .layer(5, new OutputLayer.Builder(LossFunctions.LossFunction.NEGATIVELOGLIKELIHOOD)
                         .nOut(4)
