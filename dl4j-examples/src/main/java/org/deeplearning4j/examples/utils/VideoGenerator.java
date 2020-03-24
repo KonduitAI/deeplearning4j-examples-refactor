@@ -17,8 +17,17 @@
 package org.deeplearning4j.examples.utils;
 
 import org.apache.commons.io.FilenameUtils;
+import org.jcodec.api.awt.AWTSequenceEncoder;
+import org.jcodec.common.io.NIOUtils;
+import org.jcodec.common.io.SeekableByteChannel;
+import org.jcodec.common.model.Rational;
 
 import java.awt.*;
+import java.awt.geom.Arc2D;
+import java.awt.geom.Ellipse2D;
+import java.awt.geom.Line2D;
+import java.awt.geom.Rectangle2D;
+import java.awt.image.BufferedImage;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -76,8 +85,8 @@ public class VideoGenerator {
         }
 
         //Generate a sequence of BufferedImages with the given shapes, and write them to the video
-        /*
-        SequenceEncoder enc = new SequenceEncoder(new File(path));
+        SeekableByteChannel out = NIOUtils.writableFileChannel(path);
+        AWTSequenceEncoder enc = new AWTSequenceEncoder(out, Rational.R(25, 1));
         int currShape = 0;
         int[] labels = new int[nFrames];
         for (int i = 0; i < nFrames; i++) {
@@ -160,8 +169,6 @@ public class VideoGenerator {
         enc.finish();   //write .mp4
 
         return labels;
-        */
-        throw new UnsupportedOperationException("TODO");
     }
 
     public static void generateVideoData(String outputFolder, String filePrefix, int nVideos, int nFrames,
