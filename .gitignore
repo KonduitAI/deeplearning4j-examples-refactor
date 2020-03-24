@@ -37,6 +37,8 @@ README.md~
 *.png
 *.bin
 *.out
+*.csv
+*.data
 *~
 .pydevproject
 release.properties
