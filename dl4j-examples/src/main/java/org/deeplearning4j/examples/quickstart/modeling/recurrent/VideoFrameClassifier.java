@@ -17,15 +17,14 @@
 package org.deeplearning4j.examples.quickstart.modeling.recurrent;
 
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.FilenameUtils;
 import org.datavec.api.conf.Configuration;
 import org.datavec.api.records.reader.SequenceRecordReader;
 import org.datavec.api.records.reader.impl.csv.CSVSequenceRecordReader;
 import org.datavec.api.split.InputSplit;
 import org.datavec.api.split.NumberedFileInputSplit;
-import org.datavec.codec.reader.CodecRecordReader;
+import org.datavec.codec.reader.NativeCodecRecordReader;
 import org.deeplearning4j.datasets.datavec.SequenceRecordReaderDataSetIterator;
-import org.deeplearning4j.examples.utils.VideoGenerator;
+import org.deeplearning4j.examples.utils.DownloaderUtility;
 import org.deeplearning4j.nn.conf.BackpropType;
 import org.deeplearning4j.nn.conf.GradientNormalization;
 import org.deeplearning4j.nn.conf.MultiLayerConfiguration;
@@ -63,34 +62,23 @@ import java.util.Map;
  * The network needs to classify these shapes, even when the shape has left the frame.
  *
  * This example is somewhat contrived, but shows data import and network configuration for classifying video frames.
- *
- * *******************************************************
- * WARNING: THIS EXAMPLE GENERATES A LARGE DATA SET
- * This examples does NOT automatically delete this data set after the example is complete.
+ * The data for this example is automatically downloaded to:
+ * "~/dl4j-examples-data/dl4j-examples/video/videoshapesexample"
  * *******************************************************
  * @author Alex Black
  */
 public class VideoFrameClassifier {
 
-    public static final int N_VIDEOS_TO_GENERATE = 500;
+    public static final int N_VIDEOS = 500;
     public static final int V_WIDTH = 130;
     public static final int V_HEIGHT = 130;
     public static final int V_NFRAMES = 150;
 
     public static void main(String[] args) throws Exception {
 
-        int miniBatchSize = 10;
-        boolean generateData = true;
+        int miniBatchSize = 4;
 
-        String tempDir = System.getProperty("java.io.tmpdir");
-        String dataDirectory = FilenameUtils.concat(tempDir, "DL4JVideoShapesExample/");   //Location to store generated data set
-
-        //Generate data: number of .mp4 videos for input, plus .txt files for the labels
-        if (generateData) {
-            System.out.println("Starting data generation...");
-            generateData(dataDirectory);
-            System.out.println("Data generation complete");
-        }
+        String dataDirectory = DownloaderUtility.VIDEOEXAMPLE.Download() + "/videoshapesexample/";
 
         //Set up network architecture:
         MultiLayerConfiguration conf = new NeuralNetConfiguration.Builder()
@@ -155,8 +143,8 @@ public class VideoFrameClassifier {
         // summary of layer and parameters
         System.out.println(net.summary());
 
-        int testStartIdx = (int) (0.9 * N_VIDEOS_TO_GENERATE);  //90% in train, 10% in test
-        int nTest = N_VIDEOS_TO_GENERATE - testStartIdx;
+        int testStartIdx = (int) (0.9 * N_VIDEOS);  //90% in train, 10% in test
+        int nTest = N_VIDEOS - testStartIdx;
 
         //Conduct learning
         System.out.println("Starting training...");
@@ -176,21 +164,6 @@ public class VideoFrameClassifier {
         }
     }
 
-    private static void generateData(String path) throws Exception {
-        File f = new File(path);
-        if (!f.exists()) f.mkdir();
-
-        /* The data generation code does support the addition of background noise and distractor shapes (shapes which
-         * are shown for one frame only in addition to the target shape) but these are disabled by default.
-         * These can be enabled to increase the complexity of the learning task.
-         */
-        VideoGenerator.generateVideoData(path, "shapes", N_VIDEOS_TO_GENERATE,
-                V_NFRAMES, V_WIDTH, V_HEIGHT,
-                3,      //Number of shapes per video. Switches from one shape to another randomly over time
-                false,   //Background noise. Significantly increases video file size
-                0,      //Number of distractors per frame ('distractors' are shapes show for one frame only)
-                12345L);    //Seed, for reproducability when generating data
-    }
 
     private static void evaluatePerformance(MultiLayerNetwork net, int testStartIdx, int nExamples, String outputDirectory) throws Exception {
         //Assuming here that the full test data set doesn't fit in memory -> load 10 examples at a time
@@ -233,12 +206,12 @@ public class VideoFrameClassifier {
         InputSplit is = new NumberedFileInputSplit(path + "shapes_%d.mp4", startIdx, startIdx + num - 1);
 
         Configuration conf = new Configuration();
-        conf.set(CodecRecordReader.RAVEL, "true");
-        conf.set(CodecRecordReader.START_FRAME, "0");
-        conf.set(CodecRecordReader.TOTAL_FRAMES, String.valueOf(V_NFRAMES));
-        conf.set(CodecRecordReader.ROWS, String.valueOf(V_WIDTH));
-        conf.set(CodecRecordReader.COLUMNS, String.valueOf(V_HEIGHT));
-        CodecRecordReader crr = new CodecRecordReader();
+        conf.set(NativeCodecRecordReader.RAVEL, "true");
+        conf.set(NativeCodecRecordReader.START_FRAME, "0");
+        conf.set(NativeCodecRecordReader.TOTAL_FRAMES, String.valueOf(V_NFRAMES));
+        conf.set(NativeCodecRecordReader.ROWS, String.valueOf(V_WIDTH));
+        conf.set(NativeCodecRecordReader.COLUMNS, String.valueOf(V_HEIGHT));
+        NativeCodecRecordReader crr = new NativeCodecRecordReader();
         crr.initialize(conf, is);
         return crr;
 
