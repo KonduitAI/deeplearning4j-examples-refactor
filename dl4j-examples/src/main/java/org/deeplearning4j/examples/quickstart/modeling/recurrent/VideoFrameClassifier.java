@@ -18,11 +18,14 @@ package org.deeplearning4j.examples.quickstart.modeling.recurrent;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
+import org.datavec.api.conf.Configuration;
 import org.datavec.api.records.reader.SequenceRecordReader;
 import org.datavec.api.records.reader.impl.csv.CSVSequenceRecordReader;
 import org.datavec.api.split.InputSplit;
 import org.datavec.api.split.NumberedFileInputSplit;
+import org.datavec.codec.reader.CodecRecordReader;
 import org.deeplearning4j.datasets.datavec.SequenceRecordReaderDataSetIterator;
+import org.deeplearning4j.examples.utils.VideoGenerator;
 import org.deeplearning4j.nn.conf.BackpropType;
 import org.deeplearning4j.nn.conf.GradientNormalization;
 import org.deeplearning4j.nn.conf.MultiLayerConfiguration;
@@ -34,7 +37,6 @@ import org.deeplearning4j.nn.conf.preprocessor.RnnToCnnPreProcessor;
 import org.deeplearning4j.nn.multilayer.MultiLayerNetwork;
 import org.deeplearning4j.nn.weights.WeightInit;
 import org.deeplearning4j.optimize.listeners.ScoreIterationListener;
-import org.deeplearning4j.examples.utils.VideoGenerator;
 import org.nd4j.evaluation.classification.Evaluation;
 import org.nd4j.linalg.activations.Activation;
 import org.nd4j.linalg.api.ndarray.INDArray;
@@ -47,6 +49,7 @@ import org.nd4j.linalg.learning.config.AdaGrad;
 import org.nd4j.linalg.lossfunctions.LossFunctions;
 
 import java.io.File;
+import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.Map;
@@ -225,21 +228,20 @@ public class VideoFrameClassifier {
         return new AsyncDataSetIterator(sequenceIter,1);
     }
 
-    private static SequenceRecordReader getFeaturesReader(String path, int startIdx, int num) {
+    private static SequenceRecordReader getFeaturesReader(String path, int startIdx, int num) throws IOException, InterruptedException {
         //InputSplit is used here to define what the file paths look like
         InputSplit is = new NumberedFileInputSplit(path + "shapes_%d.mp4", startIdx, startIdx + num - 1);
 
-//        Configuration conf = new Configuration();
-//        conf.set(CodecRecordReader.RAVEL, "true");
-//        conf.set(CodecRecordReader.START_FRAME, "0");
-//        conf.set(CodecRecordReader.TOTAL_FRAMES, String.valueOf(V_NFRAMES));
-//        conf.set(CodecRecordReader.ROWS, String.valueOf(V_WIDTH));
-//        conf.set(CodecRecordReader.COLUMNS, String.valueOf(V_HEIGHT));
-//        CodecRecordReader crr = new CodecRecordReader();
-//        crr.initialize(conf, is);
-//        return crr;
+        Configuration conf = new Configuration();
+        conf.set(CodecRecordReader.RAVEL, "true");
+        conf.set(CodecRecordReader.START_FRAME, "0");
+        conf.set(CodecRecordReader.TOTAL_FRAMES, String.valueOf(V_NFRAMES));
+        conf.set(CodecRecordReader.ROWS, String.valueOf(V_WIDTH));
+        conf.set(CodecRecordReader.COLUMNS, String.valueOf(V_HEIGHT));
+        CodecRecordReader crr = new CodecRecordReader();
+        crr.initialize(conf, is);
+        return crr;
 
-        throw new UnsupportedOperationException("TODO");
     }
 
     private static SequenceRecordReader getLabelsReader(String path, int startIdx, int num) throws Exception {

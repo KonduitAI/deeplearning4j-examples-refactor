@@ -52,6 +52,11 @@
                 <artifactId>netty-common</artifactId>
                 <version>4.1.42.Final</version>
             </dependency>
+            <dependency>
+                <groupId>org.jcodec</groupId>
+                <artifactId>jcodec</artifactId>
+                <version>0.2.3</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
                                                                                 
@@ -133,6 +138,11 @@
             <groupId>org.jcodec</groupId>
             <artifactId>jcodec-javase</artifactId>
             <version>0.2.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.datavec</groupId>
+            <artifactId>datavec-data-codec</artifactId>
+            <version>1.0.0-beta6</version>
         </dependency>
     </dependencies>
     <!-- Maven Enforcer: Ensures user has an up to date version of Maven before building -->
