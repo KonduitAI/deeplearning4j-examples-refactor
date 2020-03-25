@@ -76,7 +76,7 @@ public class VideoFrameClassifier {
 
     public static void main(String[] args) throws Exception {
 
-        int miniBatchSize = 4;
+        int miniBatchSize = 16;
 
         String dataDirectory = DownloaderUtility.VIDEOEXAMPLE.Download() + "/videoshapesexample/";
 
