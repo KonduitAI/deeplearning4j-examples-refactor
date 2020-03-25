@@ -17,7 +17,7 @@
 package org.deeplearning4j.distributedtrainingexamples.patent.preprocessing;
 
 import org.apache.commons.io.FileUtils;
-import org.deeplearning4j.distributedtrainingexamples.download.DownloaderUtility;
+import org.deeplearning4j.distributedtrainingexamples.utils.DownloaderUtility;
 
 import java.io.File;
 import java.io.IOException;
