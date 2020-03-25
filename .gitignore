@@ -39,6 +39,7 @@ README.md~
 *.out
 *.csv
 *.data
+*.npy
 *~
 .pydevproject
 release.properties

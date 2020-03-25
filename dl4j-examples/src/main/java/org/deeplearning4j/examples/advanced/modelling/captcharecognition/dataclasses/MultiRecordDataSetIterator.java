@@ -14,7 +14,7 @@
  * SPDX-License-Identifier: Apache-2.0
  ******************************************************************************/
 
-package org.deeplearning4j.examples.advanced.modelling.captcharecognition;
+package org.deeplearning4j.examples.advanced.modelling.captcharecognition.dataclasses;
 
 import org.datavec.image.transform.ImageTransform;
 import org.nd4j.linalg.dataset.MultiDataSet;
@@ -32,7 +32,7 @@ public class MultiRecordDataSetIterator implements MultiDataSetIterator {
     private MulRecordDataLoader load;
     private MultiDataSetPreProcessor preProcessor;
 
-    MultiRecordDataSetIterator(int batchSize, String dataSetType) throws Exception {
+    public MultiRecordDataSetIterator(int batchSize, String dataSetType) throws Exception {
         this(batchSize, null, dataSetType);
     }
     private MultiRecordDataSetIterator(int batchSize, ImageTransform imageTransform, String dataSetType) throws Exception {

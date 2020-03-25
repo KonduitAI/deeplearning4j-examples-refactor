@@ -42,7 +42,7 @@ import java.util.*;
  * The example is identical to the one in org.deeplearning4j.examples.feedforward.regression.RegressionSum
  * except for the custom loss function
  */
-public class CustomLossExample {
+public class CustomLossUsageEx {
     public static final int seed = 12345;
     public static final int nEpochs = 500;
     public static final int nSamples = 1000;
@@ -82,7 +82,7 @@ public class CustomLossExample {
                 .build())
                 //INSTANTIATE CUSTOM LOSS FUNCTION here as follows
                 //Refer to CustomLossL1L2 class for more details on implementation
-            .layer(new OutputLayer.Builder(new CustomLossL1L2())
+            .layer(new OutputLayer.Builder(new CustomLossDefinition())
                 .activation(Activation.IDENTITY)
                 .nIn(nHidden).nOut(numOutputs).build())
             .build()
@@ -127,7 +127,7 @@ public class CustomLossExample {
         double epsilon = 1e-3;
         int totalNFailures = 0;
         double maxRelError = 5.0; // in %
-        CustomLossL1L2 lossfn = new CustomLossL1L2();
+        CustomLossDefinition lossfn = new CustomLossDefinition();
         String[] activationFns = new String[]{"identity", "softmax", "relu", "tanh", "sigmoid"};
         int[] labelSizes = new int[]{1, 2, 3, 4};
         for (int i = 0; i < activationFns.length; i++) {

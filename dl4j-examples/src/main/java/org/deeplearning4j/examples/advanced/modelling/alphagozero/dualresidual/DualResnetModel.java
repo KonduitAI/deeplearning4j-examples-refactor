@@ -14,7 +14,7 @@
  * SPDX-License-Identifier: Apache-2.0
  ******************************************************************************/
 
-package org.deeplearning4j.examples.advanced.modelling.alphagozero;
+package org.deeplearning4j.examples.advanced.modelling.alphagozero.dualresidual;
 
 import org.deeplearning4j.nn.graph.ComputationGraph;
 
@@ -32,7 +32,7 @@ import org.deeplearning4j.nn.graph.ComputationGraph;
  *
  * @author Max Pumperla
  */
-class DualResnetModel {
+public class DualResnetModel {
 
     public static ComputationGraph getModel(int blocks, int numPlanes) {
 

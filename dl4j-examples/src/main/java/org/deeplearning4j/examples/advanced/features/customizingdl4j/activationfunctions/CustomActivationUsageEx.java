@@ -40,7 +40,7 @@ import java.util.Random;
  * The example is identical to the one in org.deeplearning4j.examples.feedforward.regression.RegressionSum
  * except for the custom activation function
  */
-public class CustomActivationExample {
+public class CustomActivationUsageEx {
     public static final int seed = 12345;
     public static final int nEpochs = 500;
     public static final int nSamples = 1000;

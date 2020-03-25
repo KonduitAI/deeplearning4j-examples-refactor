@@ -44,8 +44,8 @@ public class CustomSequenceIterator implements MultiDataSetIterator {
     private final int batchSize;
     private final int totalBatches;
 
-    private static final int numDigits = AdditionRNNMain.NUM_DIGITS;
-    private static final int SEQ_VECTOR_DIM = AdditionRNNMain.FEATURE_VEC_SIZE;
+    private static final int numDigits = AdditionModelWithSeq2Seq.NUM_DIGITS;
+    private static final int SEQ_VECTOR_DIM = AdditionModelWithSeq2Seq.FEATURE_VEC_SIZE;
     private static final Map<String, Integer> oneHotMap = new HashMap<>();
     private static final String[] oneHotOrder = new String[SEQ_VECTOR_DIM];
 

@@ -14,9 +14,9 @@
  * SPDX-License-Identifier: Apache-2.0
  ******************************************************************************/
 
-package org.deeplearning4j.examples.misc.customlayers;
+package org.deeplearning4j.examples.advanced.features.customizingdl4j.customlayers;
 
-import org.deeplearning4j.examples.misc.customlayers.layer.CustomLayer;
+import org.deeplearning4j.examples.advanced.features.customizingdl4j.customlayers.layer.CustomLayer;
 import org.deeplearning4j.gradientcheck.GradientCheckUtil;
 import org.deeplearning4j.nn.conf.MultiLayerConfiguration;
 import org.deeplearning4j.nn.conf.NeuralNetConfiguration;
@@ -44,11 +44,11 @@ import java.util.Random;
 
 /**
  * Custom layer example. This example shows the use and some basic testing for a custom layer implementation.
- * For more details, see the CustomLayerExampleReadme.md file
+ * For more details, see the README.md file
  *
  * @author Alex Black
  */
-public class CustomLayerExample {
+public class CustomLayerUsageEx {
 
     static{
         //Double precision for the gradient checks. See comments in the doGradientCheck() method

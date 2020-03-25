@@ -14,7 +14,7 @@
  * SPDX-License-Identifier: Apache-2.0
  ******************************************************************************/
 
-package org.deeplearning4j.examples.misc.customlayers.layer;
+package org.deeplearning4j.examples.advanced.features.customizingdl4j.customlayers.layer;
 
 import org.deeplearning4j.nn.api.Layer;
 import org.deeplearning4j.nn.api.ParamInitializer;
@@ -70,7 +70,7 @@ public class CustomLayer extends FeedForwardLayer {
         // (i.e., a CustomLayerImpl instance)
         //For the most part, it's the same for each type of layer
 
-        CustomLayerImpl myCustomLayer = new CustomLayerImpl(conf, networkDType);
+        CustomLayerImplementation myCustomLayer = new CustomLayerImplementation(conf, networkDType);
         myCustomLayer.setListeners(iterationListeners);             //Set the iteration listeners, if any
         myCustomLayer.setIndex(layerIndex);                         //Integer index of the layer
 
@@ -141,7 +141,7 @@ public class CustomLayer extends FeedForwardLayer {
         //This is an example of a custom property in the configuration
 
         /**
-         * A custom property used in this custom layer example. See the CustomLayerExampleReadme.md for details
+         * A custom property used in this custom layer example. See the README.md for details
          *
          * @param secondActivationFunction Second activation function for the layer
          */
@@ -150,7 +150,7 @@ public class CustomLayer extends FeedForwardLayer {
         }
 
         /**
-         * A custom property used in this custom layer example. See the CustomLayerExampleReadme.md for details
+         * A custom property used in this custom layer example. See the README.md for details
          *
          * @param secondActivationFunction Second activation function for the layer
          */

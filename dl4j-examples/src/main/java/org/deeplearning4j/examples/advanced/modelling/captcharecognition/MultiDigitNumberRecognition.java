@@ -18,6 +18,7 @@ package org.deeplearning4j.examples.advanced.modelling.captcharecognition;
 
 
 import org.deeplearning4j.api.storage.StatsStorage;
+import org.deeplearning4j.examples.advanced.modelling.captcharecognition.dataclasses.MultiRecordDataSetIterator;
 import org.deeplearning4j.nn.conf.ComputationGraphConfiguration;
 import org.deeplearning4j.nn.conf.GradientNormalization;
 import org.deeplearning4j.nn.conf.NeuralNetConfiguration;

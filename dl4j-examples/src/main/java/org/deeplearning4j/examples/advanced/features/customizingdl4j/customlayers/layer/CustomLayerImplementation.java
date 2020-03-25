@@ -14,7 +14,7 @@
  * SPDX-License-Identifier: Apache-2.0
  ******************************************************************************/
 
-package org.deeplearning4j.examples.misc.customlayers.layer;
+package org.deeplearning4j.examples.advanced.features.customizingdl4j.customlayers.layer;
 
 import org.deeplearning4j.nn.conf.NeuralNetConfiguration;
 import org.deeplearning4j.nn.gradient.DefaultGradient;
@@ -35,9 +35,9 @@ import org.nd4j.linalg.primitives.Pair;
  *
  * @author Alex Black
  */
-public class CustomLayerImpl extends BaseLayer<CustomLayer> { //Generic parameter here: the configuration class type
+public class CustomLayerImplementation extends BaseLayer<CustomLayer> { //Generic parameter here: the configuration class type
 
-    public CustomLayerImpl(NeuralNetConfiguration conf, DataType dataType) {
+    public CustomLayerImplementation(NeuralNetConfiguration conf, DataType dataType) {
         super(conf, dataType);
     }
 

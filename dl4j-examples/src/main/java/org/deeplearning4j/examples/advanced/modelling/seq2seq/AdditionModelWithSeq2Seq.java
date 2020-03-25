@@ -38,7 +38,7 @@ import org.nd4j.linalg.lossfunctions.LossFunctions;
 /**
  * Created by susaneraly on 3/27/16.
  */
-public class AdditionRNNMain {
+public class AdditionModelWithSeq2Seq {
 
     /*
         This example is modeled off the sequence to sequence RNNs described in http://arxiv.org/abs/1410.4615

@@ -14,7 +14,7 @@
  * SPDX-License-Identifier: Apache-2.0
  ******************************************************************************/
 
-package org.deeplearning4j.examples.advanced.modelling.captcharecognition;
+package org.deeplearning4j.examples.advanced.modelling.captcharecognition.dataclasses;
 
 import org.apache.commons.io.FileUtils;
 import org.datavec.image.loader.NativeImageLoader;

@@ -27,7 +27,7 @@ import org.slf4j.LoggerFactory;
 /**
  * Created by susaneraly on 11/8/16.
  */
-public class CustomLossL1L2 implements ILossFunction {
+public class CustomLossDefinition implements ILossFunction {
 
     /* This example illustrates how to implements a custom loss function that can then be applied to training your neural net
        All loss functions have to implement the ILossFunction interface
@@ -36,7 +36,7 @@ public class CustomLossL1L2 implements ILossFunction {
         y is the true label, y_hat is the predicted output
      */
 
-    private static Logger logger = LoggerFactory.getLogger(CustomLossL1L2.class);
+    private static Logger logger = LoggerFactory.getLogger(CustomLossDefinition.class);
 
     /*
     Needs modification depending on your loss function
@@ -145,8 +145,8 @@ public class CustomLossL1L2 implements ILossFunction {
 
     public boolean equals(Object o) {
         if (o == this) return true;
-        if (!(o instanceof CustomLossL1L2)) return false;
-        final CustomLossL1L2 other = (CustomLossL1L2) o;
+        if (!(o instanceof CustomLossDefinition)) return false;
+        final CustomLossDefinition other = (CustomLossDefinition) o;
         if (!other.canEqual((Object) this)) return false;
         return true;
     }
@@ -157,7 +157,7 @@ public class CustomLossL1L2 implements ILossFunction {
     }
 
     protected boolean canEqual(Object other) {
-        return other instanceof CustomLossL1L2;
+        return other instanceof CustomLossDefinition;
     }
 }
 
