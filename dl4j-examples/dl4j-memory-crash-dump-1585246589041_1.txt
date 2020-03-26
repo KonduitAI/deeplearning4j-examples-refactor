@@ -1,0 +1,126 @@
+Deeplearning4j OOM Exception Encountered for MultiLayerNetwork
+Timestamp:                              2020-03-26 11:16:29.041
+Thread ID                               1
+Thread Name                             main
+
+
+Stack Trace:
+java.lang.OutOfMemoryError: Cannot allocate new LongPointer(2): totalBytes = 221K, physicalBytes = 7332M
+	at org.bytedeco.javacpp.LongPointer.<init>(LongPointer.java:76)
+	at org.bytedeco.javacpp.LongPointer.<init>(LongPointer.java:41)
+	at org.nd4j.linalg.cpu.nativecpu.ops.NativeOpExecutioner.createShapeInfo(NativeOpExecutioner.java:2116)
+	at org.nd4j.linalg.api.shape.Shape.createShapeInformation(Shape.java:3249)
+	at org.nd4j.linalg.api.ndarray.BaseShapeInfoProvider.createShapeInformation(BaseShapeInfoProvider.java:69)
+	at org.nd4j.linalg.api.ndarray.BaseNDArray.<init>(BaseNDArray.java:230)
+	at org.nd4j.linalg.api.ndarray.BaseNDArray.<init>(BaseNDArray.java:341)
+	at org.nd4j.linalg.cpu.nativecpu.NDArray.<init>(NDArray.java:193)
+	at org.nd4j.linalg.cpu.nativecpu.CpuNDArrayFactory.createUninitialized(CpuNDArrayFactory.java:241)
+	at org.nd4j.linalg.factory.Nd4j.createUninitialized(Nd4j.java:4339)
+	at org.nd4j.linalg.api.ndarray.BaseNDArray.dup(BaseNDArray.java:1727)
+	at org.nd4j.linalg.workspace.BaseWorkspaceMgr.dup(BaseWorkspaceMgr.java:278)
+	at org.deeplearning4j.nn.conf.preprocessor.RnnToCnnPreProcessor.preProcess(RnnToCnnPreProcessor.java:88)
+	at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.ffToLayerActivationsInWs(MultiLayerNetwork.java:1122)
+	at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.computeGradientAndScore(MultiLayerNetwork.java:2750)
+	at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.computeGradientAndScore(MultiLayerNetwork.java:2708)
+	at org.deeplearning4j.optimize.solvers.BaseOptimizer.gradientAndScore(BaseOptimizer.java:170)
+	at org.deeplearning4j.optimize.solvers.StochasticGradientDescent.optimize(StochasticGradientDescent.java:63)
+	at org.deeplearning4j.optimize.Solver.optimize(Solver.java:52)
+	at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.doTruncatedBPTT(MultiLayerNetwork.java:2095)
+	at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.fitHelper(MultiLayerNetwork.java:2301)
+	at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.fit(MultiLayerNetwork.java:2267)
+	at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.fit(MultiLayerNetwork.java:2330)
+	at org.deeplearning4j.examples.quickstart.modeling.recurrent.VideoFrameClassifier.main(VideoFrameClassifier.java:157)
+Caused by: java.lang.OutOfMemoryError: Physical memory usage is too high: physicalBytes (7332M) > maxPhysicalBytes (7282M)
+	at org.bytedeco.javacpp.Pointer.deallocator(Pointer.java:659)
+	at org.bytedeco.javacpp.Pointer.init(Pointer.java:127)
+	at org.bytedeco.javacpp.LongPointer.allocateArray(Native Method)
+	at org.bytedeco.javacpp.LongPointer.<init>(LongPointer.java:68)
+	... 23 more
+
+
+========== Memory Information ==========
+----- Version Information -----
+Deeplearning4j Version                  1.0.0-beta6
+Deeplearning4j CUDA                     <not present>
+
+----- System Information -----
+Operating System                        Apple Mac OS X 10.11.6
+CPU                                     Intel(R) Core(TM) i7-5557U CPU @ 3.10GHz
+CPU Cores - Physical                    2
+CPU Cores - Logical                     4
+Total System Memory                      16.00 GiB (17179869184)
+
+----- ND4J Environment Information -----
+Data Type                               FLOAT
+backend                                 CPU
+blas.vendor                             OPENBLAS
+os                                      Mac OS X
+
+----- Memory Configuration -----
+JVM Memory: XMX                           3.56 GiB (3817865216)
+JVM Memory: current                     215.00 MiB (225443840)
+JavaCPP Memory: Max Bytes                 3.56 GiB (3817865216)
+JavaCPP Memory: Max Physical              7.11 GiB (7635730432)
+JavaCPP Memory: Current Bytes           221.85 KiB (227176)
+JavaCPP Memory: Current Physical          7.17 GiB (7699914752)
+Periodic GC Enabled                     false
+
+----- Workspace Information -----
+Workspaces: # for current thread        2
+Current thread workspaces:
+  Name                      State       Size                          # Cycles            
+  WS_LAYER_WORKING_MEM      CLOSED           .00 B                    1                   
+  WS_ALL_LAYERS_ACT         CLOSED       97.48 MiB (102211200)        1                   
+Workspaces total size                    97.48 MiB (102211200)
+
+----- Network Information -----
+Network # Parameters                    56694
+Parameter Memory                        221.46 KiB (226776)
+Parameter Gradients Memory              <not allocated>
+Updater                                 <not initialized>
+Params + Gradient + Updater Memory           .00 B
+Iteration Count                         0
+Epoch Count                             0
+Backprop Type                           TruncatedBPTT
+TBPTT Length                            30/30
+Workspace Mode: Training                ENABLED
+Workspace Mode: Inference               ENABLED
+Number of Layers                        6
+Layer Counts
+  ConvolutionLayer                        2
+  DenseLayer                              1
+  LSTM                                    1
+  RnnOutputLayer                          1
+  SubsamplingLayer                        1
+Layer Parameter Breakdown
+  Idx Name                 Layer Type           Layer # Parameters   Layer Parameter Memory
+  0   layer0               ConvolutionLayer     9030                  35.27 KiB (36120)  
+  1   layer1               SubsamplingLayer     0                         .00 B          
+  2   layer2               ConvolutionLayer     2710                  10.59 KiB (10840)  
+  3   layer3               DenseLayer           24550                 95.90 KiB (98200)  
+  4   layer4               LSTM                 20200                 78.91 KiB (80800)  
+  5   layer5               RnnOutputLayer       204                    816.00 B          
+
+----- Layer Helpers - Memory Use -----
+Total Helper Count                      3
+Helper Count w/ Memory                  0
+Total Helper Persistent Memory Use           .00 B
+
+----- Network Activations: Inferred Activation Shapes -----
+Current Minibatch Size                  16
+Input Shape                             [16, 50700, 30]
+Idx Name                 Layer Type           Activations Type                           Activations Shape    # Elements   Memory      
+0   layer0               ConvolutionLayer     InputTypeConvolutional(h=31,w=31,c=30)     [16, 30, 31, 31]     461280         1.76 MiB (1845120)
+1   layer1               SubsamplingLayer     InputTypeConvolutional(h=15,w=15,c=30)     [16, 30, 15, 15]     108000       421.88 KiB (432000)
+2   layer2               ConvolutionLayer     InputTypeConvolutional(h=7,w=7,c=10)       [16, 10, 7, 7]       7840          30.62 KiB (31360)
+3   layer3               DenseLayer           InputTypeFeedForward(50)                   [16, 50]             800            3.12 KiB (3200)
+4   layer4               LSTM                 InputTypeRecurrent(50)                     [16, 50, -1]         <variable>        .00 B  
+5   layer5               RnnOutputLayer       InputTypeRecurrent(4)                      [16, 4, -1]          <variable>        .00 B  
+Total Activations Memory                  2.20 MiB (2311680)
+Total Activations Memory (per ex)       141.09 KiB (144480)
+Total Activation Gradient Mem.           95.04 MiB (99655680)
+Total Activation Gradient Mem. (per ex)   5.94 MiB (6228480)
+
+----- Network Training Listeners -----
+Number of Listeners                     1
+Listener 0                              ScoreIterationListener(1)

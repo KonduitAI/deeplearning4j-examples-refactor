@@ -89,7 +89,7 @@ public class MultiDigitNumberRecognition {
         //fit
         model.setListeners(new ScoreIterationListener(10), new StatsListener( statsStorage), new EvaluativeListener(testMulIterator, 1, InvocationType.EPOCH_END));
         int epochs = 4;
-        model.fit(trainMulIterator, epochs);
+        //model.fit(trainMulIterator, epochs);
 
         //save
         model.save(new File(modelPath), true);
@@ -175,9 +175,9 @@ public class MultiDigitNumberRecognition {
                 INDArray realLabel;
                 for (int digit = 0; digit < 6; digit ++) {
                     preOutput = output[digit].getRow(dataIndex);
-                    peLabel.append(Nd4j.argMax(preOutput, 1).getInt(0));
+                    peLabel.append(Nd4j.argMax(preOutput).getInt(0));
                     realLabel = labels[digit].getRow(dataIndex);
-                    reLabel.append(Nd4j.argMax(realLabel, 1).getInt(0));
+                    reLabel.append(Nd4j.argMax(realLabel).getInt(0));
                 }
                 boolean equals = peLabel.toString().equals(reLabel.toString());
                 if (equals) {
