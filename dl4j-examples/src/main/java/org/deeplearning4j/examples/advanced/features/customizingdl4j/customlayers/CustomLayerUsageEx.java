@@ -163,10 +163,10 @@ public class CustomLayerUsageEx {
         int nIn = 3;
         int nOut = 2;
 
-        MultiLayerConfiguration config = new NeuralNetConfiguration.Builder()
+        MultiLayerConfiguration config = new NeuralNetConfiguration.Builder().dataType(DataType.DOUBLE)
             .seed(12345)
             .updater(new NoOp())
-            .weightInit(WeightInit.DISTRIBUTION).dist(new NormalDistribution(0,1))              //Larger weight init than normal can help with gradient checks
+            .weightInit(new NormalDistribution(0,1))
             .l2(0.03)
             .list()
             .layer(0, new DenseLayer.Builder().activation(Activation.TANH).nIn(nIn).nOut(3).build())    //Standard DenseLayer
