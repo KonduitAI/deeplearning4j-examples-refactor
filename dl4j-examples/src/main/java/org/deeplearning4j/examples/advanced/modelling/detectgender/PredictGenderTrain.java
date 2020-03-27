@@ -90,9 +90,9 @@ public class PredictGenderTrain
 
 
             GenderRecordReader rr1 = new GenderRecordReader(new ArrayList<String>() {{add("M");add("F");}});
+            rr1.initialize(new FileSplit(new File(this.filePath)));
 
             DataSetIterator trainIter = new RecordReaderDataSetIterator(rr, batchSize, numInputs, 2);
-            DataSetIterator testIter = new RecordReaderDataSetIterator(rr1, batchSize, numInputs, 2);
 
             MultiLayerConfiguration conf = new NeuralNetConfiguration.Builder()
                 .seed(seed)
@@ -135,14 +135,12 @@ public class PredictGenderTrain
 
             System.out.println("Evaluate model....");
             Evaluation eval = new Evaluation(numOutputs);
-            while(testIter.hasNext()){
-                DataSet t = testIter.next();
+            while(trainIter.hasNext()){
+                DataSet t = trainIter.next();
                 INDArray features = t.getFeatures();
                 INDArray lables = t.getLabels();
                 INDArray predicted = model.output(features,false);
-
                 eval.eval(lables, predicted);
-
             }
 
             //Print the evaluation statistics
