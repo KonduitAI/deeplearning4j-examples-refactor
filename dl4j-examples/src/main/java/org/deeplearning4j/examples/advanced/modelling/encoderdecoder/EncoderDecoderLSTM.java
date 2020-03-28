@@ -386,8 +386,8 @@ public class EncoderDecoderLSTM {
         double[] decodeArr = new double[dict.size()];
         decodeArr[2] = 1;
         INDArray decode = Nd4j.create(decodeArr, 1, dict.size(), 1);
-        //net.feedForward(new INDArray[] { in, decode }, false, false);
-        INDArray[] netOuts = net.output(false, false, new INDArray[]{in, decode});
+        net.feedForward(new INDArray[] { in, decode }, false, false);
+        //INDArray[] netOuts = net.output(false, false, new INDArray[]{in, decode});
         org.deeplearning4j.nn.layers.recurrent.LSTM decoder = (org.deeplearning4j.nn.layers.recurrent.LSTM) net
                 .getLayer("decoder");
         Layer output = net.getLayer("output");
