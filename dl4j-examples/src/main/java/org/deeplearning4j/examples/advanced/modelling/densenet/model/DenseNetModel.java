@@ -14,7 +14,7 @@
  * SPDX-License-Identifier: Apache-2.0
  ******************************************************************************/
 
-package org.deeplearning4j.examples.advanced.modelling.densenet;
+package org.deeplearning4j.examples.advanced.modelling.densenet.model;
 
 import org.deeplearning4j.nn.graph.ComputationGraph;
 

@@ -30,6 +30,7 @@ import org.deeplearning4j.api.storage.StatsStorage;
 import org.deeplearning4j.datasets.datavec.RecordReaderDataSetIterator;
 import org.deeplearning4j.examples.advanced.modelling.densenet.imageUtils.BlurTransform;
 import org.deeplearning4j.examples.advanced.modelling.densenet.imageUtils.NoiseTransform;
+import org.deeplearning4j.examples.advanced.modelling.densenet.model.DenseNetModel;
 import org.deeplearning4j.examples.utils.DownloaderUtility;
 import org.deeplearning4j.nn.graph.ComputationGraph;
 import org.deeplearning4j.optimize.api.InvocationType;

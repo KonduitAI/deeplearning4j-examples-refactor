@@ -83,7 +83,7 @@ import java.util.concurrent.TimeUnit;
  * </ul>
  * <p>
  * The architecture is like this:
- *
+ * <p>
  * <pre>
  * Input =&gt; Embedding Layer =&gt; Encoder =&gt; Decoder =&gt; Output (softmax)
  * </pre>
@@ -183,7 +183,7 @@ public class EncoderDecoderLSTM {
     private static final long SAVE_EACH_MS = TimeUnit.MINUTES.toMillis(5); // save the model with this period
     private static final long TEST_EACH_MS = TimeUnit.MINUTES.toMillis(1); // test the model with this period
     private static final int MAX_DICT = 20000; // this number of most frequent words will be used, unknown words (that are not in the
-                                               // dictionary) are replaced with <unk> token
+    // dictionary) are replaced with <unk> token
     private static final int TBPTT_SIZE = 25;
     private static final double LEARNING_RATE = 1e-1;
     private static final int ROW_SIZE = 40; // maximum line length in tokens
@@ -242,48 +242,48 @@ public class EncoderDecoderLSTM {
      */
     private void createComputationGraph() {
         final NeuralNetConfiguration.Builder builder = new NeuralNetConfiguration.Builder()
-            .updater(new RmsProp(LEARNING_RATE))
-            .weightInit(WeightInit.XAVIER)
-            .gradientNormalization(GradientNormalization.RenormalizeL2PerLayer);
+                .updater(new RmsProp(LEARNING_RATE))
+                .weightInit(WeightInit.XAVIER)
+                .gradientNormalization(GradientNormalization.RenormalizeL2PerLayer);
 
         final GraphBuilder graphBuilder = builder.graphBuilder()
-            .backpropType(BackpropType.Standard)
-            .tBPTTBackwardLength(TBPTT_SIZE)
-            .tBPTTForwardLength(TBPTT_SIZE)
-            .addInputs("inputLine", "decoderInput")
-            .setInputTypes(InputType.recurrent(dict.size()), InputType.recurrent(dict.size()))
-            .addLayer("embeddingEncoder",
-                new EmbeddingLayer.Builder()
-                    .nIn(dict.size())
-                    .nOut(EMBEDDING_WIDTH)
-                    .build(),
-                "inputLine")
-            .addLayer("encoder",
-                new LSTM.Builder()
-                    .nIn(EMBEDDING_WIDTH)
-                    .nOut(HIDDEN_LAYER_WIDTH)
-                    .activation(Activation.TANH)
-                    .build(),
-                "embeddingEncoder")
-            .addVertex("thoughtVector", new LastTimeStepVertex("inputLine"), "encoder")
-            .addVertex("dup", new DuplicateToTimeSeriesVertex("decoderInput"), "thoughtVector")
-            .addVertex("merge", new MergeVertex(), "decoderInput", "dup")
-            .addLayer("decoder",
-                new LSTM.Builder()
-                    .nIn(dict.size() + HIDDEN_LAYER_WIDTH)
-                    .nOut(HIDDEN_LAYER_WIDTH)
-                    .activation(Activation.TANH)
-                    .build(),
-                "merge")
-            .addLayer("output",
-                new RnnOutputLayer.Builder()
-                    .nIn(HIDDEN_LAYER_WIDTH)
-                    .nOut(dict.size())
-                    .activation(Activation.SOFTMAX)
-                    .lossFunction(LossFunctions.LossFunction.MCXENT)
-                    .build(),
-                "decoder")
-            .setOutputs("output");
+                .backpropType(BackpropType.Standard)
+                .tBPTTBackwardLength(TBPTT_SIZE)
+                .tBPTTForwardLength(TBPTT_SIZE)
+                .addInputs("inputLine", "decoderInput")
+                .setInputTypes(InputType.recurrent(dict.size()), InputType.recurrent(dict.size()))
+                .addLayer("embeddingEncoder",
+                        new EmbeddingLayer.Builder()
+                                .nIn(dict.size())
+                                .nOut(EMBEDDING_WIDTH)
+                                .build(),
+                        "inputLine")
+                .addLayer("encoder",
+                        new LSTM.Builder()
+                                .nIn(EMBEDDING_WIDTH)
+                                .nOut(HIDDEN_LAYER_WIDTH)
+                                .activation(Activation.TANH)
+                                .build(),
+                        "embeddingEncoder")
+                .addVertex("thoughtVector", new LastTimeStepVertex("inputLine"), "encoder")
+                .addVertex("dup", new DuplicateToTimeSeriesVertex("decoderInput"), "thoughtVector")
+                .addVertex("merge", new MergeVertex(), "decoderInput", "dup")
+                .addLayer("decoder",
+                        new LSTM.Builder()
+                                .nIn(dict.size() + HIDDEN_LAYER_WIDTH)
+                                .nOut(HIDDEN_LAYER_WIDTH)
+                                .activation(Activation.TANH)
+                                .build(),
+                        "merge")
+                .addLayer("output",
+                        new RnnOutputLayer.Builder()
+                                .nIn(HIDDEN_LAYER_WIDTH)
+                                .nOut(dict.size())
+                                .activation(Activation.SOFTMAX)
+                                .lossFunction(LossFunctions.LossFunction.MCXENT)
+                                .build(),
+                        "decoder")
+                .setOutputs("output");
 
         net = new ComputationGraph(graphBuilder.build());
         net.init();
@@ -386,7 +386,8 @@ public class EncoderDecoderLSTM {
         double[] decodeArr = new double[dict.size()];
         decodeArr[2] = 1;
         INDArray decode = Nd4j.create(decodeArr, 1, dict.size(), 1);
-        net.feedForward(new INDArray[] { in, decode }, false, false);
+        //net.feedForward(new INDArray[] { in, decode }, false, false);
+        INDArray[] netOuts = net.output(false, false, new INDArray[]{in, decode});
         org.deeplearning4j.nn.layers.recurrent.LSTM decoder = (org.deeplearning4j.nn.layers.recurrent.LSTM) net
                 .getLayer("decoder");
         Layer output = net.getLayer("output");
