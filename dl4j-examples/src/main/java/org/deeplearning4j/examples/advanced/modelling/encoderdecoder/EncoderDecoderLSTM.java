@@ -494,7 +494,7 @@ public class EncoderDecoderLSTM {
     }
 
     private String toTempPath(String path) {
-        return System.getProperty("java.io.tmpdir") + "/" + path;
+        return  "/tmp/" + path;
     }
 
 }
