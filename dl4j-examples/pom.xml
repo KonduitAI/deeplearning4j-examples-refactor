@@ -141,7 +141,7 @@
         <dependency>
             <groupId>org.datavec</groupId>
             <artifactId>datavec-data-codec</artifactId>
-            <version>1.0.0-beta6</version>
+            <version>${dl4j-master.version}</version>
         </dependency>
         <dependency>
             <groupId>org.bytedeco</groupId>

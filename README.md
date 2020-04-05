@@ -9,13 +9,13 @@ If checked all examples have been migrated
 - [X] Cuda specific examples {everything migrated}
 - [X] Distributed training
 - [X] Arbiter examples
-- [ ] lstm-hdfs examples??
-- [ ] jumpy {errors now, python 3 support}
-- [ ] pydatavec {errors now, python 3 support?}
-- [ ] java fx examples??
+- [X] lstm-hdfs examples? - removed
+- [X] jumpy {errors now, python 3 support - removed
+- [X] pydatavec {errors now, python 3 support?} - removed
+- [X] java fx examples?? - moved
 - [ ] Android
-- [ ] RL4J
-- [ ] legacy spark examples - removed
+- [X] RL4J
+- [X] legacy spark examples - removed
 
 To dos: 
 - [X] Add code to download w2vec model if it's not already present
