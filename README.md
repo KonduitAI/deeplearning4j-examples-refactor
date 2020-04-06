@@ -18,23 +18,13 @@ If checked all examples have been migrated
 - [X] legacy spark examples - removed
 
 To dos: 
-- [X] Add code to download w2vec model if it's not already present
-- [ ] Everything runs or issues filed
+- [X] Everything runs or issues filed
+- [ ] Add readme to each project that lists one line summary of each example and links to example md file
+- [ ] Add a .md file per example per TEMPLATE
 - [ ] Tune poorly tuned examples
-- [ ] Add readme to each project with (check TEMPLATE_PLAN doc)
 - [ ] Clean up printing with unnecessary json etc
 - [ ] Clean up comments
 - [ ] Check all poms for unnecessary version properties etc
 - [ ] Fix logging levels (missing xml in some projects)
 - [ ] What's with the vulnerability warning on github?
 
-With a GPU/a real dev box run and verify long running examples which are:
-- [ ] cuda specific project, all
-- [ ] spark examples, all
-
-Notes to not forget:
-- Maybe include runtimes with examples to give users an idea
-- Quick start examples should include running the UI
-- Quick start examples should be ordered
-- Add follow to an example like after CSVExample run CSVExampleEvaluationMetaData
-- Attempt auto formatting??

@@ -1,20 +1,14 @@
-README template for each example
-Should be a table/json/md format?
-
 for each example:
 	One line summary
-	Prerequisites to be covered before running it
-	Run time as a ratio of the shortest running example
-	What other examples to look at next
-	List of tags that can be indexed in a search query (sort and count will reveal redundancies in our examples; make a good list of tags i.e work on building out tagging bottom up and top down - define the tags before tagging the examples and then let the examples define the tags and then iterate)
-	Maintainence todo (this is a work around for a bug in current release that will be fixed etc)
+	List of how-tos covered
+	Expected accuracy/metric etc
+	Required Memory
+	Expected runtime - raw for some config, and as a ratio of one of the simpler ex
+	Parameters to run (heap, off heap etc)/Run command
+	Other related examples
+	Next steps/what to look at next
 
-	Hidden run script file that is like a test - what does it mean to say this example works? Runs without errors, what else? expected value of accuracy/training metric? clock run time as a ratio of shortest running test for regression testing
-
-- All examples should have be able to run from the command line (i.e no run once with setting boolean to true then run again with false - set this as a command line parameter)
-- Plots/graphs should be handled - option to skip for checks (but not verbose or interfere with tht ability of the examples - so maybe autogenerate the code for it?) 
-- Is there any alternative to having to check plots manually? why not?
-- If for an example one class has to be run before the other this should be documented in the README and the run file
-- How to handle deprecated APIs? Script to check
-- Standardize notations for FIXME for next release?
-- Memory requirements for example and options to get it to run..
+Other:
+Standardize maintainence todo (this is a work around for a bug in current release that will be fixed etc)
+Hidden run script file that is like a test - what does it mean to say this example works? Runs without errors, what else? expected value of accuracy/training metric? clock run time as a ratio of shortest running test for regression testing
+How to handle deprecated APIs? Script to check
