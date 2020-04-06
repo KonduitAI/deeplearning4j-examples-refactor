@@ -1,0 +1,5 @@
+#!/usr/bin/env bash                                                             
+cd $1
+JAR_DIR=$(echo $PWD  | perl -pe 's/\/src\/main\/java\/org\/.*/\/target/')       
+JAR=$(find $JAR_DIR -name "*-shaded.jar")   
+echo $JAR
