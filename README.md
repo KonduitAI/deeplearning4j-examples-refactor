@@ -28,3 +28,21 @@ To dos:
 - [ ] Fix logging levels (missing xml in some projects)
 - [ ] What's with the vulnerability warning on github?
 
+
+
+The Eclipse DL4J stack is a set of projects intended to support all the needs of
+a JVM based deep learning application from loading and preprocessing raw data wherever and whatever format it may be to building and tuning a wide variety of simple and complex neural networks.
+<TODO: Explain difference between DL4J and SameDiff in the context of model import and other>
+Here are the list of projects the stack comprises of:
+- DL4J
+	* Allows you to build MultiLayerNetworks and ComputationGraphs that with a variety of layers <TODO: Link to different layers>; Supports custom layers etc
+	* Supports importing Keras models
+- ND4J
+	* General purpose linear algebra library and automatic differentiantion graph $engine called SameDiff. Supports static and dynamic graph execution.
+	* Supports importing Tensorflow models
+- DataVec
+	* ETL for data in a wide variety of formats and files (HDFS, Spark, Images, Video, Audio etc)
+- Arbiter
+	* Library for hyperparameter searches
+- LibND4J
+	* C++ library that powers everything. For more information on how the JVM acceses native arrays and operations refer to <TODO> JavaCPP
