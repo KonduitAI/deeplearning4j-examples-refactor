@@ -1,0 +1,4 @@
+#/usr/bin/bash
+
+- orginal java file with main moved to .orig
+- cat *java.orig | replace "public static void .*\n" with that + Utils.startMemoryLoggingThread(2000);\n

@@ -46,3 +46,5 @@ Here are the list of projects the stack comprises of:
 	* Library for hyperparameter searches
 - LibND4J
 	* C++ library that powers everything. For more information on how the JVM acceses native arrays and operations refer to <TODO> JavaCPP
+
+<TODO: Link to Konduit serving explaining what it is>

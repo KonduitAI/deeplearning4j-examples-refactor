@@ -12,3 +12,18 @@ Other:
 Standardize maintainence todo (this is a work around for a bug in current release that will be fixed etc)
 Hidden run script file that is like a test - what does it mean to say this example works? Runs without errors, what else? expected value of accuracy/training metric? clock run time as a ratio of shortest running test for regression testing
 How to handle deprecated APIs? Script to check
+
+
+export TIME='Command\t%C                                                        
+RealTime\t%E                                                                    
+UserTime\t%U                                                                    
+SystemTime\t%S                                                                  
+CPUPercentageTime\t%P                                                           
+AverageSharedTextKB\t%X                                                         
+AverageUnsharedDataKB\t%D                                                       
+AverageUnsharedStackKB\t%p                                                      
+AverageTotalMemUse(data+stack+text)\t%K                                         
+MaximumMemory\t%M                                                               
+MajorPageFaults\t%F                                                             
+MinorPageFaults\t%R                                                             
+'    
