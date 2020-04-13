@@ -1,4 +1,26 @@
 #/usr/bin/bash
 
-- orginal java file with main moved to .orig
-- cat *java.orig | replace "public static void .*\n" with that + Utils.startMemoryLoggingThread(2000);\n
+- cp over Utils.java to utils package
+for each example in given list of examples
+	- orginal java file with main moved to .orig
+	- insert a new main and replace main with realMain
+    - add necessary imports
+- mvn install
+for each example in given list of examples
+	- run each example and store output to log
+	- grep log to report relevant stats
+rm all *.java.orig files
+git reset hard to discard changes
+
+Notes:
+
+import java.util.concurrent.atomic.AtomicLong;
+import org.deeplearning4j.examples.utils.DevUtils;
+    public static void main(String[] args) throws Exception {
+        DevUtils.logMemoryConfig();
+        AtomicLong[] bytes = DevUtils.startMemoryLoggingThread(2000);
+        realMain(args);
+        System.out.println("Completed DL4J Model. Max observed bytes = " + bytes[0].get() + ", max physical bytes = " + bytes[1].get());
+    }
+
+    public static void realMain(String[] args) throws Exception {
