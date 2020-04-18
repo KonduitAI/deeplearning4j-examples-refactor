@@ -35,8 +35,6 @@ import org.nd4j.linalg.dataset.api.iterator.MultiDataSetIterator;
 import org.nd4j.linalg.learning.config.Sgd;
 import org.nd4j.linalg.primitives.Pair;
 import org.nd4j.resources.Downloader;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.net.URL;
@@ -61,8 +59,6 @@ import java.util.*;
  * preprocessed (removing unneeded nodes etc) before inference can be carried out on it. More details with code below.
  */
 public class BertInferenceExample {
-
-    public static Logger log = LoggerFactory.getLogger(BertInferenceExample.class);
 
     public static String bertModelPath;
     //This BERT model uses a FIXED (hardcoded) minibatch size, not dynamic as most models use
@@ -155,7 +151,12 @@ public class BertInferenceExample {
         }
 
         CollectionLabeledPairSentenceProvider labeledPairSentenceProvider = new CollectionLabeledPairSentenceProvider(sentencesL, sentencesR, labels, null);
-        File wordPieceTokens = new File(bertModelPath, "uncased/uncased_L-12_H-768_A-12/vocab.txt");
+        URL vocabURL = new URL("https://dl4jdata.blob.core.windows.net/testresources/uncased/uncased_L-12_H-768_A-12/vocab.txt");
+        String vocabFileName = "vocab.txt";
+        fileMD5 = "64800d5d8528ce344256daf115d4965e";
+        Downloader.download(vocabFileName,vocabURL, new File(bertModelPath,vocabFileName),fileMD5,5);
+
+        File wordPieceTokens = new File(bertModelPath, vocabFileName);
 
         BertWordPieceTokenizerFactory t = new BertWordPieceTokenizerFactory(wordPieceTokens, true, true, StandardCharsets.UTF_8);
         BertIterator b = BertIterator.builder()
