@@ -53,8 +53,8 @@ import java.util.Random;
  *
  * @author wangfeng.
  */
-public class TrainLotteryModel {
-    private static Logger log = LoggerFactory.getLogger(TrainLotteryModel.class);
+public class TrainLotteryModelSeqPrediction {
+    private static Logger log = LoggerFactory.getLogger(TrainLotteryModelSeqPrediction.class);
 
     private static int batchSize = 64;
     private static long seed = 123;
