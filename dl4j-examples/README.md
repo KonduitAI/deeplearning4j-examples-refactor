@@ -86,7 +86,7 @@ word2vec.java
 #### Char Modelling
 GenerateTxtModel.java & GenerateTxtCharCompGraphModel.java
 
-### Other Sequence Modeling
+### Other Sequence Modeling Examples
 SequenceAnomalyDetection.java
 TrainLotteryModelSeqPrediction.java
 
@@ -99,4 +99,21 @@ MixtureDensityNetwork
 
 ### Features
 
+#### Customizing DL4J
+CustomActivationUsageEx.java
+CustomLayerUsageEx.java
+CustomLossUsageEx.java
 
+#### Performance
+ParallelInferenceExample.java
+
+#### Debugging
+CSVExampleEvaluationMetaData.java
+MultiLayerNetworkExternalErrors.java
+
+#### TransferLearning
+EditLastLayerOthersFrozen.java
+FeaturizedPreSave.java & FitFromFeaturized.java
+EditAtBottleneckOthersFrozen.java
+FineTuneFromBlockFour.java
+EditAtBottleneckOthersFrozen.java
