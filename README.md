@@ -2,16 +2,11 @@ The Eclipse DL4J ecosystem is a set of projects intended to support all the need
 <TODO: Link to Konduit serving explaining what it is?>
 
 The DL4J stack comprises of:
-- DL4J
-High level API to build MultiLayerNetworks and ComputationGraphs with a variety of layers, including custom ones. Supports importing Keras models from h5
-- ND4J
-General purpose linear algebra library and automatic differentiantion graph engine called SameDiff. Supports static (ala Tensorflow) and dynamic (ala Tensorflow eager/PyTorch)  style graph execution. Supports importing Tensorflow .pb (protobuf) models, as well as some support for ONNX models 
-- DataVec
-ETL for data in a wide variety of formats and files (HDFS, Spark, Images, Video, Audio etc)
-- Arbiter
-Library for hyperparameter search
-- LibND4J
-C++ library that underpins everything. For more information on how the JVM acceses native arrays and operations refer to <TODO:link> JavaCPP
+- *DL4J*: High level API to build MultiLayerNetworks and ComputationGraphs with a variety of layers, including custom ones. Supports importing Keras models from h5
+- *ND4J*: General purpose linear algebra library and automatic differentiantion graph engine called SameDiff. Supports static (ala Tensorflow) and dynamic (ala Tensorflow eager/PyTorch)  style graph execution. Supports importing Tensorflow .pb (protobuf) models, as well as some support for ONNX models 
+- *DataVec*: ETL for data in a wide variety of formats and files (HDFS, Spark, Images, Video, Audio etc)
+- *Arbiter*: Library for hyperparameter search
+- *LibND4J* : C++ library that underpins everything. For more information on how the JVM acceses native arrays and operations refer to <TODO:link> JavaCPP
 
 <TODO: Link to Konduit serving explaining what it is>
 
