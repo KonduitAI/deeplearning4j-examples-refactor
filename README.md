@@ -17,7 +17,7 @@ The DL4J stack comprises of:
 
 <TODO: Link to Konduit serving explaining what it is>
 
-This example repo consists of several separate Java projects, with their own pom files. In general examples in each are repo are separated into "quickstart" (for the beginner) and "advanced". Each project README also lists all the examples it contains, with a recommended order to explore them in. 
+This example repo consists of several separate maven Java projects, with their own pom files. Projects are based on what the included examples demonstrate to the user and not necessarily by the DL4J stack libraries. Examples in a project are in general separated into "quickstart" (for the beginner) and "advanced". Each project README also lists all the examples it contains, with a recommended order to explore them in. 
 
 - dl4j-examples
 	* This project contains a set of examples that demonstrate use of the high level DL4J API to build a variety of neural networks. More information present in the project README here <TODO: Link to README>
