@@ -10,110 +10,110 @@ The pom file in this project can be used as a template for a user's own project.
 #### Feedforward Neural Networks
 
 ##### Classification
-IrisClassifier.java
-LinearDataClassifier.java
-MNISTSingleLayer.java
-MNISTDoubleLayer.java
-ModelXOR.java
-MoonClassifier.java
-SaturnClassifier.java
+ IrisClassifier.java
+ LinearDataClassifier.java
+ MNISTSingleLayer.java
+ MNISTDoubleLayer.java
+ ModelXOR.java
+ MoonClassifier.java
+ SaturnClassifier.java
 
 ##### Regression
-CSVDataModel.java
-MathFunctionsModel.java
-SumModel.java
-ImageDrawer.java
-AnimalClassifier.java
+ CSVDataModel.java
+ MathFunctionsModel.java
+ SumModel.java
+ ImageDrawer.java
+ AnimalClassifier.java
 
 ##### Unsupervised
-MNISTAutoencoder.java
+ MNISTAutoencoder.java
 
 #### Convolutional Neural Networks
-LeNetMNIST.java
-LeNetMNISTReLu.java
-CIFARClassifier.java
-CenterLossLeNetMNIST.java
+ LeNetMNIST.java
+ LeNetMNISTReLu.java
+ CIFARClassifier.java
+ CenterLossLeNetMNIST.java
 
 #### Recurrent Neural Networks
-UCISequenceClassification.java
-MemorizeSequence.java
-RNNEmbedding.java
-VideoFrameClassifier.java
+ UCISequenceClassification.java
+ MemorizeSequence.java
+ RNNEmbedding.java
+ VideoFrameClassifier.java
 
 #### Variational Auto Encoder
-VaeMNISTAnomaly.java
-VaeMNIST2dPlots.java
+ VaeMNISTAnomaly.java
+ VaeMNIST2dPlots.java
 
 ### Features
 
-SaveLoadMultiLayerNetwork.java
-SaveLoadComputationGraph.java
-EarlyStoppingMNIST.java
-LoadPreSavedLenetMnistExample.java
-WeightedLossFunctionExample.java
-UIExample.java
-UIStorageExample.java
-RemoteUIExample.java
-NearestNeighbor.java
-TSNEStandardExample.java
+ SaveLoadMultiLayerNetwork.java
+ SaveLoadComputationGraph.java
+ EarlyStoppingMNIST.java
+ LoadPreSavedLenetMnistExample.java
+ WeightedLossFunctionExample.java
+ UIExample.java
+ UIStorageExample.java
+ RemoteUIExample.java
+ NearestNeighbor.java
+ TSNEStandardExample.java
 
 
 ## ADVANCED
 
 ### Modeling Examples
 
-### Vision
-TinyYoloHouseNumberDetection.java
-NeuralStyleTransfer.java
-MultiDigitNumberRecognition.java
+### Computer Vision
+ TinyYoloHouseNumberDetection.java
+ NeuralStyleTransfer.java
+ MultiDigitNumberRecognition.java
 
-### NLP
+### Natural Language Processing
+
 #### Text Classification
 With pretrained word2vec:
-ImdbReviewClassificationCNN.java 
-ImdbReviewClassificationRNN.java
+ ImdbReviewClassificationCNN.java 
+ ImdbReviewClassificationRNN.java
 
 With a word2vec model trained on the custom corpus:
-PrepareWordVector.java
-TrainNews.java
+ PrepareWordVector.java
+ TrainNews.java
 
 ### Generating embeddings:
-GloVeExample.java
-paragraphvectors.java
-SequenceVectorsTextExample.java
-word2vec.java
+ GloVeExample.java
+ paragraphvectors.java
+ SequenceVectorsTextExample.java
+ word2vec.java
 
 #### Char Modelling
-GenerateTxtModel.java & GenerateTxtCharCompGraphModel.java
+ GenerateTxtModel.java & GenerateTxtCharCompGraphModel.java
 
 ### Other Sequence Modeling Examples
-SequenceAnomalyDetection.java
-TrainLotteryModelSeqPrediction.java
-
+ SequenceAnomalyDetection.java
+ TrainLotteryModelSeqPrediction.java
 
 ### Specific Models and Special Architectures
-AlphaGoZeroTrainer
-DenseNetMain
-AdditionModelWithSeq2Seq
-MixtureDensityNetwork
+ AlphaGoZeroTrainer
+ DenseNetMain
+ AdditionModelWithSeq2Seq
+ MixtureDensityNetwork
 
 ### Features
 
 #### Customizing DL4J
-CustomActivationUsageEx.java
-CustomLayerUsageEx.java
-CustomLossUsageEx.java
+ CustomActivationUsageEx.java
+ CustomLayerUsageEx.java
+ CustomLossUsageEx.java
 
 #### Performance
-ParallelInferenceExample.java
+ ParallelInferenceExample.java
 
 #### Debugging
-CSVExampleEvaluationMetaData.java
-MultiLayerNetworkExternalErrors.java
+ CSVExampleEvaluationMetaData.java
+ MultiLayerNetworkExternalErrors.java
 
 #### TransferLearning
-EditLastLayerOthersFrozen.java
-FeaturizedPreSave.java & FitFromFeaturized.java
-EditAtBottleneckOthersFrozen.java
-FineTuneFromBlockFour.java
-EditAtBottleneckOthersFrozen.java
+ EditLastLayerOthersFrozen.java
+ FeaturizedPreSave.java & FitFromFeaturized.java
+ EditAtBottleneckOthersFrozen.java
+ FineTuneFromBlockFour.java
+ EditAtBottleneckOthersFrozen.java
