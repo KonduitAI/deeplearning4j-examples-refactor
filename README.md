@@ -4,7 +4,7 @@ The Eclipse DL4J ecosystem is a set of projects intended to support all the need
 The DL4J stack comprises of:
 - DL4J
 	* High level API to build MultiLayerNetworks and ComputationGraphs with a variety of layers, including custom ones
-	* Supports importing Keras h5 models 
+	* Supports importing Keras models from h5
 - ND4J
 	* General purpose linear algebra library and automatic differentiantion graph engine called SameDiff. Supports static (ala Tensorflow) and dynamic (ala Tensorflow eager/PyTorch)  style graph execution.
 	* Supports importing Tensorflow .pb (protobuf) models, as well as some support for ONNX models 
