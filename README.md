@@ -2,11 +2,11 @@ The Eclipse DL4J ecosystem is a set of projects intended to support all the need
 <TODO: Link to Konduit serving explaining what it is?>
 
 The DL4J stack comprises of:
-- *DL4J*: High level API to build MultiLayerNetworks and ComputationGraphs with a variety of layers, including custom ones. Supports importing Keras models from h5
-- *ND4J*: General purpose linear algebra library and automatic differentiantion graph engine called SameDiff. Supports static (ala Tensorflow) and dynamic (ala Tensorflow eager/PyTorch)  style graph execution. Supports importing Tensorflow .pb (protobuf) models, as well as some support for ONNX models 
-- *DataVec*: ETL for data in a wide variety of formats and files (HDFS, Spark, Images, Video, Audio etc)
-- *Arbiter*: Library for hyperparameter search
-- *LibND4J* : C++ library that underpins everything. For more information on how the JVM acceses native arrays and operations refer to <TODO:link> JavaCPP
+- **DL4J**: High level API to build MultiLayerNetworks and ComputationGraphs with a variety of layers, including custom ones. Supports importing Keras models from h5
+- **ND4J**: General purpose linear algebra library and automatic differentiantion graph engine called SameDiff. Supports static (ala Tensorflow) and dynamic (ala Tensorflow eager/PyTorch)  style graph execution. Supports importing Tensorflow .pb (protobuf) models, as well as some support for ONNX models 
+- **DataVec**: ETL for data in a wide variety of formats and files (HDFS, Spark, Images, Video, Audio etc)
+- **Arbiter**: Library for hyperparameter search
+- **LibND4J** : C++ library that underpins everything. For more information on how the JVM acceses native arrays and operations refer to <TODO:link> JavaCPP
 
 <TODO: Link to Konduit serving explaining what it is>
 
@@ -36,4 +36,4 @@ This example repo consists of several separate maven Java projects, with their o
 - arbiter-examples
 	* This project contains a set of examples that demonstrate useage of the Arbiter library for hyperparameter tuning. More information present in the project README here <TODO: Link to README>
 
-While these set of examples *obviously* don't cover all the functionality available in DL4J the intent is that it will cover the functionality required for most users - beginners and advanced.  File an issue (TODO:link) if you have feedback. We *love* hearing from you. We are also available via our discourse community channel (TODO:link) for questions. Cheers!
+While these set of examples **obviously** don't cover all the functionality available in DL4J the intent is that it will cover the functionality required for most users - beginners and advanced.  File an issue (TODO:link) if you have feedback. We **love** hearing from you. We are also available via our discourse community channel (TODO:link) for questions. Cheers!
