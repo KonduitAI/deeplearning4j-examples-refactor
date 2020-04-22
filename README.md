@@ -1,50 +1,45 @@
-# < WIP > deeplearning4j-examples-refactor
+The Eclipse DL4J ecosystem is a set of projects intended to support all the needs of a JVM based deep learning application. This means starting with the raw data, loading and preprocessing it from wherever and whatever format it is in to building and tuning a wide variety of simple and complex deep learning networks. 
+<TODO: Link to Konduit serving explaining what it is?>
 
-If checked all examples have been migrated
-- [X] Introduction to DL4J
-- [X] Introduction to samediff
-- [X] ND4J array manipulation examples
-- [X] Data preprocessing/Datavec examples 
-- [X] Model import
-- [X] Cuda specific examples {everything migrated}
-- [X] Distributed training
-- [X] Arbiter examples
-- [X] lstm-hdfs examples? - removed
-- [X] jumpy {errors now, python 3 support - removed
-- [X] pydatavec {errors now, python 3 support?} - removed
-- [X] java fx examples?? - moved
-- [ ] Android
-- [X] RL4J
-- [X] legacy spark examples - removed
-
-To dos: 
-- [X] Everything runs or issues filed
-- [ ] Add readme to each project that lists one line summary of each example and links to example md file
-- [ ] Add a .md file per example per TEMPLATE
-- [ ] Tune poorly tuned examples
-- [ ] Clean up printing with unnecessary json etc
-- [ ] Clean up comments
-- [ ] Check all poms for unnecessary version properties etc
-- [ ] Fix logging levels (missing xml in some projects)
-- [ ] What's with the vulnerability warning on github?
-
-
-
-The Eclipse DL4J stack is a set of projects intended to support all the needs of
-a JVM based deep learning application from loading and preprocessing raw data wherever and whatever format it may be to building and tuning a wide variety of simple and complex neural networks.
-<TODO: Explain difference between DL4J and SameDiff in the context of model import and other>
-Here are the list of projects the stack comprises of:
+The DL4J stack comprises of:
 - DL4J
-	* Allows you to build MultiLayerNetworks and ComputationGraphs that with a variety of layers <TODO: Link to different layers>; Supports custom layers etc
-	* Supports importing Keras models
+	* High level API to build MultiLayerNetworks and ComputationGraphs with a variety of layers, including custom ones
+	* Supports importing Keras h5 models 
 - ND4J
-	* General purpose linear algebra library and automatic differentiantion graph $engine called SameDiff. Supports static and dynamic graph execution.
-	* Supports importing Tensorflow models
+	* General purpose linear algebra library and automatic differentiantion graph engine called SameDiff. Supports static (ala Tensorflow) and dynamic (ala Tensorflow eager/PyTorch)  style graph execution.
+	* Supports importing Tensorflow .pb (protobuf) models, as well as some support for ONNX models 
 - DataVec
 	* ETL for data in a wide variety of formats and files (HDFS, Spark, Images, Video, Audio etc)
 - Arbiter
-	* Library for hyperparameter searches
+	* Library for hyperparameter search
 - LibND4J
-	* C++ library that powers everything. For more information on how the JVM acceses native arrays and operations refer to <TODO> JavaCPP
+	* C++ library that powers everything. For more information on how the JVM acceses native arrays and operations refer to <TODO:link> JavaCPP
 
 <TODO: Link to Konduit serving explaining what it is>
+
+This example repo consists of several separate Java projects, with their own pom files. In general examples in each are repo are separated into "quickstart" (for the beginner) and "advanced". Each project README also lists all the examples it contains, with a recommended order to explore them in. 
+
+- dl4j-examples
+	* This project contains a set of examples that demonstrate use of the high level DL4J API to build a variety of neural networks. More information present in the project README here <TODO: Link to README>
+
+- tensorflow-keras-import-examples
+	* This project contains a set of examples that demonstrate how to import keras h5 models and TF frozen pb models into the DL4J ecosystem. Once imported into DL4J these models can be treated like any other DL4J model - meaning you can continue to run training on them or modify them with the transfer learning API. More information present in the project README here <TODO: Link to README>
+
+- dl4j-distributed-training-examples
+	* This project contains a set of examples that demonstrate how to do distributed training in DL4J. DL4J distributed training employs "hybrid" asynchronous SGD based on Niko Strom's paper linked here<TODO: Link to paper>. More information present in the project README here <TODO: Link to README>
+
+- cuda-specific-examples
+	* This project contains a set of examples that demonstrate how to leverage a multi-gpus for increased performance. More information present in the project README here <TODO: Link to README> 
+
+- samediff-examples
+	* This projects contains a set of examples that demonstrate the SameDiff API. SameDiff (which is part of the ND4J library) can be used to build lower level auto-differentiating computation graphs. An analogue to the DL4J API vs the SameDiff API is the low level TF API vs the higher level of abstraction Keras API.
+
+- data-pipeline-examples
+	* This project contains a set of examples that demonstrate how raw data in various formats can be loaded, split and preprocessed to build serializable (and hence reproducible) ETL pipelines. More information present in the project README here <TODO: Link to README>
+
+- ndarray-operation-examples
+	* This project contains a set of examples that demonstrate how to manipulate NDArrays. The functionality of ND4J demonstrated here can be likened to numpy. More information present in the project README here <TODO: Link to README>
+
+- arbiter-examples
+	* This project contains a set of examples that demonstrate useage of the Arbiter library for hyperparameter tuning. More information present in the project README here <TODO: Link to README>
+
