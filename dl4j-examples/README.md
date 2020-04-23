@@ -67,9 +67,7 @@ TSNEStandardExample.java
 
 ### Computer Vision
 TinyYoloHouseNumberDetection.java  
-
 NeuralStyleTransfer.java  
-
 MultiDigitNumberRecognition.java  
 
 
@@ -78,23 +76,17 @@ MultiDigitNumberRecognition.java
 #### Text Classification
 With pretrained word2vec:
 ImdbReviewClassificationCNN.java  
-
 ImdbReviewClassificationRNN.java  
-
 
 With a word2vec model trained on the custom corpus:
 PrepareWordVector.java  
-
 TrainNews.java  
 
 
 ### Generating embeddings:
 GloVeExample.java  
-
 paragraphvectors.java  
-
 SequenceVectorsTextExample.java  
-
 word2vec.java  
 
 
