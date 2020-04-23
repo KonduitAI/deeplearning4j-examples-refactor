@@ -92,7 +92,9 @@ public class MNISTMLP {
 
 
     public static void main(String[] args) throws Exception{
-        loadModel(DownloaderUtility.MODELIMPORT.Download() + "/tensorflow/frozen_model.pb");
+        dataLocalPath = DownloaderUtility.MODELIMPORT.Download();
+        String modelPath = dataLocalPath + "/tensorflow/frozen_model.pb";
+        loadModel(modelPath);
         for(int i = 1; i < 11; i++){
             String file = DownloaderUtility.TFIMPORTEXAMPLES.Download() + "/Mnist/images/img_%d.jpg";
             file = String.format(file, i);
