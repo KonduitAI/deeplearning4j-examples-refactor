@@ -14,7 +14,7 @@
  * SPDX-License-Identifier: Apache-2.0
  ******************************************************************************/
 
-package org.deeplearning4j.examples.advanced.modelling.detectgender;
+package org.deeplearning4j.examples.wip.detectgender;
 
 /**
  * Created by KITS on 9/14/2016.
@@ -31,7 +31,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 
-import static org.deeplearning4j.examples.advanced.modelling.detectgender.GenderRecordReader.nameToBinary;
+import static org.deeplearning4j.examples.wip.detectgender.GenderRecordReader.nameToBinary;
 
 
 public class PredictGenderTest implements Runnable {

@@ -73,8 +73,8 @@ import static org.bytedeco.opencv.global.opencv_imgproc.*;
  *
  * @author saudet
  */
-public class HouseNumberDetection {
-    private static final Logger log = LoggerFactory.getLogger(HouseNumberDetection.class);
+public class TinyYoloHouseNumberDetection {
+    private static final Logger log = LoggerFactory.getLogger(TinyYoloHouseNumberDetection.class);
 
     // Enable different colour bounding box for different classes
     public static final Scalar RED = RGB(255.0, 0, 0);
