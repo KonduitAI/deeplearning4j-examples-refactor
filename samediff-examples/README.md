@@ -5,13 +5,20 @@ The pom file in this project can be used as a template for a user's own project.
 
 ## Basics
 Ex1_SameDiff_Basics.java  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SameDiff class, variables, functions and forward pass
 Ex2_LinearRegression.java  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Placeholders, forward pass and gradient calculations on a simple linear regression graph  
 Ex3_Variables.java  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Expounding on few of the multiple ways to create variables
 
 ## Modelling
 MNISTFeedforward.java  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Create, train, evaluate, save and load a basic feedforward network using SameDiff.  
 MNISTCNN.java  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The same as the above but with a CNN network
 CustomListenerExample.java  
+
+Note that you could create these exact neural networks with the higher level DL4J API as well.
 
 ## Custom DL4J layers
 Ex1BasicSameDiffLayerExample.java  
