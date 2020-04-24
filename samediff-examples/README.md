@@ -1,4 +1,4 @@
-This project contains a set of examples that demonstrate use of the SameDiff API (part of the Eclipse
+This project contains a set of examples that demonstrate use of the SameDiff API which is part of the Eclipse ND4J library.
 
 Neural Networks can also be build using the MultiLayerNetwork and ComputationalGraph APIs as noted here <TODO: link to dl4j-examples>. SameDiff (part of the ND4J library) is a more fine grained API that give users more flexibility along with auto differentiation capabilities.  
 
