@@ -1,6 +1,7 @@
 This project contains a set of examples that demonstrate use of the SameDiff API (part of the Eclipse
 
 Neural Networks can also be build using the MultiLayerNetwork and ComputationalGraph APIs as noted here <TODO: link to dl4j-examples>. SameDiff (part of the ND4J library) is a more fine grained API that give users more flexibility along with auto differentiation capabilities.  
+
 The examples in this project and what they demonstrate are briefly described below. This is also the recommended order to explore them in.
 #### Basics
   * Ex1_SameDiff_Basics.java  
