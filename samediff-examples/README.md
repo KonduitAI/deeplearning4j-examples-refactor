@@ -1,6 +1,6 @@
-This project contains a set of examples that demonstrate use of the SameDiff API which is part of the Eclipse ND4J library.
+This project contains a set of examples that demonstrate the use of SameDiff API. SameDiff is an automatic differentiation computation graph engine which is part of the Eclipse ND4J library. It supports static (ala Tensorflow) and dynamic (ala Tensorflow eager/PyTorch) style graph execution. It also supports importing Tensorflow .pb (protobuf) models, as well as some support for ONNX models. Examples of importing TF models can be found here <TODO:link>
 
-Neural Networks can also be build using the MultiLayerNetwork and ComputationalGraph APIs as noted here <TODO: link to dl4j-examples>. SameDiff (part of the ND4J library) is a more fine grained API that give users more flexibility along with auto differentiation capabilities.  
+It is to be noted that neural networks can also be build using the higher level MultiLayerNetwork and ComputationalGraph DL4J APIs as noted here <TODO: link to dl4j-examples>. 
 
 The examples in this project and what they demonstrate are briefly described below. This is also the recommended order to explore them in.
 #### Basics
@@ -19,9 +19,9 @@ The same as the above but with a CNN network
  * CustomListenerExample.java  
 Implementing a basic custom listener that records the values of 2 variables, for comparison or printing later.  
 
-Note that you could create these exact neural networks using the higher level DL4J API as well.
-
 #### Custom DL4J Layers and Vertices
+DL4J has supported custom layers for a long time. However, using SameDiff layers has some advantages described here <TODO:link>. 
+
 * Ex1BasicSameDiffLayerExample.java   
 Implement a custom DL4J layer using SameDiff.
 * Ex2LambdaLayer.java  
