@@ -29,7 +29,7 @@ import java.io.File;
 
 /**
  * A version of UIStorageExample showing how to saved network training data to a file, and then
- * reload it later, to display in in the UI
+ * reload it later, to display in the UI
  *
  * @author Alex Black
  */
