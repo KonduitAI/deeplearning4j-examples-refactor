@@ -36,4 +36,4 @@ This example repo consists of several separate maven Java projects, with their o
 - arbiter-examples
 	* This project contains a set of examples that demonstrate useage of the Arbiter library for hyperparameter tuning. More information present in the project README here <TODO: Link to README>
 
-While these set of examples **obviously** don't cover all the functionality available in DL4J the intent is that it will cover the functionality required for most users - beginners and advanced.  File an issue (TODO:link) if you have feedback. We **love** hearing from you. We are also available via our discourse community channel (TODO:link) for questions. Cheers!
+While these set of examples don't cover all the functionality available in DL4J the intent is that it will cover the functionality required for most users - beginners and advanced.  File an issue (TODO:link) if you have feedback. We **love** hearing from you. We are also available via our discourse community channel (TODO:link) for questions. Cheers!

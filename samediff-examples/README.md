@@ -1,4 +1,4 @@
-This project contains a set of examples that demonstrate the use of SameDiff API. SameDiff is an automatic differentiation computation graph engine which is part of the Eclipse ND4J library. It supports static (ala Tensorflow) and dynamic (ala Tensorflow eager/PyTorch) style graph execution. It also supports importing Tensorflow .pb (protobuf) models, as well as some support for ONNX models. Examples of importing TF models can be found here <TODO:link>
+This project contains a set of examples that demonstrate the use of the SameDiff API. SameDiff is an automatic differentiation computation graph engine which is part of the Eclipse ND4J library. It supports static (ala Tensorflow) and dynamic (ala Tensorflow Eager/PyTorch) style graph execution. It also supports importing Tensorflow .pb (protobuf) models, as well as some support for ONNX models. Examples of importing TF models can be found here <TODO:link>
 
 It is to be noted that neural networks can also be build using the higher level MultiLayerNetwork and ComputationalGraph DL4J APIs as noted here <TODO: link to dl4j-examples>. 
 
