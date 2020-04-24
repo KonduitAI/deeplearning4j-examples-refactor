@@ -35,7 +35,7 @@ import java.util.Map;
  *
  * @author Adam Gibson
  */
-public class RunGraphExample {
+public class TFGraphRunnerExample {
 
     public static void main(String...args) throws Exception {
         //input name (usually with place holders)

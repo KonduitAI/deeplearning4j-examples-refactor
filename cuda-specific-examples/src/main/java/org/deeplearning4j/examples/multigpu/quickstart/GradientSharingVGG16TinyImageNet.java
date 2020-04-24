@@ -40,8 +40,8 @@ import org.slf4j.Logger;
  *
  * @author Justin Long (crockpotveggies)
  */
-public class MultiGPUVGG16TinyImageNet {
-    private static final Logger log = org.slf4j.LoggerFactory.getLogger(MultiGPUVGG16TinyImageNet.class);
+public class GradientSharingVGG16TinyImageNet {
+    private static final Logger log = org.slf4j.LoggerFactory.getLogger(GradientSharingVGG16TinyImageNet.class);
 
     // for GPU you usually want to have higher batchSize
     public static int batchSize = 16;

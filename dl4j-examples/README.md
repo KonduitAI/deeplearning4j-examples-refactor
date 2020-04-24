@@ -91,8 +91,7 @@ word2vec.java
 
 
 #### Char Modelling
-GenerateTxtModel.java  
-& GenerateTxtCharCompGraphModel.java  
+GenerateTxtModel.java & GenerateTxtCharCompGraphModel.java  
 
 ### Other Sequence Modeling Examples
 SequenceAnomalyDetection.java  

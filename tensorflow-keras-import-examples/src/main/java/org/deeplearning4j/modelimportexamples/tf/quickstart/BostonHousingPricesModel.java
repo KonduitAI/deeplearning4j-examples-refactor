@@ -24,6 +24,7 @@ import org.nd4j.linalg.api.ndarray.INDArray;
 import org.nd4j.linalg.factory.Nd4j;
 
 import java.io.File;
+import java.util.Arrays;
 
 import static java.nio.charset.Charset.defaultCharset;
 
@@ -31,14 +32,14 @@ import static java.nio.charset.Charset.defaultCharset;
 public class BostonHousingPricesModel {
 
     private static SameDiff sd;
-    private static double mean;
-    private static double std;
+    private static INDArray meanNDArray;
+    private static INDArray stdNDArray;
     public static String dataLocalPath;
 
-    public static void loadModel(String filepath) throws Exception{
+    public static void loadModel(String filepath) throws Exception {
         File file = new File(filepath);
-        if (!file.exists()){
-            file = new File(dataLocalPath,filepath);
+        if (!file.exists()) {
+            file = new File(dataLocalPath, filepath);
         }
 
         sd = TFGraphMapper.importGraph(file);
@@ -46,14 +47,18 @@ public class BostonHousingPricesModel {
         if (sd == null) {
             throw new Exception("Error loading model : " + file);
         }
+        sd.setOutputs("dense_2/BiasAdd");
     }
 
     private static void loadStats() throws Exception {
-        File file = new File(dataLocalPath,"Boston/stats.txt");
-        String contents = FileUtils.readFileToString(file,defaultCharset());
-        String stats[] = contents.replaceAll("[\\[\\]]","").split("[, ]");
-        mean = Double.parseDouble(stats[0]);
-        std = Double.parseDouble(stats[1]);
+        File file = new File(dataLocalPath, "Boston/stats.txt");
+        String[] stats = FileUtils.readFileToString(file, defaultCharset()).split(",");
+        String[] means = stats[0].replaceAll("\\[|\\]|\n", "").split(" ");
+        String[] stds = stats[1].replaceAll("\\[|\\]|\n", "").split(" ");
+        assert (means.length == stds.length);
+        assert (means.length == 13);
+        meanNDArray = Nd4j.create(Arrays.stream(means).mapToDouble(Double::parseDouble).toArray());
+        stdNDArray = Nd4j.create(Arrays.stream(stds).mapToDouble(Double::parseDouble).toArray());
     }
 
     public static INDArray getSampleData() {
@@ -78,32 +83,32 @@ public class BostonHousingPricesModel {
         * */
 
         double sampleData[] = new double[]{7.8750e-02, 4.5000e+01, 3.4400e+00, 0.0000e+00, 4.3700e-01, 6.7820e+00,
-        4.1100e+01, 3.7886e+00, 5.0000e+00, 3.9800e+02, 1.5200e+01, 3.9387e+02, 6.6800e+00};
+                4.1100e+01, 3.7886e+00, 5.0000e+00, 3.9800e+02, 1.5200e+01, 3.9387e+02, 6.6800e+00};
 
         INDArray arr = Nd4j.create(sampleData).reshape(13);
 
         // Normalize
-        arr.subi(mean);
-        arr.divi(std);
+        arr.subi(meanNDArray);
+        arr.divi(stdNDArray);
         return arr;
     }
 
 
-    public static double predict(INDArray arr){
+    public static double predict(INDArray arr) {
         arr = Nd4j.expandDims(arr, 0);  // add batch dimension
-        sd.associateArrayWithVariable(arr, sd.variables().get(0));
-//        System.out.println(sd.summary());
-        INDArray outArr = sd.outputSingle(null, "dense_2/BiasAdd");
-        double pred = outArr.getDouble(0);
-        return pred;
+        sd.associateArrayWithVariable(arr, sd.inputs().get(0));
+        System.out.println(sd.summary());
+        INDArray outArr = sd.getVariable(sd.outputs().get(0)).eval();
+        return outArr.getDouble(0);
     }
 
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
         dataLocalPath = DownloaderUtility.TFIMPORTEXAMPLES.Download();
         loadModel("Boston/boston.pb");
         loadStats();
         INDArray sampleData = getSampleData();
         double prediction = predict(sampleData); // in $1000
+        //This is the same value you would get if you loaded the pb into tensorflow and ran inference on it with the input here
         System.out.println("Predicted price = $" + (prediction * 1000));
     }
 }
