@@ -1,11 +1,12 @@
 
-<style>
-pre {
+<style>  
+pre {  
+  
+font-family: "Courier New", Courier, monospace;  
+  
+}  
+</style>  
 
-font-family: "Courier New", Courier, monospace;
-
-}
-</style>   
 
 <pre>
 ########  ##       ##              ##    ######## ##     ##    ###    ##     ## ########  ##       ########  ######  
