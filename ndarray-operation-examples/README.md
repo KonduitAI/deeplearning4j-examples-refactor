@@ -1,6 +1,6 @@
 This project contains a set of examples that demonstrate how to manipulate NDArrays. The functionality of ND4J demonstrated here can be likened to numpy. 
 
-The examples in this project and what they demonstrate are briefly described below. This is also the recommended order to explore them in.
+The examples in this project along with a short summary are listed below. This is also the recommended order to explore them in.
 
 
 ## Quickstart
