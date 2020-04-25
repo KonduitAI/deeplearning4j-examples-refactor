@@ -48,6 +48,22 @@
         <jackson.version>2.5.1</jackson.version>
     </properties>    
 
+    <!-- Modified for using SNAPSHOT versions - added repositories section -->
+    <repositories>
+        <repository>
+            <id>snapshots-repo</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>daily</updatePolicy>  <!-- Optional, update daily -->
+            </snapshots>
+        </repository>
+    </repositories>
+
+
     <dependencyManagement>                                                      
         <dependencies>                                                          
             <dependency>                                                        
@@ -85,7 +101,7 @@
             <dependency>                                                        
                 <groupId>org.datavec</groupId>                                  
                 <artifactId>datavec-spark_${scala.binary.version}</artifactId>  
-                <version>${dl4j-master.version}</version>                           
+                <version>1.0.0_spark_2-SNAPSHOT</version>                           
             </dependency>
             <dependency>
                 <groupId>org.deeplearning4j</groupId>
