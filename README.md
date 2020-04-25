@@ -30,7 +30,7 @@ The DL4J stack comprises of:
 
 This example repo consists of several separate maven Java projects, with their own pom files. Projects are based on what functionality the included examples demonstrate to the user and not necessarily which library in the DL4J stack the functionality lives in. Examples in a project are in general separated into "quickstart" and "advanced". Each project README also lists all the examples it contains, with a recommended order to explore them in. 
 
-- dl4j-examples  
+- [**dl4j-examples**](dl4j-examples)  
 This project contains a set of examples that demonstrate use of the high level DL4J API to build a variety of neural networks. Some these examples are end to end, in the sense they start with raw data, process it and then build and train neural networks on it. More information present in the project README here <TODO: Link to README>
 
 - tensorflow-keras-import-examples  
