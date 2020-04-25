@@ -1,0 +1,1 @@
+find . -name "*.java" -type f | perl -pe 's/\//\\\//g' | awk -F "/" '{print "sed -i .orig \"s\/("$NF")/("$0")/\" README.md"}' > /tmp/a; source /tmp/a; rm README.md.orig
