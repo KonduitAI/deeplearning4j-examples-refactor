@@ -135,13 +135,13 @@ Model trained on a synthetic dataset that attempts to uncover the contrived patt
 
 
 #### Specific Models and Special Architectures
-* AlphaGoZeroTrainer
+* AlphaGoZeroTrainer.java  
 Train AlphaGo Zero model on dummy data.
-* DenseNetMain
+* DenseNetMain.java  
 Builds dense net to classify a small set of animal images. Augments the dataset with transforms like blur etc.
-* AdditionModelWithSeq2Seq
+* AdditionModelWithSeq2Seq.java  
 A seq2seq model that learns to add
-* MixtureDensityNetwork
+* MixtureDensityNetwork.java  
 Example of using a mixture density network to learn the distribution of a dataset instead of trying to converge directly onto the dataset. 
 
 #### Features
