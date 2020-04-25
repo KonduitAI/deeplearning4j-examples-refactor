@@ -26,7 +26,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
- * Custom Reduction example for operations on some simple CSV data that involve a custom reduction.
+ * Mulitple operations on a single column
  *
  * @author François Garillot
  */
