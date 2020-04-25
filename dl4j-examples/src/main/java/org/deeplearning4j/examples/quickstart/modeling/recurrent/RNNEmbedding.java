@@ -31,8 +31,8 @@ import org.nd4j.linalg.lossfunctions.LossFunctions;
 
 import java.util.Random;
 
-/** Feed-forward layer that expects single integers per example as input (class numbers, in range 0 to numClass-1)
- * as input. This input has shape [numExamples,1] instead of [numExamples,numClasses] for the equivalent one-hot representation.
+/** Feed-forward layer that expects single integers per example as input (class numbers, in range 0 to numClass-1).
+ * This input has shape [numExamples,1] instead of [numExamples,numClasses] for the equivalent one-hot representation.
  * Mathematically, EmbeddingLayer is equivalent to using a DenseLayer with a one-hot representation for the input; however,
  * it can be much more efficient with a large number of classes (as a dense layer + one-hot input does a matrix multiply
  * with all but one value being zero).<br>

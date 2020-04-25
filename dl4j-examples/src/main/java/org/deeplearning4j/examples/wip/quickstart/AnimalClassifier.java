@@ -14,7 +14,7 @@
  * SPDX-License-Identifier: Apache-2.0
  ******************************************************************************/
 
-package org.deeplearning4j.examples.quickstart.modeling.feedforward.classification;
+package org.deeplearning4j.examples.wip.quickstart;
 
 
 import org.apache.commons.io.IOUtils;
@@ -52,6 +52,7 @@ import java.util.Map;
 
 
 /**
+ * FIXME: The labels in the test data are all the same. So even though net trains properly it gives terrible eval results.
  * This example is intended to be a simple CSV classifier that separates the training data
  * from the test data for the classification of animals. It would be suitable as a beginner's
  * example because not only does it load CSV data into the network, it also shows how to extract the

@@ -18,7 +18,6 @@ package org.nd4j.examples.samediff.customizingdl4j;
 
 import org.apache.commons.io.FileUtils;
 import org.deeplearning4j.datasets.iterator.impl.MnistDataSetIterator;
-import org.deeplearning4j.eval.Evaluation;
 import org.deeplearning4j.gradientcheck.GradientCheckUtil;
 import org.deeplearning4j.nn.conf.ConvolutionMode;
 import org.deeplearning4j.nn.conf.MultiLayerConfiguration;
@@ -31,6 +30,7 @@ import org.deeplearning4j.nn.conf.preprocessor.FeedForwardToCnnPreProcessor;
 import org.deeplearning4j.nn.multilayer.MultiLayerNetwork;
 import org.deeplearning4j.nn.weights.WeightInit;
 import org.deeplearning4j.optimize.listeners.ScoreIterationListener;
+import org.nd4j.examples.samediff.customizingdl4j.layers.L2NormalizeLambdaLayer;
 import org.nd4j.linalg.activations.Activation;
 import org.nd4j.linalg.api.buffer.DataType;
 import org.nd4j.linalg.api.ndarray.INDArray;
@@ -39,7 +39,6 @@ import org.nd4j.linalg.factory.Nd4j;
 import org.nd4j.linalg.learning.config.Adam;
 import org.nd4j.linalg.learning.config.NoOp;
 import org.nd4j.linalg.lossfunctions.LossFunctions;
-import org.nd4j.examples.samediff.customizingdl4j.layers.L2NormalizeLambdaLayer;
 
 import java.io.File;
 
@@ -95,8 +94,7 @@ public class Ex2LambdaLayer {
         net.fit(train, 1);  //Train for 1 epoch
 
         DataSetIterator test = new MnistDataSetIterator(32, false, 12345);
-        Evaluation e = net.evaluate(test);
-        System.out.println(e.stats());
+        System.out.println(net.evaluate(test).stats());
 
         //Also: validate correctness of the network/layer
         validateLayer();

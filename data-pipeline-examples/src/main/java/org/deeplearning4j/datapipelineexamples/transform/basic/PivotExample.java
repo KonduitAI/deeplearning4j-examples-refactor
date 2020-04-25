@@ -40,8 +40,6 @@ import java.util.List;
  * In this simple example: We'll show how to combine multiple independent records by key.
  * Specifically, assume we have data like "person,country_visited,entry_time" and we want to know how many times
  * each person has entered each country.
- *
- *
  * @author Alex Black
  */
 public class PivotExample {

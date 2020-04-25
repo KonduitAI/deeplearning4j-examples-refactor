@@ -1,8 +1,12 @@
-This project contains a set of examples that demonstrate how to do distributed training in DL4J. DL4J distributed training employs a "hybrid" asynchronous SGD based on Niko Strom's paper linked here<TODO>. More information on DL4J's distributed training methods and how they work can be found here<TODO: link>.  
+This project contains a set of examples that demonstrate how to do distributed training in DL4J. DL4J distributed training employs a "hybrid" asynchronous SGD based on Niko Strom's paper linked here<TODO>. More information on DL4J's distributed training methods and how they work can be found here<TODO: link>. DL4J's distributed training implementation is also fault tolerant. 
 
 Of note - Spark is only relied upon for three specific tasks: 1) Broadcasting the initial neural network parameters to all workers 2) Distributing the RDD datasets to the workers 3) Spark's fault tolerance system to detect and bring up a replacement workers. For all other communication between nodes like transferring quantized gradient updates Aeron is used.  
 
 The examples in this project and what they demonstrate are briefly described below. This is also the recommended order to explore them in.
 
-tinyimagenet.java  
-patent.java
+* [tinyimagenet.java](tinyimagenet.java)  
+Train a CNN network from scratch on the Tiny ImageNet dataset. A local (single machine) version is also available.
+
+* [patent.java](patent.java)  
+A real world document classification example on ~500GB of raw text. A local (single machine) version is also provided to demonstrate the reduction in training time to converge to the same level of the accuracy. Experiments have demonstrated a near linear scaling with the number of workers in the cluster!
+

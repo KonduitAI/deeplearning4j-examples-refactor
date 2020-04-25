@@ -8,23 +8,33 @@ The examples in this project and what they demonstrate are briefly described bel
 ## Keras  
 
 ### Quickstart  
-SimpleSequentialMlpImport.java  
-SimpleFunctionalMlpImport.java  
+* [SimpleSequentialMlpImport.java](./src/main/java/org/deeplearning4j/modelimportexamples/keras/quickstart/SimpleSequentialMlpImport.java)  
+Basic example for importing a Keras Sequential model into DL4J for training or inference.
+* [SimpleFunctionalMlpImport.java](./src/main/java/org/deeplearning4j/modelimportexamples/keras/quickstart/SimpleFunctionalMlpImport.java)  
+Basic example for importing a Keras functional Model into DL4J for training or inference.
 
 ### Advanced  
-ImportDeepMoji.java  
+* [ImportDeepMoji.java](./src/main/java/org/deeplearning4j/modelimportexamples/keras/advanced/deepmoji/ImportDeepMoji.java)  
+Import of DeepMoji application. Demonstrates implementing a custom layer for import.
 
 
 ## Tensorflow  
 
 ### Quickstart  
-MNISTMLP.java  
-BostonHousingPricesModel.java  
-ModifyMNISTMLP.java  
+* [MNISTMLP.java](./src/main/java/org/deeplearning4j/modelimportexamples/tf/quickstart/MNISTMLP.java)  
+Basic example imports a frozen TF model trained on mnist. Python scripts used available.
+* [BostonHousingPricesModel.java](./src/main/java/org/deeplearning4j/modelimportexamples/tf/quickstart/BostonHousingPricesModel.java)  
+Another basic example with the boston housing prices dataset
+* [ModifyMNISTMLP.java](./src/main/java/org/deeplearning4j/modelimportexamples/tf/quickstart/ModifyMNISTMLP.java)  
+Import a frozen TF model. Demonstrate static execution, modify the graph and then execute it dynamically.
 
 ### Advanced  
-ImportMobileNetExample.java  
-TFGraphRunnerExample.java  
-MobileNetTransferLearningExample.java  
-BertInferenceExample.java  
+* [ImportMobileNetExample.java](./src/main/java/org/deeplearning4j/modelimportexamples/tf/advanced/mobilenet/ImportMobileNetExample.java)  
+Import MobileNet and run inference on it to give the same metrics as those obtained in Tensorflow.
+* [TFGraphRunnerExample.java](./src/main/java/org/deeplearning4j/modelimportexamples/tf/advanced/tfgraphrunnerinjava/TFGraphRunnerExample.java)  
+Runs a tensorflow graph from java using the tensorflow graph runner.
+* [MobileNetTransferLearningExample.java](./src/main/java/org/deeplearning4j/modelimportexamples/tf/advanced/mobilenet/MobileNetTransferLearningExample.java)  
+Transfer learning on an imported TF mobile net model for CIFAR10
+* [BertInferenceExample.java](./src/main/java/org/deeplearning4j/modelimportexamples/tf/advanced/bert/BertInferenceExample.java)  
+Run inference on a BERT model trained in Tensorflow to give the same metrics as those obtained in Tensorflow.
 

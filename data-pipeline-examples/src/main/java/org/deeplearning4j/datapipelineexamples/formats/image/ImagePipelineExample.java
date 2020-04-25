@@ -34,7 +34,8 @@ import java.io.File;
 import java.util.Random;
 
 /**
- * Created by susaneraly on 6/9/16.
+ * Load images and augment them to build an image pipeline
+ * @author susaneraly
  */
 public class ImagePipelineExample {
 

@@ -32,7 +32,6 @@ import java.io.File;
 /**
  * This basic example demonstrates how to use the preprocessors available
  * This example uses the minmax scaler and will work with the 3.10 release and later
- * Later releases and current master will work with all other preprocessors
  * Created by susaneraly on 6/8/16.
  */
 public class IrisNormalizer {

@@ -1,20 +1,31 @@
-This project contains a set of examples that demonstrate use of the SameDiff API to build a variety of neural networks. Neural Networks can also be build using the MultiLayerNetwork and ComputationalGraph APIs as noted here <TODO: link to dl4j-examples>. SameDiff (part of the ND4J library) is a more fine grained API that allows users more flexibility with auto differentiation.  
+This project contains a set of examples that demonstrate the use of the SameDiff API. SameDiff is an automatic differentiation computation graph engine which is part of the Eclipse ND4J library. It supports static (ala Tensorflow) and dynamic (ala Tensorflow Eager/PyTorch) style graph execution. It also supports importing Tensorflow .pb (protobuf) models, as well as some support for ONNX models. Examples of importing TF models can be found here <TODO:link>
 
-The pom file in this project can be used as a template for a user's own project. The examples in this project and what they demonstrate are briefly described below. This is also the recommended order to explore them in.
+It is to be noted that neural networks can also be build using the higher level MultiLayerNetwork and ComputationalGraph DL4J APIs as noted here <TODO: link to dl4j-examples>. 
 
+The examples in this project and what they demonstrate are briefly described below. This is also the recommended order to explore them in.
+#### Basics
+* [Ex1_SameDiff_Basics.java](./src/main/java/org/nd4j/examples/samediff/quickstart/basics/Ex1_SameDiff_Basics.java)  
+SameDiff class, variables, functions and forward pass
+* [Ex2_LinearRegression.java](./src/main/java/org/nd4j/examples/samediff/quickstart/basics/Ex2_LinearRegression.java)  
+Placeholders, forward pass and gradient calculations on a simple linear regression graph  
+* [Ex3_Variables.java](./src/main/java/org/nd4j/examples/samediff/quickstart/basics/Ex3_Variables.java)  
+Alternate ways to create variables
 
-## Basics
-Ex1_SameDiff_Basics.java  
-Ex2_LinearRegression.java  
-Ex3_Variables.java  
+#### Modelling
+* [MNISTFeedforward.java](./src/main/java/org/nd4j/examples/samediff/quickstart/modeling/MNISTFeedforward.java)  
+Create, train, evaluate, save and load a basic feedforward network using SameDiff.  
+* [MNISTCNN.java](./src/main/java/org/nd4j/examples/samediff/quickstart/modeling/MNISTCNN.java)  
+The same as the above but with a CNN network
+* [CustomListenerExample.java](./src/main/java/org/nd4j/examples/samediff/quickstart/modeling/CustomListenerExample.java)  
+Implementing a basic custom listener that records the values of 2 variables, for comparison or printing later.  
 
-## Modelling
-MNISTFeedforward.java  
-MNISTCNN.java  
-CustomListenerExample.java  
+#### Custom DL4J Layers and Vertices
+DL4J has supported custom layers for a long time. However, using SameDiff layers has some advantages described here <TODO:link>. 
 
-## Custom DL4J layers
-Ex1BasicSameDiffLayerExample.java  
-Ex2LambdaLayer.java  
-Ex3LambdaVertex.java   
+* [Ex1BasicSameDiffLayerExample.java](./src/main/java/org/nd4j/examples/samediff/customizingdl4j/Ex1BasicSameDiffLayerExample.java)   
+Implement a custom DL4J layer using SameDiff.
+* [Ex2LambdaLayer.java](./src/main/java/org/nd4j/examples/samediff/customizingdl4j/Ex2LambdaLayer.java)  
+Implement a simple custom DL4J lambda layer using SameDiff.
+* [Ex3LambdaVertex.java](./src/main/java/org/nd4j/examples/samediff/customizingdl4j/Ex3LambdaVertex.java)  
+Implement a simple custom DL4J lambda vertex using SameDiff.
 

@@ -61,7 +61,7 @@ import java.util.Random;
     http://deeplearning4j.org/lstm
     http://deeplearning4j.org/recurrentnetwork
  */
-public class GenerateTextModel {
+public class GenerateTxtModel {
 	public static void main( String[] args ) throws Exception {
 	    int seed =  12345;
 		int lstmLayerSize = 200;					//Number of units in each LSTM layer

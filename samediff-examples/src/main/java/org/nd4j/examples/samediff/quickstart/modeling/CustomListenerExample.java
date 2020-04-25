@@ -16,7 +16,7 @@ import static org.nd4j.examples.samediff.quickstart.modeling.MNISTCNN.makeMNISTN
 
 
 /**
- * This example shows how to use a custom listener, and is based on the {@link MNISTCNN}.<br><br>
+ * This example shows how to use a custom listener, and is based on the TODO: {@link MNISTCNN}.<br><br>
  *
  * We use a basic custom listener that records the values of 2 variables, for comparison or printing later.
  *

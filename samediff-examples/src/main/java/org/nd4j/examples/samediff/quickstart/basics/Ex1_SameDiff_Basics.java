@@ -68,7 +68,7 @@ public class Ex1_SameDiff_Basics {
         System.out.println("Variables: " + allVariables);
         for(SDVariable var : allVariables){
             long[] varShape = var.getShape();
-            System.out.println(var.getVarName() + " - shape " + Arrays.toString(varShape));
+            System.out.println(var.name() + " - shape " + Arrays.toString(varShape));
         }
 
         /*
@@ -84,20 +84,26 @@ public class Ex1_SameDiff_Basics {
                 Arrays.toString(outputsOfFunction));
         }
 
-
-        //Now, let's execute the graph forward pass:
+        //Now, let's execute the graph forward pass on the mulTen variable.
+        INDArray variableArr, mulTenArr, plusOneArr;
+        //We are passing in any empty map since this graph does not need any inputs for the forward pass
         sd.output(Collections.<String,INDArray>emptyMap(), "mulTen");
+        variableArr = variable.getArr();               //We can get arrays directly from the variables
+        mulTenArr = sd.getArrForVarName("mulTen");     //Or also by name, from the Samediff instance
 
-        INDArray variableArr = variable.getArr();               //We can get arrays directly from the variables
-        INDArray plusOneArr = plusOne.eval(); //We can also get values with eval
-        INDArray mulTenArr = sd.getArrForVarName("mulTen");     //Or also by name, from the Samediff instance
+        System.out.println("===================================");
+        System.out.println("Initial variable values:\n" + variableArr);
+        System.out.println("'mulTen' values:\n" + mulTenArr);
 
+        //We can also do the forward pass by calling eval on the SDVariable directly.
+        //Note that this will clear the sd graph and set all it's variable arrays that are not on the path of the forward pass to null
+        plusOneArr = plusOne.eval();
+        variableArr = variable.getArr();               //We can get arrays directly from the variables
+        mulTenArr = sd.getArrForVarName("mulTen");     //Or also by name, from the Samediff instance
         System.out.println("===================================");
         System.out.println("Initial variable values:\n" + variableArr);
         System.out.println("'plusOne' values:\n" + plusOneArr);
         System.out.println("'mulTen' values:\n" + mulTenArr);
-
-
 
         //That's it - see the next example for calculating gradients
     }

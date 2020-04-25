@@ -37,10 +37,10 @@ public class Ex06_KFoldIteratorFromDataSet {
         System.out.println("Full dataset: ");
         System.out.println(ds);
 
-        KFoldIterator kiter = new KFoldIterator(2, ds);
-        while (kiter.hasNext()){
-            DataSet now = kiter.next();
-            DataSet test = kiter.testFold();
+        KFoldIterator kIter = new KFoldIterator(2, ds);
+        while (kIter.hasNext()){
+            DataSet now = kIter.next();
+            DataSet test = kIter.testFold();
             System.out.println();
             System.out.println("Train: ");
             System.out.println(now);

@@ -57,6 +57,7 @@ import java.io.File;
  * With more flexibility comes more complexity. This class demonstrates how
  * to minimize time spent training while using an existing iterator and an existing dataset.
  *
+ * FIXME: This is deprecated
  * We use an {@link AsyncDataSetIterator}  to load data in the background
  * and {@link PreSave} to pre save the data to 2 specified directories,
  * trainData and testData

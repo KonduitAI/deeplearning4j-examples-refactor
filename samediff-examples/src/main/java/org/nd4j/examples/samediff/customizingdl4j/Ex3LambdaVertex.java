@@ -18,7 +18,6 @@ package org.nd4j.examples.samediff.customizingdl4j;
 
 import org.apache.commons.io.FileUtils;
 import org.deeplearning4j.datasets.iterator.impl.MnistDataSetIterator;
-import org.deeplearning4j.eval.Evaluation;
 import org.deeplearning4j.gradientcheck.GradientCheckUtil;
 import org.deeplearning4j.nn.conf.ComputationGraphConfiguration;
 import org.deeplearning4j.nn.conf.ConvolutionMode;
@@ -28,6 +27,7 @@ import org.deeplearning4j.nn.conf.layers.OutputLayer;
 import org.deeplearning4j.nn.graph.ComputationGraph;
 import org.deeplearning4j.nn.weights.WeightInit;
 import org.deeplearning4j.optimize.listeners.ScoreIterationListener;
+import org.nd4j.examples.samediff.customizingdl4j.layers.MergeLambdaVertex;
 import org.nd4j.linalg.activations.Activation;
 import org.nd4j.linalg.api.buffer.DataType;
 import org.nd4j.linalg.api.ndarray.INDArray;
@@ -36,19 +36,15 @@ import org.nd4j.linalg.factory.Nd4j;
 import org.nd4j.linalg.learning.config.Adam;
 import org.nd4j.linalg.learning.config.NoOp;
 import org.nd4j.linalg.lossfunctions.LossFunctions;
-import org.nd4j.examples.samediff.customizingdl4j.layers.MergeLambdaVertex;
 
 import java.io.File;
 
 /**
  *
- * This example: how to implement a simple custom DL4J lambda layer using SameDiff.
- *
- * The lambda layer (see L2NormalizeLamdaLayer) implements "out = in / l2Norm(in)" on a per-example basis.
+ * This example: how to implement a simple custom DL4J lambda vertex using SameDiff.
  *
  * Lamda vertices are graph vertices that do not have any parameters, but require only the implementation of a single method
  * to define the forward pass.
- *
  *
  * @author Alex Black
  */
@@ -62,6 +58,7 @@ public class Ex3LambdaVertex {
             .seed(12345)
             .activation(Activation.TANH)
             .convolutionMode(ConvolutionMode.Same)
+            .dataType(DataType.DOUBLE)
             .graphBuilder()
             .addInputs("in")
             //Add some standard DL4J layers:
@@ -88,8 +85,7 @@ public class Ex3LambdaVertex {
         net.fit(train, 1);  //Train for 1 epoch
 
         DataSetIterator test = new MnistDataSetIterator(32, false, 12345);
-        Evaluation e = net.evaluate(test);
-        System.out.println(e.stats());
+        System.out.println(net.evaluate(test).stats());
 
         //Also: validate correctness of the network/layer
         validateLayer();
@@ -161,8 +157,17 @@ public class Ex3LambdaVertex {
         double max_relative_error = 1e-5;                                                       //Maximum relative error allowable for each parameter
         double min_absolute_error = 1e-8;                                                      //Minimum absolute error, to avoid failures on 0 vs 1e-30, for example.
 
-        boolean gradOk = GradientCheckUtil.checkGradients(net, gradient_check_epsilon, max_relative_error, min_absolute_error, print,
-            return_on_first_failure, new INDArray[]{testFeatures}, new INDArray[]{testLabels});
+
+        boolean gradOk = GradientCheckUtil.checkGradients(new GradientCheckUtil.GraphConfig()
+                .net(net)
+                .epsilon(gradient_check_epsilon)
+                .maxRelError(max_relative_error)
+                .minAbsoluteError(min_absolute_error)
+                .print(print ? GradientCheckUtil.PrintMode.ALL : GradientCheckUtil.PrintMode.FAILURES_ONLY)
+                .exitOnFirstError(return_on_first_failure)
+                .inputs(new INDArray[]{testFeatures})
+                .labels(new INDArray[]{testLabels}));
+
         if(!gradOk){
             throw new IllegalStateException("Gradient check failed");
         }

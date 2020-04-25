@@ -14,7 +14,7 @@
  * SPDX-License-Identifier: Apache-2.0
  ******************************************************************************/
 
-package org.deeplearning4j.examples.advanced.features.transferlearning.datahelpers;
+package org.deeplearning4j.examples.advanced.features.transferlearning.iterators;
 
 import org.apache.commons.io.FileUtils;
 import org.datavec.api.io.filters.BalancedPathFilter;
