@@ -39,6 +39,21 @@
         <javacpp.version>1.5.2</javacpp.version>
         <tensorflow.version>1.15.0</tensorflow.version>
     </properties>
+
+    <!-- Modified for using SNAPSHOT versions - added repositories section -->
+    <repositories>
+        <repository>
+            <id>snapshots-repo</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>daily</updatePolicy>  <!-- Optional, update daily -->
+            </snapshots>
+        </repository>
+    </repositories>
                                                                                 
     <dependencies>
         <dependency>
