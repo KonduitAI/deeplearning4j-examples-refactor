@@ -33,7 +33,7 @@ import org.slf4j.Logger;
  * ND4j Workspace is a memory chunk, allocated once, and reused over in over.
  * Basically it gives you a way to avoid garbage collection for off-heap memory if you work with cyclic workloads.
  *
- * PLEASE NOTE: Workspaces are OPTIONAL. If you prefer using original GC-based memory managemend - you can use it without any issues.
+ * FIXME? : PLEASE NOTE: Workspaces are OPTIONAL. If you prefer using original GC-based memory managemend - you can use it without any issues.
  * PLEASE NOTE: When working with workspaces, YOU are responsible for tracking scopes etc. You are NOT supposed to access any INDArray that's attached to some workspace, outside of it. Results will be unpredictable, up to JVM crashes.
  *
  * @author raver119@gmail.com
