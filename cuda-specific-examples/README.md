@@ -17,6 +17,6 @@ Gradient sharing with VGG16 on TinyImageNet
 A multi-gpu version of the example of the same name in the dl4j-examples repo. (TODO:link) This example also includes how to presave the dataset to save time when training on multiple epochs.
 * [GenerateTxtModel.java](./src/main/java/org/deeplearning4j/examples/multigpu/advanced/charmodelling/GenerateTxtModel.java)  
 CharModelling: A multi-gpu version of the example of the same name in the dl4j-examples repo. (TODO:link)
-* [FeaturizedPreSave.java](./src/main/java/org/deeplearning4j/examples/multigpu/advanced/transferlearning/vgg16/FeaturizedPreSave.java) & FitFromFeaturized.java  
+* [FeaturizedPreSave.java](./src/main/java/org/deeplearning4j/examples/multigpu/advanced/transferlearning/vgg16/FeaturizedPreSave.java) & [FitFromFeaturized.java](./src/main/java/org/deeplearning4j/examples/multigpu/advanced/transferlearning/vgg16/FitFromFeaturized.java)  
 Transferlearning: A multi-gpu version of the example of the same name in the dl4j-examples repo. (TODO:link)
 
