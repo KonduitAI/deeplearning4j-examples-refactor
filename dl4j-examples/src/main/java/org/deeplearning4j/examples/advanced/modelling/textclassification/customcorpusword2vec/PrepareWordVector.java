@@ -31,12 +31,9 @@ import java.io.File;
 
 /**-
  * This program generates a word-vector from news items stored in resources folder.
- * News File is located at \dl4j-examples\src\main\resources\NewsData\RawNewsToGenerateWordVector.txt
- * Word vector file : \dl4j-examples\src\main\resources\NewsData\NewsWordVector.txt
- * Note :
- * 1) This code is modification of original example named Word2VecRawTextExample.java
- * 2) Word vector generated in this program is used in Training RNN to categorise news headlines.
- * <p>
+ * News File is located in ~/dl4j-examples-data/dl4j-examples/NewsData/
+ * Word vector file : ~/dl4j-examples-data/dl4j-examples/NewsData/
+ * Word vectors generated in this program are used in Training RNN to categorise news headlines.
  * <b></b>KIT Solutions Pvt. Ltd. (www.kitsol.com)</b>
  */
 public class PrepareWordVector {

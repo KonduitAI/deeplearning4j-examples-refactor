@@ -14,8 +14,9 @@
  * SPDX-License-Identifier: Apache-2.0
  ******************************************************************************/
 
-package org.deeplearning4j.examples.advanced.features.transferlearning.datahelpers;
+package org.deeplearning4j.examples.advanced.features.transferlearning.iterators;
 
+import org.deeplearning4j.examples.advanced.features.transferlearning.editlastlayer.presave.FeaturizedPreSave;
 import org.deeplearning4j.nn.modelimport.keras.exceptions.InvalidKerasConfigurationException;
 import org.deeplearning4j.nn.modelimport.keras.exceptions.UnsupportedKerasConfigurationException;
 import org.nd4j.linalg.dataset.AsyncDataSetIterator;
