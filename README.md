@@ -1,21 +1,12 @@
 
-<style>  
-pre {  
-  
-font-family: "Courier New", Courier, monospace;  
-  
-}  
-</style>  
-
-
 <pre>
-########  ##       ##              ##    ######## ##     ##    ###    ##     ## ########  ##       ########  ######  
-##     ## ##       ##    ##        ##    ##        ##   ##    ## ##   ###   ### ##     ## ##       ##       ##    ## 
-##     ## ##       ##    ##        ##    ##         ## ##    ##   ##  #### #### ##     ## ##       ##       ##       
-##     ## ##       ##    ##        ##    ######      ###    ##     ## ## ### ## ########  ##       ######    ######  
-##     ## ##       ######### ##    ##    ##         ## ##   ######### ##     ## ##        ##       ##             ## 
-##     ## ##             ##  ##    ##    ##        ##   ##  ##     ## ##     ## ##        ##       ##       ##    ## 
-########  ########       ##   ######     ######## ##     ## ##     ## ##     ## ##        ######## ########  ######  
+######  #       #             #       ####### #     #    #    #     # ######  #       #######  #####        
+#     # #       #    #        #       #        #   #    # #   ##   ## #     # #       #       #     #       
+#     # #       #    #        #       #         # #    #   #  # # # # #     # #       #       #             
+#     # #       #    #        #       #####      #    #     # #  #  # ######  #       #####    #####        
+#     # #       ####### #     #       #         # #   ####### #     # #       #       #             #       
+#     # #            #  #     #       #        #   #  #     # #     # #       #       #       #     #       
+######  #######      #   #####        ####### #     # #     # #     # #       ####### #######  #####  
 </pre>
 
 The Eclipse DL4J ecosystem is a set of projects intended to support all the needs of a JVM based deep learning application. This means starting with the raw data, loading and preprocessing it from wherever and whatever format it is in to building and tuning a wide variety of simple and complex deep learning networks. 
