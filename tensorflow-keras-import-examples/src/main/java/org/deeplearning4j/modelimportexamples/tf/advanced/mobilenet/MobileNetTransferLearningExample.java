@@ -37,6 +37,7 @@ import java.util.List;
  * This is an example of doing transfer learning by importing a tensorflow model of mobilenet and replacing the last layer.
  *
  * It turns the original ImageNet model into a model for CIFAR 10.
+ * This example will only run for one epoch. You will need to run it for many more and tune it to get good results.
  *
  * See {@link ImportMobileNetExample} for the model import example.
  * FIXME: See { SameDiffMNISTTrainingExample} for the SameDiff training example.
@@ -251,9 +252,9 @@ public class MobileNetTransferLearningExample {
         // again, we reshape to the proper size as part of the data set iterator
         DataSetIterator trainData = new Cifar10DataSetIterator(32, new int[]{224, 224}, DataSetType.TRAIN, null, 12345);
 
-        //Perform fine tuning for 20 epochs.  The pre-trained weights are imported as constants, and thus not trained.
-        // Note that this may take a long time, especially if you try to use the CPU backend.
-        int numEpochs = 20;
+        //Perform fine tuning for 1 epochs.  The pre-trained weights are imported as constants, and thus not trained.
+        //Note that this may take a long time, especially if you try to use the CPU backend.
+        int numEpochs = 1;
         History hist = sd.fit()
             .train(trainData, numEpochs)
             .exec();

@@ -38,7 +38,7 @@ import org.slf4j.Logger;
 
 import java.io.File;
 
-/**Example: Given a movie review (raw text), classify that movie review as either positive or negative based on the words it contains.
+/**FIME: Instructions need to be fixed here, Example: Given a movie review (raw text), classify that movie review as either positive or negative based on the words it contains.
  * This is done by combining Word2Vec vectors and a recurrent neural network model. Each word in a review is vectorized
  * (using the Word2Vec model) and fed into a recurrent neural network.
  * Training data is the "Large Movie Review Dataset" from http://ai.stanford.edu/~amaas/data/sentiment/
@@ -61,8 +61,8 @@ import java.io.File;
  *
  * @author Alex Black
  */
-public class Word2VecSentimentRNN {
-    private static final Logger log = org.slf4j.LoggerFactory.getLogger(Word2VecSentimentRNN.class);
+public class ImdbReviewClassificationRNN {
+    private static final Logger log = org.slf4j.LoggerFactory.getLogger(ImdbReviewClassificationRNN.class);
 
     public static final String TRAIN_PATH = FilenameUtils.concat(System.getProperty("java.io.tmpdir"), "dl4j_w2vSentiment_train/");
     public static final String TEST_PATH = FilenameUtils.concat(System.getProperty("java.io.tmpdir"), "dl4j_w2vSentiment_test/");
