@@ -7,6 +7,6 @@ The examples in this project and what they demonstrate are briefly described bel
 * tinyimagenet.java  
 Train a CNN network from scratch on the Tiny ImageNet dataset. A local (single machine) version is also available.
 
-* patent.java
+* patent.java  
 A real world document classification example on ~500GB of raw text. A local (single machine) version is also provided to demonstrate the reduction in training time to converge to the same level of the accuracy. Experiments have demonstrated a near linear scaling with the number of workers in the cluster!
 

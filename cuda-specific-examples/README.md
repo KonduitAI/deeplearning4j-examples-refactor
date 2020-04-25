@@ -5,18 +5,18 @@ Users with acces to multi-gpu systems can use DL4J to further speed up the train
 The list of examples in this project and what they demonstrate are briefly described below. This is also the recommended order to explore them in.
 
 ## QUICKSTART
-* MultiGPULeNetMNIST.java
+* MultiGPULeNetMNIST.java  
 Introduction to ParallelWrapper by modifying the original LenetMnistExample (TODO:link)
-* GradientsSharingLeNetMNIST.java
+* GradientsSharingLeNetMNIST.java  
 Uses gradient sharing instead of the default averaging every n iterations. More information on the gradient sharing algorithm can be found here. TODO:link
-* GradientSharingVGG16TinyImageNet.java
+* GradientSharingVGG16TinyImageNet.java  
 Gradient sharing with VGG16 on TinyImageNet
 
 ## ADVANCED
-* ImdbReviewClassificationRNN.java
+* ImdbReviewClassificationRNN.java  
 A multi-gpu version of the example of the same name in the dl4j-examples repo. (TODO:link) This example also includes how to presave the dataset to save time when training on multiple epochs.
-* GenerateTxtModel.java
+* GenerateTxtModel.java  
 CharModelling: A multi-gpu version of the example of the same name in the dl4j-examples repo. (TODO:link)
-* FeaturizedPreSave.java & FitFromFeaturized.java
+* FeaturizedPreSave.java & FitFromFeaturized.java  
 Transferlearning: A multi-gpu version of the example of the same name in the dl4j-examples repo. (TODO:link)
 

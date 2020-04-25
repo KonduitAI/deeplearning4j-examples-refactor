@@ -95,7 +95,7 @@ Basic TSNE
 
 #### Modeling Examples
 
-#### Computer Vision
+##### Computer Vision
 * TinyYoloHouseNumberDetection.java  
 Transfer learning from a Tiny YOLO model pretrained on ImageNet and Pascal VOC to perform object detection with bounding boxes on The Street View House Numbers Dataset.
 * NeuralStyleTransfer.java  
@@ -103,16 +103,16 @@ Neural Style Transfer Algorithm
 * MultiDigitNumberRecognition.java  
 Captcha recognition
 
-#### Natural Language Processing
+##### Natural Language Processing
 
-##### Text Classification
+###### Text Classification
 With pretrained word2vec:  
 * ImdbReviewClassificationRNN.java  
 Sentiment Classification on the IMDB dataset with a RNN model
 * ImdbReviewClassificationCNN.java  
 Sentiment Classification on the IMDB dataset with a CNN model
 
-#### Generating Embeddings:  
+###### Generating Embeddings:  
 * GloVeExample.java  
 * paragraphvectors.java  
 * SequenceVectorsTextExample.java  
@@ -123,18 +123,18 @@ Modeling with a word2vec model trained on a custom corpus:
 Sentence classification using a word2vec model training on a custom corpus
 
 
-##### Char Modelling
+###### Char Modelling
 * GenerateTxtModel.java & GenerateTxtCharCompGraphModel.java  
 MultiLayerNetwork and ComputationGraph versions of a model that is trained to "write Shakespeare", inspired by Andrej Karpathy's now famous blog post. 
 
-#### Other Sequence Modeling Examples
+##### Other Sequence Modeling Examples
 * SequenceAnomalyDetection.java  
 Anomaly detection on sequence sensor data
 * TrainLotteryModelSeqPrediction.java  
 Model trained on a synthetic dataset that attempts to uncover the contrived pattern.
 
 
-#### Specific Models and Special Architectures
+##### Specific Models and Special Architectures
 * AlphaGoZeroTrainer.java  
 Train AlphaGo Zero model on dummy data.
 * DenseNetMain.java  
