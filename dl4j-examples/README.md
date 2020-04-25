@@ -176,4 +176,3 @@ A more complex example of modifying model architecure by adding/removing vertice
 * FineTuneFromBlockFour.java  
 Reads in a saved model (training information and all) and fine tunes it by overriding its training information with what is specified
 
-Read the documentation for the Transfer Learning API at [https://deeplearning4j.org/transfer-learning](https://deeplearning4j.org/transfer-learning).
