@@ -45,7 +45,7 @@ import java.io.File;
  *
  * @author Adam Gibson
  */
-public class PreSave {
+public class PreSaveFirst {
     private static final Logger log = LoggerFactory.getLogger(LoadPreSavedLenetMnistExample.class);
 
     public static void main(String[] args) throws Exception {

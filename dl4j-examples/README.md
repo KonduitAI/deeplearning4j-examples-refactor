@@ -1,4 +1,4 @@
-This project contains a set of examples that demonstrate use of the high level DL4J API to build a variety of neural networks. The DL4J ecosystem also allows users to build neural networks with SameDiff (part of the ND4J library) with a more fine grained API. More information on that can be found here <TODO:   link to SameDiff> 
+This project contains a set of examples that demonstrate use of the high level DL4J API to build a variety of neural networks. The DL4J ecosystem also allows users to build neural networks with SameDiff (part of the ND4J library) with a more fine grained API. More information on that can be found [here](../samediff-examples)
 
 The pom file in this project can be used as a template for a user's own project. The examples in this project and what they demonstrate are briefly described below. This is also the recommended order to explore them in.
 
@@ -76,7 +76,7 @@ Save and load a multilayer neural network
 Save and load a computational graph
 * [EarlyStoppingMNIST.java](./src/main/java/org/deeplearning4j/examples/quickstart/features/earlystopping/EarlyStoppingMNIST.java)  
 Early stopping example on a subset of MNIST i.e conduct training and use the parameters that give the minimum test set loss
-* [LoadPreSavedLenetMnistExample.java](./src/main/java/org/deeplearning4j/examples/quickstart/features/presavingdatasets/LoadPreSavedLenetMnistExample.java)  
+* [PreSaveFirst.java](./src/main/java/org/deeplearning4j/examples/quickstart/features/presavingdatasets/PreSaveFirst.java) & [LoadPreSavedLenetMnistExample.java](./src/main/java/org/deeplearning4j/examples/quickstart/features/presavingdatasets/LoadPreSavedLenetMnistExample.java)  
 Save time when training with multiple epochs by presaving datasets
 * [WeightedLossFunctionExample.java](./src/main/java/org/deeplearning4j/examples/quickstart/features/classimbalance/WeightedLossFunctionExample.java)  
 Out of the box loss function that can be used with imbalanced classes
@@ -86,8 +86,6 @@ Basic UI example
 Save training data to a file and reload it later to display in the UI
 * [RemoteUIExample.java](./src/main/java/org/deeplearning4j/examples/quickstart/features/userinterface/RemoteUIExample.java)  
 If you need the UI to be hosted in a separate JVM for training.
-* [NearestNeighbor.java](./src/main/java/org/deeplearning4j/examples/quickstart/features/knn/NearestNeighbor.java)  
-Basic KNN
 * [TSNEStandardExample.java](./src/main/java/org/deeplearning4j/examples/quickstart/features/tsne/TSNEStandardExample.java)  
 Basic TSNE
 
@@ -141,8 +139,6 @@ Train AlphaGo Zero model on dummy data.
 Builds dense net to classify a small set of animal images. Augments the dataset with transforms like blur etc.
 * [AdditionModelWithSeq2Seq.java](./src/main/java/org/deeplearning4j/examples/advanced/modelling/seq2seq/AdditionModelWithSeq2Seq.java)  
 A seq2seq model that learns to add
-* [MixtureDensityNetwork.java](./src/main/java/org/deeplearning4j/examples/advanced/modelling/mixturedensitynetwork/MixtureDensityNetwork.java)  
-Example of using a mixture density network to learn the distribution of a dataset instead of trying to converge directly onto the dataset. 
 
 #### Features
 
@@ -154,7 +150,7 @@ Implement custom layers
 * [CustomLossUsageEx.java](./src/main/java/org/deeplearning4j/examples/advanced/features/customizingdl4j/lossfunctions/CustomLossUsageEx.java)  
 Implement custom loss functions  
 
-NOTE: SameDiff which is part of ND4J gives users a way to customize DL4J. More information on that is found here <TODO: link>
+**NOTE**: SameDiff which is part of ND4J gives users a way to customize DL4J. More information on that is found [here](../samediff-examples)
 
 ##### Performance
 * [ParallelInferenceExample.java](./src/main/java/org/deeplearning4j/examples/advanced/features/inference/ParallelInferenceExample.java)  

@@ -1,0 +1,4 @@
+CustomLayerImplementation.java,	biasGrad.assign(activationDerivative.sum(0));  //TODO: do this without the assign
+Word2VecRawTextExample.java,	// TODO resolve missing UiServer
+ImageDrawer.java,	SwingUtilities.invokeLater(this::onCalc); //TODO: move training to a worker thread,
+wip/*.java,	Refer to package READMEs or first line in javadoc of java class if not in a package

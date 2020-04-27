@@ -16,7 +16,7 @@
 
 package org.deeplearning4j.examples.quickstart.features.presavingdatasets;
 
-import org.deeplearning4j.datasets.iterator.AsyncDataSetIterator;
+import org.nd4j.linalg.dataset.AsyncDataSetIterator;
 import org.deeplearning4j.eval.Evaluation;
 import org.deeplearning4j.nn.conf.MultiLayerConfiguration;
 import org.deeplearning4j.nn.conf.NeuralNetConfiguration;
@@ -57,12 +57,9 @@ import java.io.File;
  * With more flexibility comes more complexity. This class demonstrates how
  * to minimize time spent training while using an existing iterator and an existing dataset.
  *
- * FIXME: This is deprecated
  * We use an {@link AsyncDataSetIterator}  to load data in the background
- * and {@link PreSave} to pre save the data to 2 specified directories,
+ * and {@link PreSaveFirst} to pre save the data to 2 specified directories,
  * trainData and testData
- *
- *
  *
  *
  * Created by agibsonccc on 9/16/15.
