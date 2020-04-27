@@ -14,7 +14,7 @@
  * SPDX-License-Identifier: Apache-2.0
  ******************************************************************************/
 
-package org.deeplearning4j.examples.wip.encoderdecoder;
+package org.deeplearning4j.examples.wip.advanced.modelling.encoderdecoder;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;

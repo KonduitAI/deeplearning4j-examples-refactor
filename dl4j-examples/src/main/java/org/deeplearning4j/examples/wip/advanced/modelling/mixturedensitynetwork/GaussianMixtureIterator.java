@@ -14,7 +14,7 @@
  * SPDX-License-Identifier: Apache-2.0
  ******************************************************************************/
 
-package org.deeplearning4j.examples.advanced.modelling.mixturedensitynetwork;
+package org.deeplearning4j.examples.wip.advanced.modelling.mixturedensitynetwork;
 
 import org.apache.commons.math3.distribution.MultivariateNormalDistribution;
 import org.nd4j.linalg.api.ndarray.INDArray;

@@ -14,7 +14,7 @@
  * SPDX-License-Identifier: Apache-2.0
  ******************************************************************************/
 
-package org.deeplearning4j.examples.wip.detectgender;
+package org.deeplearning4j.examples.wip.advanced.modelling.detectgender;
 
 /*
  * Created by KIT Solutions (www.kitsol.com) on 9/28/2016.

@@ -14,7 +14,7 @@
  * SPDX-License-Identifier: Apache-2.0
  ******************************************************************************/
 
-package org.deeplearning4j.examples.wip.quickstart;
+package org.deeplearning4j.examples.wip.quickstart.modelling;
 
 
 import org.apache.commons.io.IOUtils;

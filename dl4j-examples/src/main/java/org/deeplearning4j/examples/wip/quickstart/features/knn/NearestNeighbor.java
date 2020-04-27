@@ -14,7 +14,7 @@
  * SPDX-License-Identifier: Apache-2.0
  ******************************************************************************/
 
-package org.deeplearning4j.examples.quickstart.features.knn;
+package org.deeplearning4j.examples.wip.quickstart.features.knn;
 
 import org.apache.commons.io.IOUtils;
 import org.datavec.image.loader.CifarLoader;

@@ -14,7 +14,7 @@
  * SPDX-License-Identifier: Apache-2.0
  ******************************************************************************/
 
-package org.deeplearning4j.examples.wip.melodl4j;
+package org.deeplearning4j.examples.wip.advanced.modelling.melodl4j;
 
 import javax.sound.midi.*;
 
