@@ -22,11 +22,11 @@ import java.util.List;
  */
 public class MNISTCNN {
 
-    public static SameDiff makeMNISTNet(){
+    public static SameDiff makeMNISTNet() {
         SameDiff sd = SameDiff.create();
 
         //Properties for MNIST dataset:
-        int nIn = 28*28;
+        int nIn = 28 * 28;
         int nOut = 10;
 
         //Create input and label variables
@@ -71,7 +71,7 @@ public class MNISTCNN {
 
         // softmax crossentropy loss function
         SDVariable out = sd.nn().softmax("out", z, 1);
-        SDVariable loss = sd.loss().softmaxCrossEntropy("loss", label, z, null);
+        SDVariable loss = sd.loss().softmaxCrossEntropy("loss", label, out, null);
 
         sd.setLossVariables(loss);
 
@@ -87,12 +87,12 @@ public class MNISTCNN {
 
         double learningRate = 1e-3;
         TrainingConfig config = new TrainingConfig.Builder()
-            .l2(1e-4)                               //L2 regularization
-            .updater(new Adam(learningRate))        //Adam optimizer with specified learning rate
-            .dataSetFeatureMapping("input")         //DataSet features array should be associated with variable "input"
-            .dataSetLabelMapping("label")           //DataSet label array should be associated with variable "label"
-            .trainEvaluation("out", 0, evaluation)  // add a training evaluation
-            .build();
+                .l2(1e-4)                               //L2 regularization
+                .updater(new Adam(learningRate))        //Adam optimizer with specified learning rate
+                .dataSetFeatureMapping("input")         //DataSet features array should be associated with variable "input"
+                .dataSetLabelMapping("label")           //DataSet label array should be associated with variable "label"
+                .trainEvaluation("out", 0, evaluation)  // add a training evaluation
+                .build();
 
         // You can add validation evaluations as well, but they have some issues in beta5 and most likely won't work.
         // If you want to use them, use the SNAPSHOT build.
@@ -108,8 +108,8 @@ public class MNISTCNN {
         //Perform training for 4 epochs
         int numEpochs = 4;
         History hist = sd.fit()
-            .train(trainData, numEpochs)
-            .exec();
+                .train(trainData, numEpochs)
+                .exec();
         List<Double> acc = hist.trainingEval(Metric.ACCURACY);
 
         System.out.println("Accuracy: " + acc);
