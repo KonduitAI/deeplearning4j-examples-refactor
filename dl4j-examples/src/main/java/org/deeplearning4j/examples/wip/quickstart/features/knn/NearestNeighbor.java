@@ -37,6 +37,11 @@ import static org.datavec.image.loader.CifarLoader.*;
 import static org.nd4j.linalg.ops.transforms.Transforms.*;
 
 /**
+ * Issue Summary: Takes too long to be a realistic example. Needs to be updated to something that runs quicker.
+ * Might also be a good idea to update knn documentation and do a pass on performance.
+ *
+ * Github Issue: https://github.com/eclipse/deeplearning4j-examples/issues/976
+ *
  * Simple example for Nearest Neighbor classification.
  * Please @see <a href="http://cs231n.github.io/classification/#nn">cs123</a> for explanation.
  * Using Manhattan distance for L1 and Euclidean for L2.
