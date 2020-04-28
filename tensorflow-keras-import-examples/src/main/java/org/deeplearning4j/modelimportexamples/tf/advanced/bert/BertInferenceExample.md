@@ -3,7 +3,7 @@ This example demonstrates how to import a fine tuned BERT model from Tensorflow 
 
 #### Modelling Statement:
 A model based on BERT was finetuned in Tensorflow to classify document pairs from the MRPC dataset as like or unlike.
-The trained model was converted to a pb file and imported into samediff. Python scripts for tuning and pb generation can be found in the repo [here](TODO:link).  
+The trained model was converted to a pb file and imported into samediff. Python scripts for tuning and pb generation can be found in the repo [here](https://github.com/KonduitAI/dl4j-dev-tools/tree/master/import-tests/model_zoo/bert)
 Once this model was imported into SameDiff we run inference on it with the MRPC test dataset to get the same evaluation metrics we get in Tensorflow.
 We also run inference on a single minibatch and see that the ouputs are identical to what is obtained in Tensorflow.
 
@@ -19,8 +19,8 @@ As a result the imported same diff graph has to be modified. Users are recommend
 - Familiarity with the SentenceProvider class in DataVec(DL4J?) 
 - Familiarity with the DL4J iterator classes
 - Familiarity with Evaluation classes in DL4J
-- SameDiff quickstart examples for basics (here)[TODO:link]
-- MobileNet transfer learning example for slightly less complicated example of modifying same diff graphs
+- SameDiff quickstart examples for basics [here](../../../../../../../../../../samediff-examples/src/main/java/org/nd4j/examples/samediff/quickstart)
+- MobileNet transfer learning example for slightly less complicated example of modifying same diff graphs [here](./mobilenet/MobileNetTransferLearningExample.mdFIXME)
 
 [Show me the code](./BertInferenceExample.java)
 
@@ -32,12 +32,12 @@ TODO (as ratio of mnist example & raw numbers on some hardware)
 TODO (peak useage, etc etc)
 
 #### Current Limitations:
-* Only inference available on BERT models i.e. further training an imported BERT model in samediff is not available (TODO: link to issue)
+* Only inference available on BERT models i.e. further training an imported BERT model in samediff is not available. Github issue linked [here](https://github.com/eclipse/deeplearning4j/issues/8052)
 * Batchsizes in TF graphs are fixed and therefore also fixed in samediff (TODO: ?)
 * Bert tokenizer only available for the sentence classification task (TODO: ?)
 
 #### Further Reading:
-* BERT unit tests and links to the python scripts for TF training and pb generation. (TODO: link)
+* BERT unit tests [here](https://github.com/eclipse/deeplearning4j/blob/master/nd4j/nd4j-backends/nd4j-tests/src/test/java/org/nd4j/imports/TFGraphs/BERTGraphTest.java#L49) and links to the python scripts for TF training and pb generation [here](https://github.com/KonduitAI/dl4j-dev-tools/tree/master/import-tests/model_zoo/bert).
 * BERTTokenizer javadoc
 * BERTIterator javadoc
 
