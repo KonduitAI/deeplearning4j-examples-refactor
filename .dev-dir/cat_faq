@@ -1,0 +1,2 @@
+# find question and print it with the name of the file, then join names and add links
+find . -name "*.md" | grep "(" >

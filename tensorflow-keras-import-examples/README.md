@@ -35,6 +35,6 @@ Import MobileNet and run inference on it to give the same metrics as those obtai
 Runs a tensorflow graph from java using the tensorflow graph runner.
 * [MobileNetTransferLearningExample.java](./src/main/java/org/deeplearning4j/modelimportexamples/tf/advanced/mobilenet/MobileNetTransferLearningExample.java)  
 Transfer learning on an imported TF mobile net model for CIFAR10
-* [BertInferenceExample.java](./src/main/java/org/deeplearning4j/modelimportexamples/tf/advanced/bert/BertInferenceExample.java)  
+* [BertInferenceExample.java](./src/main/java/org/deeplearning4j/modelimportexamples/tf/advanced/bert/BertInferenceExample.md)  
 Run inference on a BERT model trained in Tensorflow to give the same metrics as those obtained in Tensorflow.
 
