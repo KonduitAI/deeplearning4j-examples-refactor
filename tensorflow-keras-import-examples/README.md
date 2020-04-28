@@ -3,7 +3,7 @@ The DL4J supports models created in the popular Python Tensorflow and Keras fram
 Models in Tensorflow have to be converted to "frozen" pbs (protobuf). More information on freezing Tensorflow models can be found here. <TODO: link to how to freeze>. Keras models have to be saved in h5 format. More information can be found here <TODO: link>. Importing both Keras 1 and Keras 2 models are supported. Of note - tf.keras and keras are **NOT** compatible. More information about this can be found here <TODO: link>.
 
 The examples in this project and what they demonstrate are briefly described below. This is also the recommended order to explore them in.
-There is an FAQ gathered from the example READMEs available (here)[FAQ.md] as well.
+There is an FAQ gathered from the example READMEs available [here](FAQ.md) as well.
 
 
 ## Keras  
