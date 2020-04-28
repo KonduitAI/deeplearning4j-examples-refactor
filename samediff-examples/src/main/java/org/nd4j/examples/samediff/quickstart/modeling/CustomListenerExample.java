@@ -8,6 +8,7 @@ import org.nd4j.autodiff.samediff.TrainingConfig;
 import org.nd4j.autodiff.samediff.internal.SameDiffOp;
 import org.nd4j.evaluation.classification.Evaluation;
 import org.nd4j.linalg.api.ndarray.INDArray;
+import org.nd4j.linalg.api.ops.OpContext;
 import org.nd4j.linalg.dataset.api.MultiDataSet;
 import org.nd4j.linalg.dataset.api.iterator.DataSetIterator;
 import org.nd4j.linalg.learning.config.Adam;
@@ -90,13 +91,29 @@ public class CustomListenerExample {
         public void activationAvailable(SameDiff sd, At at,
             MultiDataSet batch, SameDiffOp op,
             String varName, INDArray activation) {
+            System.out.println("activation:"+ varName);
 
             // if the variable is z or out, store its activation
-            if(varName.equals("out")){
-                out = activation.detach().dup();
-            } else if(varName.equals("z")){
+            // TODO: Review if the modification made to comment out equals below and instead override operationEnd is intended behaviour or a bug
+            if(varName.equals("z")){
                 z = activation.detach().dup();
             }
+            /*
+            else if(varName.equals("out")){
+                out = activation.detach().dup();
+            }
+            */
         }
+
+        @Override
+        public void opExecution(SameDiff sd, At at, MultiDataSet batch, SameDiffOp op, OpContext opContext, INDArray[] outputs) {
+            System.out.println(sd.outputs());
+            System.out.println(op.getName());
+            //System.out.println(sd.output().);
+            if (op.getName().equals("softmax")) {
+                out = outputs[0].detach().dup();
+            }
+        }
+
     }
 }
