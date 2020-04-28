@@ -40,6 +40,21 @@
         <logback.version>1.1.7</logback.version>
     </properties>
 
+    <!-- Modified for using SNAPSHOT versions - added repositories section -->  
+    <repositories>                                                              
+        <repository>                                                            
+            <id>snapshots-repo</id>                                             
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>  
+            <releases>                                                          
+                <enabled>false</enabled>                                        
+            </releases>                                                         
+            <snapshots>                                                         
+                <enabled>true</enabled>                                         
+                <updatePolicy>daily</updatePolicy>  <!-- Optional, update daily -->
+            </snapshots>                                                        
+        </repository>                                                           
+    </repositories>   
+
 	<dependencyManagement>
         <dependencies>
             <dependency>

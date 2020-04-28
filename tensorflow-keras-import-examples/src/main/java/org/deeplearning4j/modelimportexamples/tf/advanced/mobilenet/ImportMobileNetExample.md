@@ -14,7 +14,7 @@ Link to a sample log from a successful run, modified for brevity, is [here](.Ber
 - Familiarity with the NDArray indexing and basics
 - Familiarity with what a ND4J dynamic op is and why it is used.
 - Familiarity with Evaluation classes in DL4J
-- SameDiff quickstart examples for basics (here)[TODO:link]
+- SameDiff quickstart examples for basics [here](../../../../../../../../../../samediff-examples/src/main/java/org/nd4j/examples/samediff/quickstart)
 
 [Show me the code](./ImportMobileNetExample.java)
 
@@ -28,8 +28,8 @@ TODO (peak useage, etc etc)
 * Resize bilinear is done via a custom dynamic op which will be available in java eventually
 
 #### Further Reading:
-* A more advanced example that imports mobilenet and modifies it for CIFAR classification. TODO: link
-* A more advanced example of importing a TF model with BERT. TODO: link
+* A more advanced example that imports mobilenet and modifies it for CIFAR classification [here](MobileNetTransferLearningExample.md)
+* A more advanced example of importing a TF model with BERT [here](../bert/BertInferenceExample.md)
 * TODO: Link to samediff custom op/dynamic op example/TODO: What ops are implemented in CPU only?
 
 ###### FAQ CallBack from Example: This example answers the following questions.
