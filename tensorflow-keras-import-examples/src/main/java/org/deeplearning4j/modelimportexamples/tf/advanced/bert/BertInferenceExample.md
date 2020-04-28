@@ -10,7 +10,7 @@ We also run inference on a single minibatch and see that the ouputs are identica
 ##### Modeling Metrics:
 Accuracy: 84 % 
 F1 Score: 0.89
-Link to a sample log from a successful run, modified for brevity, is [here](.BertInferenceExample.out)
+Link to a sample log from a successful run, modified for brevity, is [here](.BertInferenceExample.logout)
 
 ##### Example complexity: **COMPLEX**  
 This is a complex example. The main reason being that the frozen pb graph from TensorFlow has hard coded operations for dropout.
