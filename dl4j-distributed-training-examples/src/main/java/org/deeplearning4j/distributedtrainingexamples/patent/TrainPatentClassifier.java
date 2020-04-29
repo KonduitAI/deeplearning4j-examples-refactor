@@ -44,7 +44,7 @@ import org.nd4j.evaluation.IEvaluation;
 import org.nd4j.evaluation.classification.Evaluation;
 import org.nd4j.linalg.api.ndarray.INDArray;
 import org.nd4j.linalg.factory.Nd4j;
-import org.nd4j.linalg.primitives.Pair;
+import org.nd4j.common.primitives.Pair;
 import org.nd4j.linalg.util.MathUtils;
 import org.nd4j.parameterserver.distributed.conf.VoidConfiguration;
 import org.slf4j.Logger;

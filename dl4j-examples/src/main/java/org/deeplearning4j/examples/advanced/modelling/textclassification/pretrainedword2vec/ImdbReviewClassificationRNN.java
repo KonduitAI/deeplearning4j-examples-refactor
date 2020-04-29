@@ -37,7 +37,7 @@ import org.nd4j.linalg.factory.Nd4j;
 import org.nd4j.linalg.indexing.NDArrayIndex;
 import org.nd4j.linalg.learning.config.Adam;
 import org.nd4j.linalg.lossfunctions.LossFunctions;
-import org.nd4j.resources.Downloader;
+import org.nd4j.common.resources.Downloader;
 
 import java.io.File;
 import java.io.IOException;

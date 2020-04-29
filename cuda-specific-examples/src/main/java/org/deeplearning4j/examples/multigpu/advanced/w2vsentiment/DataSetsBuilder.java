@@ -27,7 +27,7 @@ import org.apache.commons.io.FilenameUtils;
 import org.deeplearning4j.models.embeddings.loader.WordVectorSerializer;
 import org.deeplearning4j.models.embeddings.wordvectors.WordVectors;
 import org.nd4j.linalg.dataset.api.iterator.DataSetIterator;
-import org.nd4j.resources.Downloader;
+import org.nd4j.common.resources.Downloader;
 import org.slf4j.Logger;
 
 import java.io.*;

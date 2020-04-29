@@ -17,7 +17,7 @@
 package org.deeplearning4j.examples.utils;
 
 import org.apache.commons.io.FilenameUtils;
-import org.nd4j.resources.Downloader;
+import org.nd4j.common.resources.Downloader;
 
 import java.io.File;
 import java.net.URL;

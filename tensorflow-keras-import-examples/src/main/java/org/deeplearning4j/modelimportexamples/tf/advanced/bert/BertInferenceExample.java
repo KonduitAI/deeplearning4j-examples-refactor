@@ -33,9 +33,8 @@ import org.nd4j.linalg.api.buffer.DataType;
 import org.nd4j.linalg.api.ndarray.INDArray;
 import org.nd4j.linalg.dataset.api.iterator.MultiDataSetIterator;
 import org.nd4j.linalg.learning.config.Sgd;
-import org.nd4j.linalg.primitives.Pair;
-import org.nd4j.resources.Downloader;
-
+import org.nd4j.common.primitives.Pair;
+import org.nd4j.common.resources.Downloader;
 import java.io.File;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
