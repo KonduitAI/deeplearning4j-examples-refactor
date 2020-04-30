@@ -7,7 +7,7 @@ This is an import of the Google mobile net example available here - https://stor
 ##### Modeling Metrics:
 Accuracy: 84 % 
 F1 Score: 0.89
-Link to a sample log from a successful run, modified for brevity, is [here](.BertInferenceExample.out)
+FIXME:Link to a sample log from a successful run, modified for brevity, is [here](.BertInferenceExample.out)
 
 ##### Example complexity: **INTERMEDIATE**  
 
@@ -34,7 +34,7 @@ TODO (peak useage, etc etc)
 
 ###### FAQ CallBack from Example: This example answers the following questions.
 1) How to import a TF frozen graph (.pb) into the DL4J ecosystem?
-2) How to resize an image using bilinear interpolation? (Done via a dynamic custom ops.These are ops that are currently available in libnd4j but have not been mapped to Java yet)
+2) How to resize an image using bilinear interpolation?  
 3) How to run inference on an imported Tensorflow model?
 
 

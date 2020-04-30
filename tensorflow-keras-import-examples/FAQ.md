@@ -8,7 +8,7 @@
 [Here,](./src/main/java/org/deeplearning4j/modelimportexamples/tf/advanced/mobilenet/ImportMobileNetExample.java)[also here](./src/main/java/org/deeplearning4j/modelimportexamples/tf/advanced/bert/BertInferenceExample.java)
 
 4) How to perform advanced operations in samediff?   For eg. removing hard coded drop outs
-[Here,](./src/main/java/org/deeplearning4j/modelimportexamples/tf/advanced/mobilenet/ImportMobileNetExample.java)[also here](./src/main/java/org/deeplearning4j/modelimportexamples/tf/advanced/bert/BertInferenceExample.java)
+[Here,](./src/main/java/org/deeplearning4j/modelimportexamples/tf/advanced/mobilenet/ImportMobileNetExample.java)[also here](./src/main/java/org/deeplearning4j/modelimportexamples/tf/advanced/bert/BertInferenceExample.java)[also here]()
 
 5) How to resize an image using bilinear interpolation?   
 [Here](./src/main/java/org/deeplearning4j/modelimportexamples/tf/advanced/mobilenet/ImportMobileNetExample.java)

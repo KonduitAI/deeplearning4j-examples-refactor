@@ -30,12 +30,12 @@ Another basic example with the boston housing prices dataset
 Import a frozen TF model. Demonstrate static execution, modify the graph and then execute it dynamically.
 
 ### Advanced  
-* [ImportMobileNetExample.java](./src/main/java/org/deeplearning4j/modelimportexamples/tf/advanced/mobilenet/ImportMobileNetExample.java)  
+* [ImportMobileNetExample.md](./src/main/java/org/deeplearning4j/modelimportexamples/tf/advanced/mobilenet/ImportMobileNetExample.md)  
 Import MobileNet and run inference on it to give the same metrics as those obtained in Tensorflow.
 * [TFGraphRunnerExample.java](./src/main/java/org/deeplearning4j/modelimportexamples/tf/advanced/tfgraphrunnerinjava/TFGraphRunnerExample.java)  
 Runs a tensorflow graph from java using the tensorflow graph runner.
-* [MobileNetTransferLearningExample.java](./src/main/java/org/deeplearning4j/modelimportexamples/tf/advanced/mobilenet/MobileNetTransferLearningExample.java)  
+* [MobileNetTransferLearningExample.md](./src/main/java/org/deeplearning4j/modelimportexamples/tf/advanced/mobilenet/MobileNetTransferLearningExample.md)  
 Transfer learning on an imported TF mobile net model for CIFAR10
-* [BertInferenceExample.java](./src/main/java/org/deeplearning4j/modelimportexamples/tf/advanced/bert/BertInferenceExample.md)  
+* [BertInferenceExample.md](./src/main/java/org/deeplearning4j/modelimportexamples/tf/advanced/bert/BertInferenceExample.md)  
 Run inference on a BERT model trained in Tensorflow to give the same metrics as those obtained in Tensorflow.
 
