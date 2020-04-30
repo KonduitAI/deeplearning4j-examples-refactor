@@ -4,11 +4,11 @@ import org.apache.commons.io.FilenameUtils;
 import org.datavec.image.loader.ImageLoader;
 import org.deeplearning4j.zoo.util.imagenet.ImageNetLabels;
 import org.nd4j.autodiff.samediff.SameDiff;
+import org.nd4j.common.resources.Downloader;
 import org.nd4j.linalg.api.ndarray.INDArray;
-import org.nd4j.linalg.api.ops.DynamicCustomOp;
+import org.nd4j.linalg.api.ops.impl.image.ResizeBilinear;
 import org.nd4j.linalg.factory.Nd4j;
 import org.nd4j.linalg.indexing.NDArrayIndex;
-import org.nd4j.common.resources.Downloader;
 
 import java.io.File;
 import java.io.IOException;
@@ -49,7 +49,7 @@ public class ImportMobileNetExample {
         INDArray out = sd.batchOutput()
             .input("input", preprocessedImage)
             .output("MobilenetV2/Predictions/Reshape_1")
-            .execSingle();
+            .outputSingle();
 
         // ignore label 0 (the background label)
         out = out.get(NDArrayIndex.all(), NDArrayIndex.interval(1, 1001));
@@ -106,14 +106,10 @@ public class ImportMobileNetExample {
         // normalize to 0-1
         img = img.div(256);
 
-        // resize
+        // array to store resized image
         INDArray preprocessedImage = Nd4j.createUninitialized(1, height, width, 3);
 
-        DynamicCustomOp op = DynamicCustomOp.builder("resize_bilinear")
-            .addInputs(img)
-            .addOutputs(preprocessedImage)
-            .addIntegerArguments(height, width).build();
-        Nd4j.exec(op);
+        Nd4j.exec(new ResizeBilinear(img,preprocessedImage,height,width,false,false));
 
         // finish preprocessing
         preprocessedImage = preprocessedImage.sub(0.5);
