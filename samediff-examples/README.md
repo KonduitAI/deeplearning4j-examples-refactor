@@ -2,6 +2,7 @@ This project contains a set of examples that demonstrate the use of the SameDiff
 
 It is to be noted that neural networks can also be build using the higher level MultiLayerNetwork and ComputationalGraph DL4J APIs as noted [here](../dl4j-examples)
 
+
 The examples in this project and what they demonstrate are briefly described below. This is also the recommended order to explore them in.
 #### Basics
 * [Ex1_SameDiff_Basics.java](./src/main/java/org/nd4j/examples/samediff/quickstart/basics/Ex1_SameDiff_Basics.java)  

@@ -72,7 +72,6 @@ public class MNISTCNN {
         // softmax crossentropy loss function
         SDVariable out = sd.nn().softmax("out", z, 1);
         SDVariable loss = sd.loss().softmaxCrossEntropy("loss", label, out, null);
-
         sd.setLossVariables(loss);
 
         return sd;
