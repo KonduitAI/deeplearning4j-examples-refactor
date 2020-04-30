@@ -16,6 +16,8 @@
               .   :::: :   :  :   : :     : :     ::::: ::::    :    : :::: :     :::::   .   
 </pre>
 
+NOTE on 04/30/2020, PT: This repo needs the KonduitAI deeplearning4j master branch to be build locally ie. there are fixes here for things that are breaking changes that are yet to be merged into Eclipse
+
 The **Eclipse DL4J** ecosystem is a set of projects intended to support all the needs of a JVM based deep learning application. This means starting with the raw data, loading and preprocessing it from wherever and whatever format it is in to building and tuning a wide variety of simple and complex deep learning networks. 
 
 The DL4J stack comprises of:
