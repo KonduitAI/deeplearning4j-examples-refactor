@@ -16,8 +16,6 @@
 
 package org.deeplearning4j.examples.multigpu.advanced.w2vsentiment;
 
-import org.apache.commons.io.FilenameUtils;
-import org.deeplearning4j.eval.Evaluation;
 import org.deeplearning4j.nn.conf.GradientNormalization;
 import org.deeplearning4j.nn.conf.MultiLayerConfiguration;
 import org.deeplearning4j.nn.conf.NeuralNetConfiguration;
@@ -27,6 +25,7 @@ import org.deeplearning4j.nn.multilayer.MultiLayerNetwork;
 import org.deeplearning4j.nn.weights.WeightInit;
 import org.deeplearning4j.optimize.listeners.PerformanceListener;
 import org.deeplearning4j.parallelism.ParallelWrapper;
+import org.nd4j.evaluation.classification.Evaluation;
 import org.nd4j.jita.conf.CudaEnvironment;
 import org.nd4j.linalg.activations.Activation;
 import org.nd4j.linalg.dataset.ExistingMiniBatchDataSetIterator;
@@ -38,35 +37,18 @@ import org.slf4j.Logger;
 
 import java.io.File;
 
-/**FIME: Instructions need to be fixed here, Example: Given a movie review (raw text), classify that movie review as either positive or negative based on the words it contains.
- * This is done by combining Word2Vec vectors and a recurrent neural network model. Each word in a review is vectorized
- * (using the Word2Vec model) and fed into a recurrent neural network.
- * Training data is the "Large Movie Review Dataset" from http://ai.stanford.edu/~amaas/data/sentiment/
- * This data set contains 25,000 training reviews + 25,000 testing reviews
+import static org.deeplearning4j.examples.multigpu.advanced.w2vsentiment.DataSetsBuilder.TEST_PATH;
+import static org.deeplearning4j.examples.multigpu.advanced.w2vsentiment.DataSetsBuilder.TRAIN_PATH;
+
+/**
+ * Example: Given a movie review (raw text), classify that movie review as either positive or negative based on the words it contains.
+ * This example is the multi-gpu version of the dl4j-example example of the same name.
  *
- * Process:
- * 1. Automatic on first run of example: Download data (movie reviews) + extract
- * 2. Load existing Word2Vec model (for example: Google News word vectors. You will have to download this MANUALLY)
- * 3. Load each each review. Convert words to vectors + reviews to sequences of vectors
- * 4. Train network
- *
- * With the current configuration, gives approx. 83% accuracy after 1 epoch. Better performance may be possible with
- * additional tuning.
- *
- * NOTE / INSTRUCTIONS:
- * You will have to download the Google News word vector model manually. ~1.5GB
- * The Google News vector model available here: https://code.google.com/p/word2vec/
- * Download the GoogleNews-vectors-negative300.bin.gz file
- * Then: set the wordVectorsPath field to point to this location.
- *
+ * Here the dataset is presaved to save time on multiple epochs.
  * @author Alex Black
  */
 public class ImdbReviewClassificationRNN {
     private static final Logger log = org.slf4j.LoggerFactory.getLogger(ImdbReviewClassificationRNN.class);
-
-    public static final String TRAIN_PATH = FilenameUtils.concat(System.getProperty("java.io.tmpdir"), "dl4j_w2vSentiment_train/");
-    public static final String TEST_PATH = FilenameUtils.concat(System.getProperty("java.io.tmpdir"), "dl4j_w2vSentiment_test/");
-
 
     public static void main(String[] args) throws Exception {
 
@@ -102,6 +84,9 @@ public class ImdbReviewClassificationRNN {
         net.init();
         net.setListeners(new PerformanceListener(10, true));
 
+        if (!new File(TRAIN_PATH).exists() || !new File(TEST_PATH).exists()) {
+            new DataSetsBuilder().run(args);
+        }
         //DataSetIterators for training and testing respectively
         DataSetIterator train = new ExistingMiniBatchDataSetIterator(new File(TRAIN_PATH));
         DataSetIterator test = new ExistingMiniBatchDataSetIterator(new File(TEST_PATH));
