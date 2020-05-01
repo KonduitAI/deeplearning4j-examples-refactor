@@ -52,8 +52,8 @@ public class DataSetsBuilder {
     /** Location (local file system) for the Google News vectors. Set this manually. */
     public static String wordVectorsPath = "/PATH/TO/YOUR/VECTORS/GoogleNews-vectors-negative300.bin.gz";
 
-    public static final String TRAIN_PATH = FilenameUtils.concat(System.getProperty("java.io.tmpdir"), "dl4j_w2vSentiment_train/");
-    public static final String TEST_PATH = FilenameUtils.concat(System.getProperty("java.io.tmpdir"), "dl4j_w2vSentiment_test/");
+    public static final String TRAIN_PATH = FilenameUtils.concat(System.getProperty("user.home"), "dl4j-examples-data/imdbpresaved/train");
+    public static final String TEST_PATH = FilenameUtils.concat(System.getProperty("user.home"), "dl4j-examples-data/imdbpresaved/test");
 
     @Parameter(names = {"-b","--batch"}, description = "BatchSize")
     private int batchSize = 64;
@@ -87,7 +87,7 @@ public class DataSetsBuilder {
         SentimentExampleIterator test = new SentimentExampleIterator(DATA_PATH, wordVectors, batchSize, truncateReviewsToLength, false);
 
         log.info("Saving test data...");
-//        saveDatasets(test, TEST_PATH);
+        saveDatasets(test, TEST_PATH);
 
         log.info("Saving train data...");
         saveDatasets(train, TRAIN_PATH);
