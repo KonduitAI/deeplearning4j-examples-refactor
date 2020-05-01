@@ -86,10 +86,10 @@ public class DataSetsBuilder {
         SentimentExampleIterator train = new SentimentExampleIterator(DATA_PATH, wordVectors, batchSize, truncateReviewsToLength, true);
         SentimentExampleIterator test = new SentimentExampleIterator(DATA_PATH, wordVectors, batchSize, truncateReviewsToLength, false);
 
-        log.info("Saving test data...");
+        log.info("Saving test data to " + TEST_PATH + "....");
         saveDatasets(test, TEST_PATH);
 
-        log.info("Saving train data...");
+        log.info("Saving train data to "+ TRAIN_PATH + "...");
         saveDatasets(train, TRAIN_PATH);
     }
 

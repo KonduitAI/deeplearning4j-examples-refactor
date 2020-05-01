@@ -85,6 +85,7 @@ public class ImdbReviewClassificationRNN {
         net.setListeners(new PerformanceListener(10, true));
 
         if (!new File(TRAIN_PATH).exists() || !new File(TEST_PATH).exists()) {
+            log.info("\n\tPresaved datasets not found! Running DataSetsBuilder.\n");
             new DataSetsBuilder().run(args);
         }
         //DataSetIterators for training and testing respectively
