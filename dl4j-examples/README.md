@@ -111,10 +111,10 @@ Sentiment Classification on the IMDB dataset with a RNN model
 Sentiment Classification on the IMDB dataset with a CNN model
 
 ###### Generating Embeddings:  
-* [GloVeExample.java](./src/main/java/org/deeplearning4j/examples/advanced/modelling/embeddingsfromcorpus/glove/GloVeExample.java)  
-* [paragraphvectors.java](paragraphvectors.java)  
-* [SequenceVectorsTextExample.java](./src/main/java/org/deeplearning4j/examples/advanced/modelling/embeddingsfromcorpus/sequencevectors/SequenceVectorsTextExample.java)  
-* [word2vec.java](word2vec.java)  
+* [GloVe](./src/main/java/org/deeplearning4j/examples/advanced/modelling/embeddingsfromcorpus/glove)  
+* [Paragraph Vectors](./src/main/java/org/deeplearning4j/examples/advanced/modelling/embeddingsfromcorpus/paragraphvectors)
+* [Sequence Vectors](./src/main/java/org/deeplearning4j/examples/advanced/modelling/embeddingsfromcorpus/sequencevectors)  
+* [Word2Vec](./src/main/java/org/deeplearning4j/examples/advanced/modelling/embeddingsfromcorpus/word2vec)
 
 Modeling with a word2vec model trained on a custom corpus:  
 * [PrepareWordVector.java](./src/main/java/org/deeplearning4j/examples/advanced/modelling/textclassification/customcorpusword2vec/PrepareWordVector.java), [TrainNews.java](./src/main/java/org/deeplearning4j/examples/advanced/modelling/textclassification/customcorpusword2vec/TrainNews.java)  
@@ -165,7 +165,7 @@ Train a MultiLayerNetwork where the errors come from an external source, instead
 Demonstrates use of the dl4j transfer learning API which allows users to construct a model based off an existing model by modifying the architecture, freezing certain parts selectively and then fine tuning parameters. Read the documentation for the Transfer Learning API at [https://deeplearning4j.org/transfer-learning](https://deeplearning4j.org/transfer-learning).  
 * [EditLastLayerOthersFrozen.java](./src/main/java/org/deeplearning4j/examples/advanced/features/transferlearning/editlastlayer/EditLastLayerOthersFrozen.java)  
 Modifies just the last layer in vgg16, freezes the rest and trains the network on the flower dataset.
-* [FeaturizedPreSave.java](./src/main/java/org/deeplearning4j/examples/advanced/features/transferlearning/editlastlayer/presave/FeaturizedPreSave.java) & FitFromFeaturized.java  
+* [FeaturizedPreSave.java](./src/main/java/org/deeplearning4j/examples/advanced/features/transferlearning/editlastlayer/presave/FeaturizedPreSave.java) & [FitFromFeaturized.java](./src/main/java/org/deeplearning4j/examples/advanced/features/transferlearning/editlastlayer/presave/FitFromFeaturized.java) 
 Save time on the forward pass during multiple epochs by "featurizing" the datasets. FeaturizedPreSave saves the output at the last frozen layer and FitFromFeaturize fits to the presaved data so you can iterate quicker with different learning parameters.
 * [EditAtBottleneckOthersFrozen.java](./src/main/java/org/deeplearning4j/examples/advanced/features/transferlearning/editfrombottleneck/EditAtBottleneckOthersFrozen.java)  
 A more complex example of modifying model architecure by adding/removing vertices
