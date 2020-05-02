@@ -1,4 +1,4 @@
-This project contains a set of examples that demonstrate how raw data in various formats can be loaded, split and preprocessed to build serializable (and hence reproducible) ETL pipelines. 
+This project contains a set of examples that demonstrate how raw data in various formats can be loaded, split and preprocessed to build serializable (and hence reproducible) ETL pipelines using the DataVec library.
 
 The examples in this project and what they demonstrate are briefly described below. This is also the recommended order to explore them in.
 
@@ -25,7 +25,7 @@ A basic example that introduces users to important concepts like Schema and Tran
 * [CSVMixedDataTypesLocal.java](./src/main/java/org/deeplearning4j/datapipelineexamples/transform/basic/CSVMixedDataTypesLocal.java)  
 Common preprocessing steps like removing unnecessary columns, filtering based on column value, replacing invalid values, parsing date time etc
 * [CSVMixedDataTypes.java](./src/main/java/org/deeplearning4j/datapipelineexamples/transform/basic/CSVMixedDataTypes.java)  
-Same as the above but with Spark
+Same as the above but with Apache Spark
 * [PrintSchemasAtEachStep.java](./src/main/java/org/deeplearning4j/datapipelineexamples/transform/debugging/PrintSchemasAtEachStep.java)  
 How to print schema at each step which would be useful for debugging transform scripts in a complicated pipeline
 * [IrisAnalysis.java](./src/main/java/org/deeplearning4j/datapipelineexamples/analysis/IrisAnalysis.java)  
