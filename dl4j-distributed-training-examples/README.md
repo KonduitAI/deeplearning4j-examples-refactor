@@ -4,6 +4,8 @@ This project contains a set of examples that demonstrate how to do distributed t
 
 Of note - Spark is only relied upon for three specific tasks: 1) Broadcasting the initial neural network parameters to all workers 2) Distributing the RDD datasets to the workers 3) Spark's fault tolerance system to detect and bring up a replacement workers. For all other communication between nodes like transferring quantized gradient updates Aeron is used.  
 
+[Go back](../README.md) to the main repository page to explore other features/functionality of the **Eclipse DeeplearningJ** ecosystem. File an issue [here](https://github.com/eclipse/deeplearning4j-examples/issues) to request new features.
+        
 The examples in this project and what they demonstrate are briefly described below. This is also the recommended order to explore them in.
 
 * [tinyimagenet](src/main/java/org/deeplearning4j/distributedtrainingexamples/tinyimagenet)  

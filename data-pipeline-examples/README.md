@@ -1,9 +1,10 @@
 ## Eclipse Deeplearning4j: Data pipeline, DataVec Examples
 
 This project contains a set of examples that demonstrate how raw data in various formats can be loaded, split and preprocessed to build serializable (and hence reproducible) ETL pipelines using the DataVec library.
-
+                                                                                
+[Go back](../README.md) to the main repository page to explore other features/functionality of the **Eclipse DeeplearningJ** ecosystem. File an issue [here](https://github.com/eclipse/deeplearning4j-examples/issues) to request new features.
+        
 The examples in this project and what they demonstrate are briefly described below. This is also the recommended order to explore them in.
-
 
 ### Loading Data
 InputSplit and its implementations are utility classes for defining and managing a catalog of loadable locations (paths/files), in memory, that can later be exposed through an Iterator. In simple terms, they define where your data comes from or should be saved to, when building a data pipeline with DataVec.  

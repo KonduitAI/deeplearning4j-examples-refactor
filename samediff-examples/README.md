@@ -3,6 +3,8 @@
 This project contains a set of examples that demonstrate the use of the SameDiff API. SameDiff is our automatic differentiation / deep learning framework. SameDiff uses a graph-based (define then run) approach, similar to TensorFlow graph mode. Eager graph (TensorFlow 2.x eager/PyTorch) graph execution is planned. SameDiff supports importing TensorFlow frozen model format .pb (protobuf) models. Import for ONNX, TensorFlow SavedModel and Keras models are planned. Note that Deeplearning4j also has full SameDiff support for easily writing custom layers and loss functions. Examples of importing TF models can be found [here](../tensorflow-keras-import-examples)
 
 It is to be noted that neural networks can also be build using the higher level MultiLayerNetwork and ComputationalGraph DL4J APIs as noted [here](../dl4j-examples)
+                                                                                
+[Go back](../README.md) to the main repository page to explore other features/functionality of the **Eclipse DeeplearningJ** ecosystem. File an issue [here](https://github.com/eclipse/deeplearning4j-examples/issues) to request new features.
 
 The examples in this project and what they demonstrate are briefly described below. This is also the recommended order to explore them in.
 #### Basics

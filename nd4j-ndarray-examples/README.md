@@ -3,8 +3,8 @@
 This project contains a set of examples that demonstrate how to manipulate NDArrays. The functionality of ND4J demonstrated here can be likened to NumPy. 
 
 The examples in this project along with a short summary are listed below. This is also the recommended order to explore them in.  
-
-[Go back](../README.md) to the main repository page to explore other features/functionality of the Eclipse Deeplearning4J ecosystem. File an issue [here](https://github.com/eclipse/deeplearning4j-examples/issues) to request new features.  
+                                                                                
+[Go back](../README.md) to the main repository page to explore other features/functionality of the **Eclipse DeeplearningJ** ecosystem. File an issue [here](https://github.com/eclipse/deeplearning4j-examples/issues) to request new features.
 
 ## Quickstart
 * [Nd4jEx0_INDArrayBasics.java](./src/main/java/org/nd4j/examples/quickstart/Nd4jEx0_INDArrayBasics.java)  

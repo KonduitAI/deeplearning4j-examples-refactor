@@ -4,7 +4,7 @@ This project contains a set of examples that demonstrate use of the high level D
 
 The pom file in this project can be used as a template for a user's own project. The examples in this project and what they demonstrate are briefly described below. This is also the recommended order to explore them in.
 
-[Go back](../README.md) to the main repository page to explore other features/functionality of the **Eclipse DeeplearningJ** (DL4J) ecosystem. File an issue [here](https://github.com/eclipse/deeplearning4j-examples/issues) to request new features.
+[Go back](../README.md) to the main repository page to explore other features/functionality of the **Eclipse DeeplearningJ** ecosystem. File an issue [here](https://github.com/eclipse/deeplearning4j-examples/issues) to request new features.
 
 ### QUICKSTART
 
