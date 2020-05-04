@@ -16,8 +16,6 @@
               .   :::: :   :  :   : :     : :     ::::: ::::    :    : :::: :     :::::   .   
 </pre>
 
-NOTE on 04/30/2020, PT: This repo needs the KonduitAI deeplearning4j master branch to be build locally ie. there are fixes here for things that are breaking changes that are yet to be merged into Eclipse
-
 The **Eclipse DeeplearningJ** (DL4J) ecosystem is a set of projects intended to support all the needs of a JVM based deep learning application. This means starting with the raw data, loading and preprocessing it from wherever and whatever format it is in to building and tuning a wide variety of simple and complex deep learning networks. 
 
 The DL4J stack comprises of:
@@ -32,28 +30,28 @@ All projects in the DL4J ecosystem support Windows, Linux and Mac. Hardware supp
 
 This example repo consists of several separate maven Java projects, with their own pom files. Projects are based on what functionality the included examples demonstrate to the user and not necessarily which library in the DL4J stack the functionality lives in. Examples in a project are in general separated into "quickstart" and "advanced". Each project README also lists all the examples it contains, with a recommended order to explore them in. 
 
-- [dl4j-examples](dl4j-examples)  
+- [dl4j-examples](dl4j-examples/README.md)  
 This project contains a set of examples that demonstrate use of the high level DL4J API to build a variety of neural networks. Some these examples are end to end, in the sense they start with raw data, process it and then build and train neural networks on it.
 
-- [tensorflow-keras-import-examples](tensorflow-keras-import-examples)  
+- [tensorflow-keras-import-examples](tensorflow-keras-import-examples/README.md)  
 This project contains a set of examples that demonstrate how to import Keras h5 models and TensorFlow frozen pb models into the DL4J ecosystem. Once imported into DL4J these models can be treated like any other DL4J model - meaning you can continue to run training on them or modify them with the transfer learning API or simply run inference on them.
 
-- [dl4j-distributed-training-examples](dl4j-distributed-training-examples)  
-This project contains a set of examples that demonstrate how to do distributed training, inference and evaluation in DL4J on Apache Spark. DL4J distributed training employs a "hybrid" asynchronous SGD approach - further details can be found in the Distribute Deep Learning documentation [here](https://deeplearning4j.konduit.ai/distributed-deep-learning/intro)
+- [dl4j-distributed-training-examples](dl4j-distributed-training-examples/README.md)  
+This project contains a set of examples that demonstrate how to do distributed training, inference and evaluation in DL4J on Apache Spark. DL4J distributed training employs a "hybrid" asynchronous SGD approach - further details can be found in the distributed deep learning documentation [here](https://deeplearning4j.konduit.ai/distributed-deep-learning/intro)
 
-- [cuda-specific-examples](cuda-specific-examples)  
+- [cuda-specific-examples](cuda-specific-examples/README.md)  
 This project contains a set of examples that demonstrate how to leverage multiple GPUs for data-parallel training of neural networks for increased performance.
 
-- [samediff-examples](samediff-examples)  
+- [samediff-examples](samediff-examples/README.md)  
 This projects contains a set of examples that demonstrate the SameDiff API. SameDiff (which is part of the ND4J library) can be used to build lower level auto-differentiating computation graphs. An analogue to the SameDiff API vs the DL4J API is the low level TensorFlow API vs the higher level of abstraction Keras API.
 
-- [data-pipeline-examples](data-pipeline-examples)  
+- [data-pipeline-examples](data-pipeline-examples/README.md)  
 This project contains a set of examples that demonstrate how raw data in various formats can be loaded, split and preprocessed to build serializable (and hence reproducible) ETL pipelines.  
 
-- [nd4j-ndarray-examples](nd4j-ndarray-examples)  
+- [nd4j-ndarray-examples](nd4j-ndarray-examples/README.md)  
 This project contains a set of examples that demonstrate how to manipulate NDArrays. The functionality of ND4J demonstrated here can be likened to NumPy.
 
-- [arbiter-examples](arbiter-examples)  
+- [arbiter-examples](arbiter-examples/README.md)  
 This project contains a set of examples that demonstrate useage of the Arbiter library for hyperparameter tuning of Deeplearning4J neural networks.
 
 While these set of examples don't cover all the functionality available in DL4J the intent is that it will cover the functionality required for most users - beginners and advanced.  File an issue [here](https://github.com/eclipse/deeplearning4j-examples/issues) if you have feedback. We **love** hearing from you. We are also available via our [discourse community channel](https://community.konduit.ai/t/welcome-to-discourse/7) for questions. Cheers!
