@@ -21,9 +21,9 @@ Classify MNIST with more layers
 * [ModelXOR.java](./src/main/java/org/deeplearning4j/examples/quickstart/modeling/feedforward/classification/ModelXOR.java)  
 Model a two input XOR function (ie. a simple non linearly separable function)
 * [MoonClassifier.java](./src/main/java/org/deeplearning4j/examples/quickstart/modeling/feedforward/classification/MoonClassifier.java)  
-Model data that separates into a "moon" shape
+Model data that separates into a "moon" shape and visualize the results
 * [SaturnClassifier.java](./src/main/java/org/deeplearning4j/examples/quickstart/modeling/feedforward/classification/SaturnClassifier.java)  
-Model data that separates into a "saturn" shape
+Model data that separates into a "saturn" shape and visualize the results
 
 ###### Regression
 * [CSVDataModel.java](./src/main/java/org/deeplearning4j/examples/quickstart/modeling/feedforward/regression/CSVDataModel.java)  
@@ -42,7 +42,7 @@ A basic introduction to how to build an autoencoder
 
 ##### Convolutional Neural Networks
 * [LeNetMNIST.java](./src/main/java/org/deeplearning4j/examples/quickstart/modeling/convolution/LeNetMNIST.java)  
-The classic LeNet example
+The classic LeNet example for classifying hand-drawn digits (MNIST)
 * [LeNetMNISTReLu.java](./src/main/java/org/deeplearning4j/examples/quickstart/modeling/convolution/LeNetMNISTReLu.java)  
 The same as above with minor modifications
 * [CIFARClassifier.java](./src/main/java/org/deeplearning4j/examples/quickstart/modeling/convolution/CIFARClassifier.java)  
@@ -52,7 +52,7 @@ Train an embedding using the center loss model, on MNIST
 
 ##### Recurrent Neural Networks
 * [UCISequenceClassification.java](./src/main/java/org/deeplearning4j/examples/quickstart/modeling/recurrent/UCISequenceClassification.java)  
-The classic classification example
+Time series (sequence) classification on the UCI syntetic control time series dataset
 * [MemorizeSequence.java](./src/main/java/org/deeplearning4j/examples/quickstart/modeling/recurrent/MemorizeSequence.java)  
 Train a RNN to memorize a sequence of characters
 * [RNNEmbedding.java](./src/main/java/org/deeplearning4j/examples/quickstart/modeling/recurrent/RNNEmbedding.java)  
@@ -123,7 +123,7 @@ Sentence classification using a word2vec model training on a custom corpus
 
 ###### Char Modelling
 * [GenerateTxtModel.java](./src/main/java/org/deeplearning4j/examples/advanced/modelling/charmodelling/generatetext/GenerateTxtModel.java) & [GenerateTxtCharCompGraphModel.java](./src/main/java/org/deeplearning4j/examples/advanced/modelling/charmodelling/generatetext/GenerateTxtCharCompGraphModel.java)  
-MultiLayerNetwork and ComputationGraph versions of a model that is trained to "write Shakespeare", inspired by Andrej Karpathy's now famous blog post. 
+MultiLayerNetwork and ComputationGraph versions of a model that is trained to "write Shakespeare" one character at a time, inspired by Andrej Karpathy's now famous blog post. 
 
 ##### Other Sequence Modeling Examples
 * [SequenceAnomalyDetection.java](./src/main/java/org/deeplearning4j/examples/advanced/modelling/sequenceanomalydetection/SequenceAnomalyDetection.java)  

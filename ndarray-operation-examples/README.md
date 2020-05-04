@@ -1,4 +1,4 @@
-This project contains a set of examples that demonstrate how to manipulate NDArrays. The functionality of ND4J demonstrated here can be likened to numpy. 
+This project contains a set of examples that demonstrate how to manipulate NDArrays. The functionality of ND4J demonstrated here can be likened to NumPy. 
 
 The examples in this project along with a short summary are listed below. This is also the recommended order to explore them in.
 
@@ -27,7 +27,7 @@ Transforming NDArrays
 * [Nd4jEx10_ElementWiseOperation.java](./src/main/java/org/nd4j/examples/quickstart/Nd4jEx10_ElementWiseOperation.java)
 Even more operations like add row/col etc
 * [NumpyCheatSheet.java](NumpyCheatSheet.java) (FIXME???)
-Examples to help numpy users get acquainted with ND4J
+Examples to help NumPy users get acquainted with ND4J
 
 ## Advanced
 * [MultiClassLogitExample.java](./src/main/java/org/nd4j/examples/advanced/lowlevelmodeling/MultiClassLogitExample.java)
