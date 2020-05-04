@@ -1,3 +1,5 @@
+## Eclipse Deeplearning4j: Arbiter Examples
+
 This project contains a set of examples that demonstrate useage of the Arbiter library for hyperparameter tuning of Deeplearning4J models. More information on Arbiter can be found [here](https://deeplearning4j.konduit.ai/arbiter/overview).
 
 The examples in this project and what they demonstrate are briefly described below. This is also the recommended order to explore them in.

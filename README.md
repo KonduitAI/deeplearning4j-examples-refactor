@@ -50,7 +50,7 @@ This projects contains a set of examples that demonstrate the SameDiff API. Same
 - [data-pipeline-examples](data-pipeline-examples)  
 This project contains a set of examples that demonstrate how raw data in various formats can be loaded, split and preprocessed to build serializable (and hence reproducible) ETL pipelines.  
 
-- [ndarray-operation-examples](ndarray-operation-examples)  
+- [nd4j-ndarray-examples](nd4j-ndarray-examples)  
 This project contains a set of examples that demonstrate how to manipulate NDArrays. The functionality of ND4J demonstrated here can be likened to NumPy.
 
 - [arbiter-examples](arbiter-examples)  
