@@ -16,12 +16,12 @@
 
 package org.deeplearning4j.examples.advanced.features.customizingdl4j.activationfunctions;
 
+import org.nd4j.common.primitives.Pair;
 import org.nd4j.linalg.activations.BaseActivationFunction;
 import org.nd4j.linalg.api.ndarray.INDArray;
+import org.nd4j.linalg.api.ops.impl.transforms.strict.TanDerivative;
 import org.nd4j.linalg.api.ops.impl.transforms.strict.Tanh;
-import org.nd4j.linalg.api.ops.impl.transforms.strict.TanhDerivative;
 import org.nd4j.linalg.factory.Nd4j;
-import org.nd4j.common.primitives.Pair;
 
 /**
  * This is an example of how to implement a custom activation function that does not take any learnable parameters
@@ -74,7 +74,7 @@ public class CustomActivationDefinition extends BaseActivationFunction{
         //
         //      h(x) = 1.7159*tanh(2x/3);
         //      h'(x) = 1.7159*[tanh(2x/3)]' * 2/3
-        INDArray dLdz = Nd4j.getExecutioner().exec(new TanhDerivative(in.muli(2/3.0)));
+        INDArray dLdz = Nd4j.getExecutioner().exec(new TanDerivative(in.muli(2/3.0)));
         dLdz.muli(2/3.0);
         dLdz.muli(1.7159);
 

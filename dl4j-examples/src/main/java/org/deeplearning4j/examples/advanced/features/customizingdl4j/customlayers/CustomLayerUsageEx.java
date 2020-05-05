@@ -202,8 +202,18 @@ public class CustomLayerUsageEx {
             System.out.println("# params, layer " + i + ":\t" + net.getLayer(i).numParams());
         }
 
-        GradientCheckUtil.checkGradients(net, gradient_check_epsilon, max_relative_error, min_absolute_error, print,
-            return_on_first_failure, features, labels);
+        GradientCheckUtil.MLNConfig mlnConfig = new GradientCheckUtil.MLNConfig()
+                .net(net)
+                .epsilon(gradient_check_epsilon)
+                .maxRelError(max_relative_error)
+                .minAbsoluteError(min_absolute_error)
+                .print(GradientCheckUtil.PrintMode.FAILURES_ONLY)
+                .exitOnFirstError(return_on_first_failure)
+                .input(features)
+                .labels(labels);
+
+        GradientCheckUtil.checkGradients(mlnConfig);
+
     }
 
 }

@@ -97,13 +97,14 @@ public class IrisClassifier {
             .layer(new DenseLayer.Builder().nIn(3).nOut(3)
                 .build())
             .layer( new OutputLayer.Builder(LossFunctions.LossFunction.NEGATIVELOGLIKELIHOOD)
-                .activation(Activation.SOFTMAX)
+                .activation(Activation.SOFTMAX) //Override the global TANH activation with softmax for this layer
                 .nIn(3).nOut(outputNum).build())
             .build();
 
         //run the model
         MultiLayerNetwork model = new MultiLayerNetwork(conf);
         model.init();
+        //record score once every 100 iterations
         model.setListeners(new ScoreIterationListener(100));
 
         for(int i=0; i<1000; i++ ) {

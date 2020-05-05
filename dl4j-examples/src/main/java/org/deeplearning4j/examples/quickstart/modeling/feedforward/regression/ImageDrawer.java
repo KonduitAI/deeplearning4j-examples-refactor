@@ -210,7 +210,7 @@ public class ImageDrawer {
         INDArray out = nn.output(xyOut); // The raw NN output.
         BooleanIndexing.replaceWhere(out, 0.0, Conditions.lessThan(0.0)); // Clip between 0 and 1.
         BooleanIndexing.replaceWhere(out, 1.0, Conditions.greaterThan(1.0));
-        out = out.mul(255).castTo(DataType.BYTE); //convert to bytes.
+        out = out.mul(255).castTo(DataType.INT8); //convert to bytes.
 
         INDArray r = out.getColumn(0); //Extract the individual color layers.
         INDArray g = out.getColumn(1);
