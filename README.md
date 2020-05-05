@@ -28,7 +28,9 @@ The DL4J stack comprises of:
 
 All projects in the DL4J ecosystem support Windows, Linux and Mac. Hardware support includes CUDA GPUs (10.0, 10.1, 10.2 except OSX), x86 CPU (x86_64, avx2, avx512), ARM CPU (arm, arm64, armhf) and PowerPC (ppc64le).
 
-This example repo consists of several separate maven Java projects, with their own pom files. Projects are based on what functionality the included examples demonstrate to the user and not necessarily which library in the DL4J stack the functionality lives in. Examples in a project are in general separated into "quickstart" and "advanced". Each project README also lists all the examples it contains, with a recommended order to explore them in. 
+This example repo consists of several separate Maven Java projects, each with their own pom files. Maven is a popular build automation tool for Java Projects. The contents of a "pom.xml" file dictate the configurations. Read more about how to configure Maven [here](https://deeplearning4j.konduit.ai/config/maven). Users can only refer to one of the [example project pom file](./dl4j-examples/pom.xml)to get started. Build tools are considered standard software engineering best practice. Besides this the complexities posed by the projects in the DL4J ecosystem make dependencies too difficult to manage manually. All the projects in the DL4J ecosystem can be used with other build tools like Gradle, SBT etc. More information on that can be found [here](https://deeplearning4j.konduit.ai/config/buildtools).  
+
+Projects are based on what functionality the included examples demonstrate to the user and not necessarily which library in the DL4J stack the functionality lives in. Examples in a project are in general separated into "quickstart" and "advanced". Each project README also lists all the examples it contains, with a recommended order to explore them in. 
 
 - [dl4j-examples](dl4j-examples/README.md)  
 This project contains a set of examples that demonstrate use of the high level DL4J API to build a variety of neural networks. Some these examples are end to end, in the sense they start with raw data, process it and then build and train neural networks on it.
