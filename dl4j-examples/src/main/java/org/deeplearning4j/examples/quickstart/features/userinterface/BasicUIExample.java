@@ -34,7 +34,7 @@ import java.io.File;
  *
  * @author Alex Black
  */
-public class UIExample {
+public class BasicUIExample {
 
     public static void main(String[] args){
         //Get our network and training data

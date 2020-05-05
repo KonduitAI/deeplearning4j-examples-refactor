@@ -89,7 +89,7 @@ public class MultiDigitNumberRecognition {
         //fit
         model.setListeners(new ScoreIterationListener(10), new StatsListener( statsStorage), new EvaluativeListener(testMulIterator, 1, InvocationType.EPOCH_END));
         int epochs = 4;
-        //model.fit(trainMulIterator, epochs);
+        model.fit(trainMulIterator, epochs);
 
         //save
         model.save(new File(modelPath), true);

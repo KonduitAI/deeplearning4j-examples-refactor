@@ -84,7 +84,7 @@ Early stopping example on a subset of MNIST i.e conduct training and use the par
 Save time when training with multiple epochs by presaving datasets
 * [WeightedLossFunctionExample.java](./src/main/java/org/deeplearning4j/examples/quickstart/features/classimbalance/WeightedLossFunctionExample.java)  
 Out of the box loss function that can be used with imbalanced classes
-* [UIExample.java](./src/main/java/org/deeplearning4j/examples/quickstart/features/userinterface/UIExample.java)  
+* [BasicUIExample.java](./src/main/java/org/deeplearning4j/examples/quickstart/features/userinterface/BasicUIExample.java)  
 Basic UI example
 * [UIStorageExample.java](./src/main/java/org/deeplearning4j/examples/quickstart/features/userinterface/UIStorageExample.java)  
 Save training data to a file and reload it later to display in the UI
