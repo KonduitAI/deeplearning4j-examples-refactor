@@ -108,49 +108,50 @@ public class MoonClassifier {
 
         //------------------------------------------------------------------------------------
         //Training is complete. Code that follows is for plotting the data & predictions only
+        //Plot the data by default
+        if (args.length == 0) {
+            double xMin = -1.5;
+            double xMax = 2.5;
+            double yMin = -1;
+            double yMax = 1.5;
 
-        //Plot the data
-        double xMin = -1.5;
-        double xMax = 2.5;
-        double yMin = -1;
-        double yMax = 1.5;
+            //Let's evaluate the predictions at every point in the x/y input space, and plot this in the background
+            int nPointsPerAxis = 100;
+            double[][] evalPoints = new double[nPointsPerAxis * nPointsPerAxis][2];
+            int count = 0;
+            for (int i = 0; i < nPointsPerAxis; i++) {
+                for (int j = 0; j < nPointsPerAxis; j++) {
+                    double x = i * (xMax - xMin) / (nPointsPerAxis - 1) + xMin;
+                    double y = j * (yMax - yMin) / (nPointsPerAxis - 1) + yMin;
 
-        //Let's evaluate the predictions at every point in the x/y input space, and plot this in the background
-        int nPointsPerAxis = 100;
-        double[][] evalPoints = new double[nPointsPerAxis*nPointsPerAxis][2];
-        int count = 0;
-        for( int i=0; i<nPointsPerAxis; i++ ){
-            for( int j=0; j<nPointsPerAxis; j++ ){
-                double x = i * (xMax-xMin)/(nPointsPerAxis-1) + xMin;
-                double y = j * (yMax-yMin)/(nPointsPerAxis-1) + yMin;
+                    evalPoints[count][0] = x;
+                    evalPoints[count][1] = y;
 
-                evalPoints[count][0] = x;
-                evalPoints[count][1] = y;
-
-                count++;
+                    count++;
+                }
             }
+
+            INDArray allXYPoints = Nd4j.create(evalPoints);
+            INDArray predictionsAtXYPoints = model.output(allXYPoints);
+
+            //Get all of the training data in a single array, and plot it:
+            rr.initialize(new FileSplit(new File(dataLocalPath, "moon_data_train.csv")));
+            rr.reset();
+            int nTrainPoints = 2000;
+            trainIter = new RecordReaderDataSetIterator(rr, nTrainPoints, 0, 2);
+            DataSet ds = trainIter.next();
+            PlotUtil.plotTrainingData(ds.getFeatures(), ds.getLabels(), allXYPoints, predictionsAtXYPoints, nPointsPerAxis);
+
+
+            //Get test data, run the test data through the network to generate predictions, and plot those predictions:
+            rrTest.initialize(new FileSplit(new File(dataLocalPath, "moon_data_eval.csv")));
+            rrTest.reset();
+            int nTestPoints = 1000;
+            testIter = new RecordReaderDataSetIterator(rrTest, nTestPoints, 0, 2);
+            ds = testIter.next();
+            INDArray testPredicted = model.output(ds.getFeatures());
+            PlotUtil.plotTestData(ds.getFeatures(), ds.getLabels(), testPredicted, allXYPoints, predictionsAtXYPoints, nPointsPerAxis);
         }
-
-        INDArray allXYPoints = Nd4j.create(evalPoints);
-        INDArray predictionsAtXYPoints = model.output(allXYPoints);
-
-        //Get all of the training data in a single array, and plot it:
-        rr.initialize(new FileSplit(new File(dataLocalPath,"moon_data_train.csv")));
-        rr.reset();
-        int nTrainPoints = 2000;
-        trainIter = new RecordReaderDataSetIterator(rr,nTrainPoints,0,2);
-        DataSet ds = trainIter.next();
-        PlotUtil.plotTrainingData(ds.getFeatures(), ds.getLabels(), allXYPoints, predictionsAtXYPoints, nPointsPerAxis);
-
-
-        //Get test data, run the test data through the network to generate predictions, and plot those predictions:
-        rrTest.initialize(new FileSplit(new File(dataLocalPath,"moon_data_eval.csv")));
-        rrTest.reset();
-        int nTestPoints = 1000;
-        testIter = new RecordReaderDataSetIterator(rrTest,nTestPoints,0,2);
-        ds = testIter.next();
-        INDArray testPredicted = model.output(ds.getFeatures());
-        PlotUtil.plotTestData(ds.getFeatures(), ds.getLabels(), testPredicted, allXYPoints, predictionsAtXYPoints, nPointsPerAxis);
 
         System.out.println("****************Example finished********************");
     }

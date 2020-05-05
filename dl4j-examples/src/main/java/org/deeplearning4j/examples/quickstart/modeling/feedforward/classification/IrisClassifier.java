@@ -116,6 +116,7 @@ public class IrisClassifier {
         INDArray output = model.output(testData.getFeatures());
         eval.eval(testData.getLabels(), output);
         log.info(eval.stats());
+
     }
 
 }

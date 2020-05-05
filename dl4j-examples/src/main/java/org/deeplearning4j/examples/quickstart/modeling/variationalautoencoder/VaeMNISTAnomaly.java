@@ -175,17 +175,20 @@ public class VaeMNISTAnomaly {
             }
         }
 
-        //Visualize the best and worst digits
-        MNISTAutoencoder.MNISTVisualizer bestVisualizer = new MNISTAutoencoder.MNISTVisualizer(2.0,best,"Best (Highest Rec. Prob)");
-        bestVisualizer.visualize();
+        //plot by default
+        if (args.length == 0) {
+            //Visualize the best and worst digits
+            MNISTAutoencoder.MNISTVisualizer bestVisualizer = new MNISTAutoencoder.MNISTVisualizer(2.0, best, "Best (Highest Rec. Prob)");
+            bestVisualizer.visualize();
 
-        MNISTAutoencoder.MNISTVisualizer bestReconstructions = new MNISTAutoencoder.MNISTVisualizer(2.0,bestReconstruction,"Best - Reconstructions");
-        bestReconstructions.visualize();
+            MNISTAutoencoder.MNISTVisualizer bestReconstructions = new MNISTAutoencoder.MNISTVisualizer(2.0, bestReconstruction, "Best - Reconstructions");
+            bestReconstructions.visualize();
 
-        MNISTAutoencoder.MNISTVisualizer worstVisualizer = new MNISTAutoencoder.MNISTVisualizer(2.0,worst,"Worst (Lowest Rec. Prob)");
-        worstVisualizer.visualize();
+            MNISTAutoencoder.MNISTVisualizer worstVisualizer = new MNISTAutoencoder.MNISTVisualizer(2.0, worst, "Worst (Lowest Rec. Prob)");
+            worstVisualizer.visualize();
 
-        MNISTAutoencoder.MNISTVisualizer worstReconstructions = new MNISTAutoencoder.MNISTVisualizer(2.0,worstReconstruction,"Worst - Reconstructions");
-        worstReconstructions.visualize();
+            MNISTAutoencoder.MNISTVisualizer worstReconstructions = new MNISTAutoencoder.MNISTVisualizer(2.0, worstReconstruction, "Worst - Reconstructions");
+            worstReconstructions.visualize();
+        }
     }
 }

@@ -40,6 +40,9 @@ import org.slf4j.LoggerFactory;
 
 import java.io.File;
 
+import static org.deeplearning4j.examples.quickstart.features.presavingdatasets.PreSaveFirst.TEST_FOLDER;
+import static org.deeplearning4j.examples.quickstart.features.presavingdatasets.PreSaveFirst.TRAIN_FOLDER;
+
 
 /**
  *
@@ -78,7 +81,12 @@ public class LoadPreSavedLenetMnistExample {
             Load the pre saved data. NOTE: YOU NEED TO RUN PreSave first.
 
          */
-        log.info("Load data....");
+        if (!new File(TRAIN_FOLDER).exists() || !new File(TEST_FOLDER).exists()) {
+            throw new RuntimeException("You have not presaved the datasets. Run the main class in PreSaveFirst.java!!");
+        }
+        else {
+            log.info("Load data....");
+        }
         /**
          * Note the {@link ExistingMiniBatchDataSetIterator}
          * takes in a pattern of "mnist-train-%d.bin"
@@ -96,11 +104,11 @@ public class LoadPreSavedLenetMnistExample {
          * and in java:
          * https://docs.oracle.com/javase/tutorial/java/data/numberformat.html
          */
-        DataSetIterator existingTrainingData = new ExistingMiniBatchDataSetIterator(new File("trainFolder"),"mnist-train-%d.bin");
+        DataSetIterator existingTrainingData = new ExistingMiniBatchDataSetIterator(new File(TRAIN_FOLDER),"mnist-train-%d.bin");
        //note here that we use as ASYNC iterator which loads data in the background, this is crucial to avoid disk as a bottleneck
         //when loading data
         DataSetIterator mnistTrain = new AsyncDataSetIterator(existingTrainingData);
-        DataSetIterator existingTestData = new ExistingMiniBatchDataSetIterator(new File("testFolder"),"mnist-test-%d.bin");
+        DataSetIterator existingTestData = new ExistingMiniBatchDataSetIterator(new File(TEST_FOLDER),"mnist-test-%d.bin");
         DataSetIterator mnistTest = new AsyncDataSetIterator(existingTestData);
 
         /*

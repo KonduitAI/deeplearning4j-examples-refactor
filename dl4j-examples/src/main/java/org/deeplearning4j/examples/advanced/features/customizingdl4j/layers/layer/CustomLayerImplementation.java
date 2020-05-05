@@ -14,7 +14,7 @@
  * SPDX-License-Identifier: Apache-2.0
  ******************************************************************************/
 
-package org.deeplearning4j.examples.advanced.features.customizingdl4j.customlayers.layer;
+package org.deeplearning4j.examples.advanced.features.customizingdl4j.layers.layer;
 
 import org.deeplearning4j.nn.conf.NeuralNetConfiguration;
 import org.deeplearning4j.nn.gradient.DefaultGradient;

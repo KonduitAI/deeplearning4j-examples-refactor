@@ -76,6 +76,8 @@ public class VideoFrameClassifier {
 
     public static void main(String[] args) throws Exception {
 
+        // Note that you will need to run with at least 7G off heap memory
+        // if you want to keep this batchsize and train the nn config specified
         int miniBatchSize = 16;
 
         String dataDirectory = DownloaderUtility.VIDEOEXAMPLE.Download() + "/videoshapesexample/";

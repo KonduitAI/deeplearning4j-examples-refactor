@@ -16,210 +16,162 @@
 
 package org.deeplearning4j.examples.advanced.features.customizingdl4j.lossfunctions;
 
-import org.deeplearning4j.datasets.iterator.impl.ListDataSetIterator;
 import org.deeplearning4j.nn.conf.NeuralNetConfiguration;
 import org.deeplearning4j.nn.conf.layers.DenseLayer;
 import org.deeplearning4j.nn.conf.layers.OutputLayer;
 import org.deeplearning4j.nn.multilayer.MultiLayerNetwork;
 import org.deeplearning4j.nn.weights.WeightInit;
 import org.deeplearning4j.optimize.listeners.ScoreIterationListener;
+import org.nd4j.common.util.ArrayUtil;
 import org.nd4j.linalg.activations.Activation;
 import org.nd4j.linalg.activations.IActivation;
-import org.nd4j.linalg.activations.impl.ActivationIdentity;
+import org.nd4j.linalg.api.buffer.DataType;
 import org.nd4j.linalg.api.iter.NdIndexIterator;
 import org.nd4j.linalg.api.ndarray.INDArray;
-import org.nd4j.linalg.dataset.DataSet;
+import org.nd4j.linalg.api.rng.distribution.impl.NormalDistribution;
 import org.nd4j.linalg.dataset.api.iterator.DataSetIterator;
 import org.nd4j.linalg.factory.Nd4j;
 import org.nd4j.linalg.learning.config.Nesterovs;
-import org.nd4j.common.util.ArrayUtil;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
+
+import static org.deeplearning4j.examples.quickstart.modeling.feedforward.regression.SumModel.getTrainingData;
 
 /**
- * Created by susaneraly on 11/9/16.
- * This is an example that illustrates how to instantiate and use a custom loss function.
- * The example is identical to the one in org.deeplearning4j.examples.feedforward.regression.RegressionSum
- * except for the custom loss function
+ * This is an example that illustrates how to define and instantiate a custom loss function.
+ * The example uses the quickstart SumModel example as a basis
+ *
+ * @author susaneraly
  */
 public class CustomLossUsageEx {
-    public static final int seed = 12345;
-    public static final int nEpochs = 500;
-    public static final int nSamples = 1000;
-    public static final int batchSize = 100;
-    public static final double learningRate = 0.001;
-    public static int MIN_RANGE = 0;
-    public static int MAX_RANGE = 3;
-
-    public static final Random rng = new Random(seed);
+    public static final Random rng = new Random(12345);
 
     public static void main(String[] args) {
+        //The neural net configuration here demonstrates how to instantiate a custom loss function
         doTraining();
 
         //THE FOLLOWING IS TO ILLUSTRATE A SIMPLE GRADIENT CHECK.
         //It checks the implementation against the finite difference approximation, to ensure correctness
-        //You will have to write your own gradient checks.
-        //Use the code below and the following for reference.
-        //  deeplearning4j/deeplearning4j-core/src/test/java/org/deeplearning4j/gradientcheck/LossFunctionGradientCheck.java
         doGradientCheck();
     }
 
-    public static void doTraining(){
+    public static void doTraining() {
 
-        DataSetIterator iterator = getTrainingData(batchSize,rng);
+        DataSetIterator iterator = getTrainingData(100, rng);
 
         //Create the network
         int numInput = 2;
         int numOutputs = 1;
         int nHidden = 10;
         MultiLayerNetwork net = new MultiLayerNetwork(new NeuralNetConfiguration.Builder()
-            .seed(seed)
-            .weightInit(WeightInit.XAVIER)
-            .updater(new Nesterovs(learningRate, 0.95))
-            .list()
-            .layer(new DenseLayer.Builder().nIn(numInput).nOut(nHidden)
-                .activation(Activation.TANH)
-                .build())
+                .dataType(DataType.DOUBLE) //instantiating as doubles for gradient checks
+                .seed(12345)
+                .weightInit(WeightInit.XAVIER)
+                .updater(new Nesterovs(0.001, 0.95))
+                .list()
+                .layer(new DenseLayer.Builder().nIn(numInput).nOut(nHidden)
+                        .activation(Activation.TANH)
+                        .build())
                 //INSTANTIATE CUSTOM LOSS FUNCTION here as follows
                 //Refer to CustomLossL1L2 class for more details on implementation
-            .layer(new OutputLayer.Builder(new CustomLossDefinition())
-                .activation(Activation.IDENTITY)
-                .nIn(nHidden).nOut(numOutputs).build())
-            .build()
+                .layer(new OutputLayer.Builder(new CustomLossDefinition())
+                        .activation(Activation.IDENTITY)
+                        .nIn(nHidden).nOut(numOutputs).build())
+                .build()
         );
         net.init();
 
-
         //Train the network on the full data set and evaluate
         net.setListeners(new ScoreIterationListener(100));
-        net.fit(iterator, nEpochs);
-
-        // Test the addition of 2 numbers (Try different numbers here)
-        final INDArray input = Nd4j.create(new double[] { 0.111111, 0.3333333333333 }, new int[] { 1, 2 });
-        INDArray out = net.output(input, false);
-        System.out.println(out);
-
-    }
-
-    private static DataSetIterator getTrainingData(int batchSize, Random rand){
-        float [] sum = new float[nSamples];
-        float [] input1 = new float[nSamples];
-        float [] input2 = new float[nSamples];
-        for (int i= 0; i< nSamples; i++) {
-            input1[i] = MIN_RANGE + (MAX_RANGE - MIN_RANGE) * rand.nextFloat();
-            input2[i] =  MIN_RANGE + (MAX_RANGE - MIN_RANGE) * rand.nextFloat();
-            sum[i] = input1[i] + input2[i];
-        }
-        INDArray inputNDArray1 = Nd4j.create(input1, new int[]{nSamples,1});
-        INDArray inputNDArray2 = Nd4j.create(input2, new int[]{nSamples,1});
-        INDArray inputNDArray = Nd4j.hstack(inputNDArray1,inputNDArray2);
-        INDArray outPut = Nd4j.create(sum, new int[]{nSamples, 1});
-        DataSet dataSet = new DataSet(inputNDArray, outPut);
-        List<DataSet> listDs = dataSet.asList();
-        Collections.shuffle(listDs,rng);
-        return new ListDataSetIterator(listDs,batchSize);
+        net.fit(iterator, 10);
+        System.out.println("Training complete");
     }
 
 
-
-
+    /**
+     * Runs for a list of different activation functions and label sizes to ensure that the gradient is correct
+     */
     public static void doGradientCheck() {
         double epsilon = 1e-3;
         int totalNFailures = 0;
-        double maxRelError = 5.0; // in %
+        int totalTests = 0;
+        double maxRelError = 1; // in %
         CustomLossDefinition lossfn = new CustomLossDefinition();
-        String[] activationFns = new String[]{"identity", "softmax", "relu", "tanh", "sigmoid"};
-        int[] labelSizes = new int[]{1, 2, 3, 4};
+        String[] activationFns = new String[]{"identity", "relu", "tanh", "sigmoid", "softmax", "leakyrelu"};
+
+        int[] labelLengths = new int[]{1, 2, 3, 4, 5};
         for (int i = 0; i < activationFns.length; i++) {
-            System.out.println("Running checks for "+activationFns[i]);
+            System.out.println("Running checks for " + activationFns[i]);
             IActivation activation = Activation.fromString(activationFns[i]).getActivationFunction();
-            List<INDArray> labelList = makeLabels(activation,labelSizes);
-            List<INDArray> preOutputList = makeLabels(new ActivationIdentity(),labelSizes);
-            for (int j=0; j<labelSizes.length; j++) {
-                System.out.println("\tRunning check for length " + labelSizes[j]);
-                INDArray label = labelList.get(j);
-                INDArray preOut = preOutputList.get(j);
-                INDArray grad = lossfn.computeGradient(label,preOut,activation,null);
+            List<INDArray> randomLabelList = randomValsinRightRange(activation, labelLengths);
+            List<INDArray> randomPreOutputList = randomValsinRightRange(Activation.fromString("identity").getActivationFunction(), labelLengths);
+
+            for (int j = 0; j < labelLengths.length; j++) {
+
+                if (activation.toString().equals("softmax") && labelLengths[j] == 1) {
+                    System.out.println("\tSkipping length == 1 for softmax");
+                    continue;
+                }
+                System.out.println("\tRunning check for length " + labelLengths[j]);
+
+                INDArray label = randomLabelList.get(j);
+                INDArray preOut = randomPreOutputList.get(j);
+
+                INDArray computedGradient = lossfn.computeGradient(label, preOut, activation, null);
+
+                //checking gradient wrt to each feature in label
                 NdIndexIterator iterPreOut = new NdIndexIterator(preOut.shape());
                 while (iterPreOut.hasNext()) {
                     int[] next = ArrayUtil.toInts(iterPreOut.next());
-                    //checking gradient with total score wrt to each output feature in label
-                    double before = preOut.getDouble(next);
-                    preOut.putScalar(next, before + epsilon);
-                    double scorePlus = lossfn.computeScore(label, preOut, activation, null, true);
-                    preOut.putScalar(next, before - epsilon);
-                    double scoreMinus = lossfn.computeScore(label, preOut, activation, null, true);
-                    preOut.putScalar(next, before);
+                    double originalValue = preOut.getDouble(next);
+
+                    //+eps,-eps changes and calc score
+                    preOut.putScalar(next, originalValue + epsilon);
+                    double scorePlus = lossfn.computeScore(label, preOut, activation, null, false); //not averaging
+                    preOut.putScalar(next, originalValue - epsilon);
+                    double scoreMinus = lossfn.computeScore(label, preOut, activation, null, false); //not averaging
+                    //restore value
+                    preOut.putScalar(next, originalValue);
 
                     double scoreDelta = scorePlus - scoreMinus;
                     double numericalGradient = scoreDelta / (2 * epsilon);
-                    double analyticGradient = grad.getDouble(next);
+
+                    double analyticGradient = computedGradient.getDouble(next);
+
                     double relError = Math.abs(analyticGradient - numericalGradient) * 100 / (Math.abs(numericalGradient));
-                    if( analyticGradient == 0.0 && numericalGradient == 0.0 ) relError = 0.0;
+
+                    if (analyticGradient == 0.0 && numericalGradient == 0.0) relError = 0.0;
+                    totalTests++;
                     if (relError > maxRelError || Double.isNaN(relError)) {
                         System.out.println("\t\tParam " + Arrays.toString(next) + " FAILED: grad= " + analyticGradient + ", numericalGrad= " + numericalGradient
-                            + ", relErrorPerc= " + relError + ", scorePlus=" + scorePlus + ", scoreMinus= " + scoreMinus);
+                                + ", relErrorPerc= " + relError + ", scorePlus=" + scorePlus + ", scoreMinus= " + scoreMinus);
                         totalNFailures++;
                     } else {
                         System.out.println("\t\tParam " + Arrays.toString(next) + " passed: grad= " + analyticGradient + ", numericalGrad= " + numericalGradient
-                            + ", relError= " + relError + ", scorePlus=" + scorePlus + ", scoreMinus= " + scoreMinus);
+                                + ", relError= " + relError + ", scorePlus=" + scorePlus + ", scoreMinus= " + scoreMinus);
                     }
+                    //restore original value
+                    preOut.putScalar(next, originalValue);
                 }
             }
         }
-        if(totalNFailures > 0) System.out.println("DONE:\n\tGradient check failed for loss function; total num failures = " + totalNFailures);
-        else System.out.println("DONE:\n\tSimple gradient check passed - This is NOT exhaustive by any means");
+        System.out.println("DONE! \nCompleted " + totalTests + " tests");
+        if (totalNFailures > 0) {
+            System.out.println("Gradient check failed for " + totalNFailures + " tests");
+        } else {
+            System.out.println("All checks passed");
+        }
     }
 
-    /* This function is a utility function for the gradient check above
-        It generate labels randomly in the right range depending on the activation function
-        Uses a gaussian
-        identity: range is anything
-        relu: range is non-negative
-        softmax: range is non-negative and adds up to 1
-        sigmoid: range is between 0 and 1
-        tanh: range is between -1 and 1
-
-     */
-    public static List<INDArray> makeLabels(IActivation activation,int[]labelSize) {
-        //edge cases are label size of one for everything except softmax which is two
-        //+ve and -ve values, zero and non zero values, less than zero/greater than zero
+    public static List<INDArray> randomValsinRightRange(IActivation activation, int[] labelSize) {
         List<INDArray> returnVals = new ArrayList<>(labelSize.length);
-        for (int i=0; i< labelSize.length; i++) {
+        for (int i = 0; i < labelSize.length; i++) {
             int aLabelSize = labelSize[i];
-            Random r = new Random();
-            double[] someVals = new double[aLabelSize];
-            double someValsSum = 0;
-            for (int j=0; j<aLabelSize; j++) {
-                double someVal = r.nextGaussian();
-                double transformVal = 0;
-                switch (activation.toString()) {
-                    case "identity":
-                        transformVal = someVal;
-                    case "softmax":
-                        transformVal = someVal;
-                        break;
-                    case "sigmoid":
-                        transformVal = Math.sin(someVal);
-                        break;
-                    case "tanh":
-                        transformVal = Math.tan(someVal);
-                        break;
-                    case "relu":
-                        transformVal = someVal * someVal + 4;
-                        break;
-                    default:
-                        throw new RuntimeException("Unknown activation function");
-                }
-                someVals[j] = transformVal;
-                someValsSum += someVals[j];
-            }
-            if ("sigmoid".equals(activation.toString())) {
-                for (int j=0; j<aLabelSize; j++) {
-                    someVals[j] /= someValsSum;
-                }
-            }
-            returnVals.add(Nd4j.create(someVals));
+            INDArray someValArray = Nd4j.rand(new NormalDistribution(), 1, aLabelSize);
+            returnVals.add(activation.getActivation(someValArray, false));
         }
         return returnVals;
     }

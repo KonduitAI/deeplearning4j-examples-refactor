@@ -123,13 +123,16 @@ public class VaeMNIST2dPlots {
             net.pretrain(trainIter);    //Note use of .pretrain(DataSetIterator) not fit(DataSetIterator) for unsupervised training
         }
 
-        //Plot MNIST test set - latent space vs. iteration (every 100 minibatches by default)
-        VAEPlotUtil.plotData(latentSpaceVsEpoch, testLabels, plotMin, plotMax, plotEveryNMinibatches);
+        //plot by default
+        if (args.length == 0) {
+            //Plot MNIST test set - latent space vs. iteration (every 100 minibatches by default)
+            VAEPlotUtil.plotData(latentSpaceVsEpoch, testLabels, plotMin, plotMax, plotEveryNMinibatches);
 
-        //Plot reconstructions - latent space vs. grid
-        double imageScale = 2.0;        //Increase/decrease this to zoom in on the digits
-        VAEPlotUtil.MNISTLatentSpaceVisualizer v = new VAEPlotUtil.MNISTLatentSpaceVisualizer(imageScale, digitsGrid, plotEveryNMinibatches);
-        v.visualize();
+            //Plot reconstructions - latent space vs. grid
+            double imageScale = 2.0;        //Increase/decrease this to zoom in on the digits
+            VAEPlotUtil.MNISTLatentSpaceVisualizer v = new VAEPlotUtil.MNISTLatentSpaceVisualizer(imageScale, digitsGrid, plotEveryNMinibatches);
+            v.visualize();
+        }
     }
 
 

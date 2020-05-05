@@ -25,7 +25,11 @@ import java.io.File;
 
 /**
  * This examples shows use of ParallelInference mechanism
+ * Parallel Inference takes requests from multiple threads,
+ * collects them for a short while, and then queries the model for all collected requests.
+ * Since the model works in parallel internally, the available resources are still fully utilized.
  *
+ * Refer to: https://www.dubs.tech/guides/quickstart-with-dl4j/#parallel-inference for more information
  * @author raver119@gmail.com
  */
 public class ParallelInferenceExample {

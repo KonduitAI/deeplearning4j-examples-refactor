@@ -79,7 +79,10 @@ public class CSVDataModel {
         DataSet modeloutput = new DataSet(x, y);
         DataSetList.add(modeloutput);
 
-        plotDataset(DataSetList);    //Plot data and model fit.
+        //plot on by default
+        if (args.length == 0) {
+            plotDataset(DataSetList);    //Plot data and model fit.
+        }
     }
 
     /**

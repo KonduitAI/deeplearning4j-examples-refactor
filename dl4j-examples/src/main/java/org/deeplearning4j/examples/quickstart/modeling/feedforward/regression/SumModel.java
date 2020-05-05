@@ -73,7 +73,7 @@ public class SumModel {
                 .updater(new Nesterovs(learningRate, 0.9))
                 .list()
                 .layer(0, new DenseLayer.Builder().nIn(numInput).nOut(nHidden)
-                        .activation(Activation.TANH)
+                        .activation(Activation.TANH) //Change this to RELU and you will see the net learns very well very quickly
                         .build())
                 .layer(1, new OutputLayer.Builder(LossFunctions.LossFunction.MSE)
                         .activation(Activation.IDENTITY)
@@ -97,7 +97,7 @@ public class SumModel {
     }
 
     @SuppressWarnings("SameParameterValue")
-    private static DataSetIterator getTrainingData(int batchSize, Random rand){
+    public static DataSetIterator getTrainingData(int batchSize, Random rand){
         double [] sum = new double[nSamples];
         double [] input1 = new double[nSamples];
         double [] input2 = new double[nSamples];

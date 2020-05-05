@@ -25,7 +25,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Created by susaneraly on 11/8/16.
+ * @author susaneraly
  */
 public class CustomLossDefinition implements ILossFunction {
 

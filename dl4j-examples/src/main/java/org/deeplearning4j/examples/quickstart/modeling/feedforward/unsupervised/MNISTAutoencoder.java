@@ -46,7 +46,8 @@ import java.util.List;
  * not like the typical digits.
  * This is accomplished in this example by using reconstruction error: stereotypical
  * examples should have low reconstruction error, whereas outliers should have high
- * reconstruction error
+ * reconstruction error. The number of epochs here is set to 3. Set to 30 for even better
+ * results.
  *
  * @author Alex Black
  */
@@ -96,7 +97,7 @@ public class MNISTAutoencoder {
         }
 
         //Train model:
-        int nEpochs = 30;
+        int nEpochs = 3;
         for( int epoch=0; epoch<nEpochs; epoch++ ){
             for(INDArray data : featuresTrain){
                 net.fit(data,data);
@@ -148,12 +149,15 @@ public class MNISTAutoencoder {
             }
         }
 
-        //Visualize the best and worst digits
-        MNISTVisualizer bestVisualizer = new MNISTVisualizer(2.0,best,"Best (Low Rec. Error)");
-        bestVisualizer.visualize();
+        //Visualize by default
+        if (args.length == 0) {
+            //Visualize the best and worst digits
+            MNISTVisualizer bestVisualizer = new MNISTVisualizer(2.0, best, "Best (Low Rec. Error)");
+            bestVisualizer.visualize();
 
-        MNISTVisualizer worstVisualizer = new MNISTVisualizer(2.0,worst,"Worst (High Rec. Error)");
-        worstVisualizer.visualize();
+            MNISTVisualizer worstVisualizer = new MNISTVisualizer(2.0, worst, "Worst (High Rec. Error)");
+            worstVisualizer.visualize();
+        }
     }
 
     public static class MNISTVisualizer {

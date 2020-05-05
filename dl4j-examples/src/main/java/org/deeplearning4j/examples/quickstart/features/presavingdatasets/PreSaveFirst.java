@@ -47,6 +47,8 @@ import java.io.File;
  */
 public class PreSaveFirst {
     private static final Logger log = LoggerFactory.getLogger(LoadPreSavedLenetMnistExample.class);
+    public static final String TRAIN_FOLDER = System.getProperty("user.home") + "/dl4j-examples-data/quickstart-presave/train";
+    public static final String TEST_FOLDER = System.getProperty("user.home") + "/dl4j-examples-data/quickstart-presave/test";
 
     public static void main(String[] args) throws Exception {
         int batchSize = 64; // Test batch size
@@ -58,9 +60,9 @@ public class PreSaveFirst {
         log.info("Load data....");
         DataSetIterator mnistTrain = new MnistDataSetIterator(batchSize,true,12345);
         DataSetIterator mnistTest = new MnistDataSetIterator(batchSize,false,12345);
-        File trainFolder = new File("trainFolder");
+        File trainFolder = new File(TRAIN_FOLDER);
         trainFolder.mkdirs();
-        File testFolder = new File("testFolder");
+        File testFolder = new File(TEST_FOLDER);
         testFolder.mkdirs();
         log.info("Saving train data to " + trainFolder.getAbsolutePath() +  " and test data to " + testFolder.getAbsolutePath());
         //Track the indexes of the files being saved.

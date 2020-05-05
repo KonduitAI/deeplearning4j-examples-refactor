@@ -96,8 +96,10 @@ public class MathFunctionsModel {
             if((i+1) % plotFrequency == 0) networkPredictions[i/ plotFrequency] = net.output(x, false);
         }
 
-        //Plot the target data and the network predictions
-        plot(fn,x,fn.getFunctionValues(x),networkPredictions);
+        //Plots the target data and the network predictions by default
+        if (args.length == 0) {
+            plot(fn, x, fn.getFunctionValues(x), networkPredictions);
+        }
     }
 
     /** Returns the network configuration, 2 hidden DenseLayers of size 50.
