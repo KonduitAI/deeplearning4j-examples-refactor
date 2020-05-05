@@ -61,8 +61,7 @@ Train a RNN to memorize a sequence of characters
 * [RNNEmbedding.java](./src/main/java/org/deeplearning4j/examples/quickstart/modeling/recurrent/RNNEmbedding.java)  
 Use an EmbeddingLayer (equivalent to using a DenseLayer with a one-hot representation for the input) as the first layer in an RNN
 * [VideoFrameClassifier.java](./src/main/java/org/deeplearning4j/examples/quickstart/modeling/recurrent/VideoFrameClassifier.java)  
-Classify shapes that appear in a video frame. Demonstrates how to combine RNN, CNN and fully connected dense layers in a single neural network.   
-This is a memory consuming example. You need at least 7G of off heap memory. Refer [here](https://deeplearning4j.konduit.ai/config/config-memory) to configure memory off heap.
+Classify shapes that appear in a video frame. Demonstrates how to combine RNN, CNN and fully connected dense layers in a single neural network. This is a memory consuming example. You need at least 7G of off heap memory. Refer [here](https://deeplearning4j.konduit.ai/config/config-memory) to configure memory off heap.
 
 
 

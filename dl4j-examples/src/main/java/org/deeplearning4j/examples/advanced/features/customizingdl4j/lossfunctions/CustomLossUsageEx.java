@@ -153,8 +153,6 @@ public class CustomLossUsageEx {
                         System.out.println("\t\tParam " + Arrays.toString(next) + " passed: grad= " + analyticGradient + ", numericalGrad= " + numericalGradient
                                 + ", relError= " + relError + ", scorePlus=" + scorePlus + ", scoreMinus= " + scoreMinus);
                     }
-                    //restore original value
-                    preOut.putScalar(next, originalValue);
                 }
             }
         }
