@@ -115,7 +115,6 @@ Sentiment Classification on the IMDB dataset with a RNN model
 Sentiment Classification on the IMDB dataset with a CNN model
 
 ###### Generating Embeddings:  
-* [GloVe](./src/main/java/org/deeplearning4j/examples/advanced/modelling/embeddingsfromcorpus/glove)  
 * [Paragraph Vectors](./src/main/java/org/deeplearning4j/examples/advanced/modelling/embeddingsfromcorpus/paragraphvectors)
 * [Sequence Vectors](./src/main/java/org/deeplearning4j/examples/advanced/modelling/embeddingsfromcorpus/sequencevectors)  
 * [Word2Vec](./src/main/java/org/deeplearning4j/examples/advanced/modelling/embeddingsfromcorpus/word2vec)
