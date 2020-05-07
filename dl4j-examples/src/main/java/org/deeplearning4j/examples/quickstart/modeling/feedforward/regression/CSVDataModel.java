@@ -55,6 +55,7 @@ import java.util.ArrayList;
  */
 public class CSVDataModel {
 
+    public static boolean visualize = true;
     public static String dataLocalPath;
 
 
@@ -80,7 +81,7 @@ public class CSVDataModel {
         DataSetList.add(modeloutput);
 
         //plot on by default
-        if (args.length == 0) {
+        if (visualize) {
             plotDataset(DataSetList);    //Plot data and model fit.
         }
     }

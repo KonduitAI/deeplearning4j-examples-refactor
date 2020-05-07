@@ -56,6 +56,7 @@ import java.util.List;
  * @author Alex Black
  */
 public class VaeMNIST2dPlots {
+    public static boolean visualize = true;
     private static final Logger log = LoggerFactory.getLogger(VaeMNIST2dPlots.class);
 
     public static void main(String[] args) throws IOException {
@@ -124,7 +125,7 @@ public class VaeMNIST2dPlots {
         }
 
         //plot by default
-        if (args.length == 0) {
+        if (visualize) {
             //Plot MNIST test set - latent space vs. iteration (every 100 minibatches by default)
             VAEPlotUtil.plotData(latentSpaceVsEpoch, testLabels, plotMin, plotMax, plotEveryNMinibatches);
 

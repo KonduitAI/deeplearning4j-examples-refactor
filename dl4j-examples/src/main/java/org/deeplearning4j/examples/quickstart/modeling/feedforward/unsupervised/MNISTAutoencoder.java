@@ -53,6 +53,8 @@ import java.util.List;
  */
 public class MNISTAutoencoder {
 
+    public static boolean visualize = true;
+
     public static void main(String[] args) throws Exception {
 
         //Set up network. 784 in/out (as MNIST images are 28x28).
@@ -150,7 +152,7 @@ public class MNISTAutoencoder {
         }
 
         //Visualize by default
-        if (args.length == 0) {
+        if (visualize) {
             //Visualize the best and worst digits
             MNISTVisualizer bestVisualizer = new MNISTVisualizer(2.0, best, "Best (Low Rec. Error)");
             bestVisualizer.visualize();

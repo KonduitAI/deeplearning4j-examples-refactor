@@ -61,6 +61,7 @@ import java.util.*;
  */
 public class VaeMNISTAnomaly {
 
+    public static boolean visualize = true;
     public static void main(String[] args) throws IOException {
         int minibatchSize = 128;
         int rngSeed = 12345;
@@ -176,7 +177,7 @@ public class VaeMNISTAnomaly {
         }
 
         //plot by default
-        if (args.length == 0) {
+        if (visualize) {
             //Visualize the best and worst digits
             MNISTAutoencoder.MNISTVisualizer bestVisualizer = new MNISTAutoencoder.MNISTVisualizer(2.0, best, "Best (Highest Rec. Prob)");
             bestVisualizer.visualize();

@@ -21,6 +21,7 @@ import org.datavec.api.records.reader.impl.csv.CSVRecordReader;
 import org.datavec.api.split.FileSplit;
 import org.deeplearning4j.datasets.datavec.RecordReaderDataSetIterator;
 import org.deeplearning4j.examples.utils.DownloaderUtility;
+import org.deeplearning4j.examples.utils.PlotUtil;
 import org.deeplearning4j.nn.conf.MultiLayerConfiguration;
 import org.deeplearning4j.nn.conf.NeuralNetConfiguration;
 import org.deeplearning4j.nn.conf.layers.DenseLayer;
@@ -28,17 +29,16 @@ import org.deeplearning4j.nn.conf.layers.OutputLayer;
 import org.deeplearning4j.nn.multilayer.MultiLayerNetwork;
 import org.deeplearning4j.nn.weights.WeightInit;
 import org.deeplearning4j.optimize.listeners.ScoreIterationListener;
-import org.deeplearning4j.examples.utils.PlotUtil;
 import org.nd4j.evaluation.classification.Evaluation;
 import org.nd4j.linalg.activations.Activation;
 import org.nd4j.linalg.api.ndarray.INDArray;
 import org.nd4j.linalg.dataset.DataSet;
 import org.nd4j.linalg.dataset.api.iterator.DataSetIterator;
-import org.nd4j.linalg.factory.Nd4j;
 import org.nd4j.linalg.learning.config.Nesterovs;
 import org.nd4j.linalg.lossfunctions.LossFunctions.LossFunction;
 
 import java.io.File;
+import java.util.concurrent.TimeUnit;
 
 /**
  * "Linear" Data Classification Example
@@ -52,6 +52,7 @@ import java.io.File;
 @SuppressWarnings("DuplicatedCode")
 public class LinearDataClassifier {
 
+    public static boolean visualize = true;
     public static String dataLocalPath;
 
     public static void main(String[] args) throws Exception {
@@ -100,70 +101,36 @@ public class LinearDataClassifier {
         while (testIter.hasNext()) {
             DataSet t = testIter.next();
             INDArray features = t.getFeatures();
-            INDArray lables = t.getLabels();
+            INDArray labels = t.getLabels();
             INDArray predicted = model.output(features, false);
-
-            eval.eval(lables, predicted);
-
+            eval.eval(labels, predicted);
         }
+        //An alternate way to do the above loop
+        //Evaluation evalResults = model.evaluate(testIter);
 
         //Print the evaluation statistics
         System.out.println(eval.stats());
 
-        /*
-        //An alternate way to do the above
-        Evaluation evalResults = model.evaluate(testIter);
-        System.out.println(evalResults.stats());
-         */
-
-
-        //------------------------------------------------------------------------------------
+        System.out.println("\n****************Example finished********************");
         //Training is complete. Code that follows is for plotting the data & predictions only
-        //Plot the data by default
-        if (args.length == 0) {
+        generateVisuals(model, trainIter, testIter);
+    }
+
+    public static void generateVisuals(MultiLayerNetwork model, DataSetIterator trainIter, DataSetIterator testIter) throws Exception {
+        if (visualize) {
             double xMin = 0;
             double xMax = 1.0;
             double yMin = -0.2;
             double yMax = 0.8;
-
-            //Let's evaluate the predictions at every point in the x/y input space
             int nPointsPerAxis = 100;
-            double[][] evalPoints = new double[nPointsPerAxis * nPointsPerAxis][2];
-            int count = 0;
-            for (int i = 0; i < nPointsPerAxis; i++) {
-                for (int j = 0; j < nPointsPerAxis; j++) {
-                    double x = i * (xMax - xMin) / (nPointsPerAxis - 1) + xMin;
-                    double y = j * (yMax - yMin) / (nPointsPerAxis - 1) + yMin;
 
-                    evalPoints[count][0] = x;
-                    evalPoints[count][1] = y;
-
-                    count++;
-                }
-            }
-
-            INDArray allXYPoints = Nd4j.create(evalPoints);
-            INDArray predictionsAtXYPoints = model.output(allXYPoints);
-
-            //Get all of the training data in a single array, and plot it:
-            rr.initialize(new FileSplit(new File(dataLocalPath, "linear_data_train.csv")));
-            rr.reset();
-            int nTrainPoints = 1000;
-            trainIter = new RecordReaderDataSetIterator(rr, nTrainPoints, 0, 2);
-            DataSet ds = trainIter.next();
-            PlotUtil.plotTrainingData(ds.getFeatures(), ds.getLabels(), allXYPoints, predictionsAtXYPoints, nPointsPerAxis);
-
-
+            //Generate x,y points that span the whole range of features
+            INDArray allXYPoints = PlotUtil.generatePointsOnGraph(xMin, xMax, yMin, yMax, nPointsPerAxis);
+            //Get train data and plot with predictions
+            PlotUtil.plotTrainingData(model, trainIter, allXYPoints, nPointsPerAxis);
+            TimeUnit.SECONDS.sleep(3);
             //Get test data, run the test data through the network to generate predictions, and plot those predictions:
-            rrTest.initialize(new FileSplit(new File(dataLocalPath, "linear_data_eval.csv")));
-            rrTest.reset();
-            int nTestPoints = 500;
-            testIter = new RecordReaderDataSetIterator(rrTest, nTestPoints, 0, 2);
-            ds = testIter.next();
-            INDArray testPredicted = model.output(ds.getFeatures());
-            PlotUtil.plotTestData(ds.getFeatures(), ds.getLabels(), testPredicted, allXYPoints, predictionsAtXYPoints, nPointsPerAxis);
+            PlotUtil.plotTestData(model, testIter, allXYPoints, nPointsPerAxis);
         }
-
-        System.out.println("****************Example finished********************");
     }
 }

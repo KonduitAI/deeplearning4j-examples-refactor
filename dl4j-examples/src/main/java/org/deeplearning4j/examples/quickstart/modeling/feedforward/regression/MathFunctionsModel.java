@@ -55,6 +55,7 @@ import java.util.Random;
  */
 public class MathFunctionsModel {
 
+    public static boolean visualize = true;
     //Random number generator seed, for reproducability
     public static final int seed = 12345;
     //Number of epochs (full passes of the data)
@@ -97,7 +98,7 @@ public class MathFunctionsModel {
         }
 
         //Plots the target data and the network predictions by default
-        if (args.length == 0) {
+        if (visualize) {
             plot(fn, x, fn.getFunctionValues(x), networkPredictions);
         }
     }
