@@ -20,21 +20,14 @@ As a result the imported same diff graph has to be modified. Users are recommend
 - Familiarity with the DL4J iterator classes
 - Familiarity with Evaluation classes in DL4J
 - SameDiff quickstart examples for basics [here](../../../../../../../../../../samediff-examples/src/main/java/org/nd4j/examples/samediff/quickstart)
-- MobileNet transfer learning example for slightly less complicated example of modifying same diff graphs [here](./mobilenet/MobileNetTransferLearningExample.mdFIXME)
+- MobileNet transfer learning example for slightly less complicated example of modifying same diff graphs [here](./mobilenet/MobileNetTransferLearningExample.md)
 
 [Show me the code](./BertInferenceExample.java)
 
-
-##### Expected RunTime:
-TODO (as ratio of mnist example & raw numbers on some hardware)
-
-##### Expected Memory Requirements:
-TODO (peak useage, etc etc)
-
 #### Current Limitations:
 * Only inference available on BERT models i.e. further training an imported BERT model in samediff is not available. Github issue linked [here](https://github.com/eclipse/deeplearning4j/issues/8052)
-* Batchsizes in TF graphs are fixed and therefore also fixed in samediff (TODO: ?)
-* Bert tokenizer only available for the sentence classification task (TODO: ?)
+* Batchsizes in TF graphs are fixed and therefore also fixed in samediff 
+* Bert tokenizer only available for the sentence classification task
 
 #### Further Reading:
 * BERT unit tests [here](https://github.com/eclipse/deeplearning4j/blob/master/nd4j/nd4j-backends/nd4j-tests/src/test/java/org/nd4j/imports/TFGraphs/BERTGraphTest.java#L49) and links to the python scripts for TF training and pb generation [here](https://github.com/KonduitAI/dl4j-dev-tools/tree/master/import-tests/model_zoo/bert).

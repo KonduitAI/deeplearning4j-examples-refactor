@@ -6,9 +6,6 @@ Transfer learning saves time and effort. Using a pretrained model the example de
 
 ##### Modeling Metrics:
 This example runs only for one epoch. More epochs will give better results.  
-FIXMEAccuracy: 84 % 
-FIXMEF1 Score: 0.89
-FIXMEink to a sample log from a successful run, modified for brevity, is [here](./.BertInferenceExample.logout)
 
 ##### Example complexity: **MODERATE**                                           
 This is a moderately complex example. Users should at the very least have some exposure to the SameDiff API before diving into this.The following prerequisites are recommended:  
@@ -20,15 +17,6 @@ This is a moderately complex example. Users should at the very least have some e
                                                                                 
 [Show me the code](./MobileNetTransferLearningExample.java)  
 
-
-##### Expected RunTime:
-TODO (as ratio of mnist example & raw numbers on some hardware)
-
-##### Expected Memory Requirements:
-TODO (peak useage, etc etc)
-
-#### Current Limitations:
-TODO - CPU ony ops??
 
 #### Further Reading:
 1) A more advanced example of importing a TF model with BERT [here](../bert/BertInferenceExample.md)

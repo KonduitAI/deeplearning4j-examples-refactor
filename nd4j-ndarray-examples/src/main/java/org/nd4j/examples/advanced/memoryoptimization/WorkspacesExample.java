@@ -26,14 +26,15 @@ import org.nd4j.linalg.factory.Nd4j;
 import org.slf4j.Logger;
 
 /**
- * This example shows how to use memory Workspaces with ND4j for cyclic workloads.
- *
+ * This example shows how to use memory Workspaces with ND4j for cyclic workloads. Only advanced users with very unusual workloads need to delve into this.
+ * For the most part users needn't concern themselves with how DL4J reuses memory internally to increase performance.
+ * 
  * Background:
  *
  * ND4j Workspace is a memory chunk, allocated once, and reused over in over.
  * Basically it gives you a way to avoid garbage collection for off-heap memory if you work with cyclic workloads.
  *
- * FIXME? : PLEASE NOTE: Workspaces are OPTIONAL. If you prefer using original GC-based memory managemend - you can use it without any issues.
+ * PLEASE NOTE: Workspaces are OPTIONAL. If you prefer using original GC-based memory managemend - you can use it without any issues.
  * PLEASE NOTE: When working with workspaces, YOU are responsible for tracking scopes etc. You are NOT supposed to access any INDArray that's attached to some workspace, outside of it. Results will be unpredictable, up to JVM crashes.
  *
  * @author raver119@gmail.com

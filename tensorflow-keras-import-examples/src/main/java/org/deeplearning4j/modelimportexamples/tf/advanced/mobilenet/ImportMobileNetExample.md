@@ -7,7 +7,6 @@ This is an import of the Google mobile net example available here - https://stor
 ##### Modeling Metrics:
 Accuracy: 84 % 
 F1 Score: 0.89
-FIXME:Link to a sample log from a successful run, modified for brevity, is [here](.BertInferenceExample.out)
 
 ##### Example complexity: **INTERMEDIATE**  
 
@@ -18,19 +17,9 @@ FIXME:Link to a sample log from a successful run, modified for brevity, is [here
 
 [Show me the code](./ImportMobileNetExample.java)
 
-##### Expected RunTime:
-TODO (as ratio of mnist example & raw numbers on some hardware)
-
-##### Expected Memory Requirements:
-TODO (peak useage, etc etc)
-
-#### Current Limitations:
-* Resize bilinear is done via a custom dynamic op which will be available in java eventually
-
 #### Further Reading:
 * A more advanced example that imports mobilenet and modifies it for CIFAR classification [here](MobileNetTransferLearningExample.md)
 * A more advanced example of importing a TF model with BERT [here](../bert/BertInferenceExample.md)
-* TODO: Link to samediff custom op/dynamic op example/TODO: What ops are implemented in CPU only?
 
 ###### FAQ CallBack from Example: This example answers the following questions.
 1) How to import a TF frozen graph (.pb) into the DL4J ecosystem?

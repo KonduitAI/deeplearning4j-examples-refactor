@@ -40,8 +40,8 @@ import java.util.List;
  * This example will only run for one epoch. You will need to run it for many more and tune it to get good results.
  *
  * See {@link ImportMobileNetExample} for the model import example.
- * FIXME: See { SameDiffMNISTTrainingExample} for the SameDiff training example.
- * FIXME: See { SameDiffCustomListenerExample} for an example of how to use custom listeners (we use one here to find the shapes of an activation).
+ * See MNISTFeedforward class in the samediff-examples project for a basic SameDiff training example.
+ * See CustomListenerExample class in the samediff-examples project for an example of to use custom listeners (we use one here to find the shapes of an activation).
  *
  */
 @SuppressWarnings("unused") //
